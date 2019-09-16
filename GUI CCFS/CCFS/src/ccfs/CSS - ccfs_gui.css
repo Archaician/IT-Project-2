@@ -1,0 +1,70 @@
+#outer_borderpane {
+	
+}
+
+#top_outer_pane {
+	
+}
+
+#bottom_outer_pane {
+	
+}
+
+#left_outer_pane {
+	
+}
+
+#right_outer_pane {
+	
+}
+
+#title_ccfs {
+	
+}
+
+#module_title {
+	
+}
+
+#inner_borderpane {
+	
+}
+
+#top_inner_pane {
+	
+}
+
+#bottom_inner_pane {
+	
+}
+
+#logout_button {
+	
+}
+
+#back_button {
+	
+}
+
+#confirm_button {
+	
+}
+
+#main_options_buttons {
+	
+}
+
+.textfield {
+	-fx-background-color: white;
+}
+
+/*
+green: #539e4a
+red:  #ff2121
+blue:  #5a81ff
+MAIN button font: system 18px black regular
+MAIN button size: w550 h50 | w1100 h50
+MAIN button margin: L:20 R:20
+OTHER button font: system 13px white bold
+OTHER button size: w80 h30
+*/
