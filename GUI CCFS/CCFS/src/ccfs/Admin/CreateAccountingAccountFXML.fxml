@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="innerpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="640.0" prefWidth="1100.0" style="-fx-background-color: #bdbdbd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="innerpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="640.0" prefWidth="1100.0" style="-fx-background-color: #bdbdbd;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ccfs_gui.Admin.CreateAccountController">
    <center>
       <GridPane fx:id="inner_borderpane" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -27,7 +27,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+            <TextField fx:id="firstname" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="100.0" />
                </GridPane.margin>
@@ -35,7 +35,7 @@
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="lastname" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="100.0" />
                </GridPane.margin>
@@ -43,7 +43,7 @@
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField layoutX="420.0" layoutY="138.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <TextField fx:id="username" layoutX="420.0" layoutY="138.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="100.0" />
                </GridPane.margin>
@@ -76,7 +76,7 @@
                   <Font name="Ebrima" size="20.0" />
                </font>
             </Text>
-            <PasswordField prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <PasswordField fx:id="passwd" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="100.0" />
                </GridPane.margin>
@@ -84,7 +84,7 @@
                   <Font size="20.0" />
                </font>
             </PasswordField>
-            <PasswordField layoutX="420.0" layoutY="342.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <PasswordField fx:id="confpasswd" layoutX="420.0" layoutY="342.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" right="100.0" />
                </GridPane.margin>
