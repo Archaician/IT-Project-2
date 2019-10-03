@@ -5,22 +5,21 @@
  */
 package ccfs_gui;
 
-import javafx.application.Application;
+import static ccfs_gui.Admin.AdminOptionsController.fxmlval;
+import static ccfs_gui.Admin.AdminOptionsController.sceneval;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
-import javafx.stage.Screen;
+import javafx.stage.StageStyle;
 
 /**
  *
  * @author Imran
  */
 public class CCFS_GUI extends Application {
-        
+     //   PopupWindows pw = new PopupWindows();
         @Override
         public void start(Stage stage) throws Exception {
                 Parent root = FXMLLoader.load(getClass().getResource("Admin/AdminOptionsFXML.fxml"));
@@ -29,19 +28,22 @@ public class CCFS_GUI extends Application {
                 
                 stage.setTitle("Cypress Christian Foundation School SIS");
                 stage.setScene(scene);
+              //  fxmlval.add("AdminOptionsFXML.fxml");                                   
+              //  stage = (Stage) validate.getScene().getWindow();
+              //  sceneval.add((Scene) delete.getScene().getWindow());
                // stage.setResizable(false);
                
-                //resize Stage to fit screen
-                Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-                stage.setX(primaryScreenBounds.getMinX());
-                stage.setY(primaryScreenBounds.getMinY());
-                stage.setWidth(primaryScreenBounds.getWidth());
-                stage.setHeight(primaryScreenBounds.getHeight());
-                
+             // stage.centerOnScreen();
+                stage.setMaximized(true);
                 stage.setMinHeight(500);
                 stage.setMinWidth(800);
-                
+               // stage.initStyle(StageStyle.UTILITY);
                 stage.show();
+                
+                stage.setOnCloseRequest(c -> {
+                        c.consume();
+                        DialogWindows.confirmExit();
+                        });    
         }
 
         /**
