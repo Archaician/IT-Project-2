@@ -19,10 +19,10 @@ import javafx.stage.StageStyle;
  * @author Imran
  */
 public class CCFS_GUI extends Application {
-     //   PopupWindows pw = new PopupWindows();
+
         @Override
         public void start(Stage stage) throws Exception {
-                Parent root = FXMLLoader.load(getClass().getResource("Admin/AdminOptionsFXML.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
                 
                 Scene scene = new Scene(root);
                 
@@ -31,13 +31,8 @@ public class CCFS_GUI extends Application {
               //  fxmlval.add("AdminOptionsFXML.fxml");                                   
               //  stage = (Stage) validate.getScene().getWindow();
               //  sceneval.add((Scene) delete.getScene().getWindow());
-               // stage.setResizable(false);
-               
-             // stage.centerOnScreen();
-                stage.setMaximized(true);
-                stage.setMinHeight(500);
-                stage.setMinWidth(800);
-               // stage.initStyle(StageStyle.UTILITY);
+                stage.setResizable(false);
+
                 stage.show();
                 
                 stage.setOnCloseRequest(c -> {
