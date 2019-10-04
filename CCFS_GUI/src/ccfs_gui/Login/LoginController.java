@@ -5,6 +5,7 @@
  */
 package ccfs_gui.Login;
 
+import ccfs_gui.DialogWindows;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -30,7 +32,7 @@ public class LoginController implements Initializable {
         public LogInMethod loginMethod = new LogInMethod();
         
         @FXML
-        private Label label;
+        private Label validation;
         
         @FXML
         private TextField inputusername;
@@ -39,21 +41,55 @@ public class LoginController implements Initializable {
         private TextField inputpassword;
         
         @FXML
-        private void handleButtonAction(ActionEvent event) {
+        private Button login_Btn;
+        
+        public void stageProperties(Stage stage) {
+            stage.setMaximized(true);
+            stage.setMinHeight(500);
+            stage.setMinWidth(800);
+            stage.setTitle("Cypress Christian Foundation School SIS");
+            stage.setOnCloseRequest(c -> {
+                        c.consume();
+                        DialogWindows.confirmExit();
+                        }); 
+        }
+        
+        /* SAMPLE LOGIN ONLY! NO DATABASE VALIDATION. */
+        @FXML
+        private void loginButtonAction(ActionEvent event) {
                 try {
-                        label.setText("Login Successful!");
-                        
+                    
+                    if (inputusername.getText().equalsIgnoreCase("Admin")) {
                         ((Node)event.getSource()).getScene().getWindow().hide();
                         Stage stage = new Stage();
+                        stageProperties(stage);
                         FXMLLoader loader = new FXMLLoader();
-                       // String filePath = new File("").getAbsolutePath();
-                       // String localDir = System.getProperty("user.dir");
-                        Pane root = loader.load(getClass().getResource("../Admin/AdminOptions.fxml").openStream());
+                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml").openStream());
                        // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
                         Scene scene = new Scene(root);
-                        stage.setTitle("Cypress Christian Foundation School SIS");
                         stage.setScene(scene);
                         stage.show();
+                    } else if (inputusername.getText().equalsIgnoreCase("Registrar")) {
+                        ((Node)event.getSource()).getScene().getWindow().hide();
+                        Stage stage = new Stage();
+                        stageProperties(stage);
+                        FXMLLoader loader = new FXMLLoader();
+                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarOptionsFXML.fxml").openStream());
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    } else if (inputusername.getText().equalsIgnoreCase("Accounting")) {
+                        ((Node)event.getSource()).getScene().getWindow().hide();
+                        Stage stage = new Stage();
+                        stageProperties(stage);
+                        FXMLLoader loader = new FXMLLoader();
+                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Accounting/AccountingOptionsFXML.fxml").openStream());
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.show();
+                    } else {
+                        validation.setText("Username or password not found!");
+                    }
                 } catch(Exception e) {
                         e.printStackTrace();
                 }
