@@ -6,7 +6,7 @@
 
 package ccfs_gui.Admin;
 
-import static ccfs_gui.Admin.AdminOptionsController.fxmlval;
+//import static ccfs_gui.Admin.AdminOptionsController.fxmlval;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,11 +21,11 @@ import javafx.stage.Stage;
  */
 public class BackButton {
         
-        public void back(String instance, Scene scene) throws IOException{
+        public void back(Scene scene) throws IOException{
                 
                 Stage stage = new Stage();
-                Parent parent = FXMLLoader.load(getClass().getResource(instance));
-                scene = new Scene(parent);
+                //Parent parent = FXMLLoader.load(getClass().getResource(instance));
+             //   scene = new Scene(parent);
                 stage.setScene(scene);
     }
 }

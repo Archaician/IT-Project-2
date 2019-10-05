@@ -44,68 +44,68 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button fx:id="createRegistrarAcc_Btn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="CREATE REGISTRAR ACCOUNT" GridPane.halignment="CENTER">
+                        <Button fx:id="createRegistrarAcc_Btn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="CREATE REGISTRAR ACCOUNT" GridPane.halignment="CENTER">
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="enrollNewStud_Btn" layoutX="30.0" layoutY="36.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="ENROLL NEW STUDENT" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Button fx:id="registerStud_Btn" layoutX="30.0" layoutY="36.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="REGISTER STUDENT" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="createAccountingAcc_Btn" layoutX="30.0" layoutY="36.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="CREATE ACCOUNTING ACCOUNT" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Button fx:id="createAccountingAcc_Btn" layoutX="30.0" layoutY="36.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="CREATE ACCOUNTING ACCOUNT" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="enrollContStud_Btn" layoutX="30.0" layoutY="138.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="ENROLL CONTINUING STUDENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Button fx:id="enrollContStud_Btn" layoutX="30.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="ENROLL CONTINUING STUDENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="viewListAcc_Btn" layoutX="560.0" layoutY="138.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW LIST OF ACCOUNTS" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <Button fx:id="viewListAcc_Btn" layoutX="560.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW LIST OF ACCOUNTS" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="viewGrades_Btn" layoutX="10.0" layoutY="240.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW GRADES OF STUDENTS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <Button fx:id="studGrades_Btn" layoutX="10.0" layoutY="240.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW GRADES OF STUDENTS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="studDiscount_Btn" layoutX="30.0" layoutY="240.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="ADD / UPDATE / REMOVE DISCOUNT OF STUDENT" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                        <Button fx:id="studDiscount_Btn" layoutX="30.0" layoutY="240.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="ADD / UPDATE / REMOVE DISCOUNT OF STUDENT" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="studSponsorship_Btn" layoutX="30.0" layoutY="342.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="ADD / REMOVE SPONSORSHIP OF STUDENT" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+                        <Button fx:id="studSponsorship_Btn" layoutX="30.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#adminOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="ADD / REMOVE SPONSORSHIP OF STUDENT" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
                            <font>
-                              <Font size="18.0" />
+                              <Font size="20.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets left="20.0" right="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                         </Button>
                      </children>

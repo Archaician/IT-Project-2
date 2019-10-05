@@ -27,25 +27,25 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="firstname" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+            <TextField fx:id="firstname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="10.0" right="100.0" />
+                  <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                </GridPane.margin>
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="lastname" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <TextField fx:id="lastname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="10.0" right="100.0" />
+                  <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                </GridPane.margin>
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="username" layoutX="420.0" layoutY="138.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <TextField fx:id="username" layoutX="420.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="10.0" right="100.0" />
+                  <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                </GridPane.margin>
                <font>
                   <Font size="20.0" />
@@ -76,17 +76,17 @@
                   <Font name="Ebrima" size="20.0" />
                </font>
             </Text>
-            <PasswordField fx:id="passwd" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <PasswordField fx:id="passwd" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="10.0" right="100.0" />
+                  <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                </GridPane.margin>
                <font>
                   <Font size="20.0" />
                </font>
             </PasswordField>
-            <PasswordField fx:id="confpasswd" layoutX="420.0" layoutY="342.0" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <PasswordField fx:id="confpasswd" layoutX="420.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
-                  <Insets left="10.0" right="100.0" />
+                  <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                </GridPane.margin>
                <font>
                   <Font size="20.0" />
@@ -147,7 +147,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button cancelButton="true" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="BACK" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+            <Button fx:id="back_Btn" cancelButton="true" mnemonicParsing="false" onAction="#backButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="BACK" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>

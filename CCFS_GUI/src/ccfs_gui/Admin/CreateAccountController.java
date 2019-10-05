@@ -5,7 +5,6 @@
  */
 package ccfs_gui.Admin;
 
-import static ccfs_gui.Admin.AdminOptionsController.fxmlval;
 import static ccfs_gui.Admin.AdminOptionsController.sceneval;
 import java.io.IOException;
 import java.net.URL;
@@ -19,11 +18,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author Acer
+ * @author Imran
  */
 public class CreateAccountController implements Initializable {
 
@@ -50,14 +50,15 @@ public class CreateAccountController implements Initializable {
         public void back() throws IOException {
                 BackButton bb = new BackButton();
 
-                bb.back(fxmlval.get(fxmlval.size() - 1), sceneval.get(sceneval.size() - 1));
-                fxmlval.remove(fxmlval.size() - 1);
+                bb.back(sceneval.get(sceneval.size() - 1));
+               // fxmlval.remove(fxmlval.size() - 1);
                 sceneval.remove(sceneval.size() - 1);
+                
         }
         
         @FXML
         public void backButton(ActionEvent event) throws IOException {
-               // back();
+                back();
                
         }
         
