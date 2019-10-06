@@ -1,0 +1,162 @@
+package ccfs;
+
+public class Enrollment {
+
+    //int studId;
+    String studFname;
+    String studLname;
+    String gradelvl;
+    String birthdate;
+    String birthplace;
+    String gender;
+    String homeTelnum;
+    String mobilenum;
+    String studaddress;
+    String sponsorship;
+    String prevschoolAttended;
+    String studstat;
+    String faFname;
+    String falName;
+    String faAdd;
+    String faMobilenum;
+    String faEmail;
+    String moFname;
+    String moLname;
+    String momobilenum;
+    String moEmail;
+    String sibFname;
+    String sibLname;
+    String sibschoolname;
+
+    public Enrollment(/*int studId,*/String studFname,String studLname,String gradelvl,String birthdate,String birthplace,
+String gender,String homeTelnum,String mobilenum,String studaddress,String sponsorship,String prevschoolAttended,
+String studstat,String faFname,String falName,String faAdd,String faMobilenum,String faEmail,String moFname,
+String moLname,String momobilenum,String moEmail,String sibFname,String sibLname,String sibschoolname) {
+        //this.studId = studId;
+        this.studFname = studFname;
+        this.studLname = studLname;
+        this.gradelvl = gradelvl;
+        this.birthdate = birthdate;
+        this.birthplace = birthplace;
+        this.gender = gender;
+        this.homeTelnum = homeTelnum;
+        this.mobilenum = mobilenum;
+        this.studaddress = studaddress;
+        this.sponsorship = sponsorship;
+        this.prevschoolAttended = prevschoolAttended;
+        this.studstat = studstat;
+        this.faFname = faFname;
+        this.falName = falName;
+        this.faAdd = faAdd;
+        this.faMobilenum = faMobilenum;
+        this.faEmail = faEmail;
+        this.moFname = moFname;
+        this.moLname = moLname;
+        this.momobilenum = momobilenum;
+        this.moEmail = moEmail;
+        this.sibFname = sibFname;
+        this.sibLname = sibLname;
+        this.sibschoolname = sibschoolname;
+    }
+
+    /*public int studId() {
+            return this.studId;
+    }*/
+
+    public String studFname() {
+            return this.studFname;
+    }
+
+    public String studLname() {
+            return this.studLname;
+    }
+
+    public String gradelvl() {
+            return this.gradelvl;
+    }
+
+    public String birthdate() {
+            return this.birthdate;
+    }
+
+    public String gender() {
+            return this.gender;
+    }
+
+    public String birthplace() {
+            return this.birthplace;
+    }
+
+    public String homeTelnum() {
+            return this.homeTelnum;
+    }
+
+    public String mobilenum() {
+        return this.mobilenum;
+    }
+
+    public String studaddress() {
+        return this.studaddress;
+    }
+
+    public String sponsorship() {
+        return this.sponsorship;
+    }
+
+    public String  prevschoolattended() {
+        return this.prevschoolAttended;
+    }
+
+    public String studStat() {
+        return this.studstat;
+    }
+
+    public String faFname() {
+        return this.faFname;
+    }
+
+    public String falname() {
+        return this.falName;
+    }
+
+    public String faAdd() {
+        return this.faAdd;	
+    }
+
+    public String faMobilenum() {
+        return this.faMobilenum;
+    }
+
+    public String faEmail() {
+        return this.faEmail;
+    }
+
+    public String moFname() {
+        return this.moFname;
+    }
+
+    public String moLname() {
+        return this.moLname;
+    }
+
+    public String moMobilenum() {
+        return this.momobilenum;
+    }
+
+    public String moEmail() {
+        return this.moEmail;
+    }
+
+    public String sibFname() {
+        return this.sibFname;
+    }
+
+    public String sibLname() {
+        return this.sibLname;
+    }
+
+    public String sibSchoolName() {
+        return this.sibschoolname;
+    }
+
+}
