@@ -119,7 +119,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Register ID:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration ID:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
                      <font>
                         <Font size="20.0" />
                      </font>

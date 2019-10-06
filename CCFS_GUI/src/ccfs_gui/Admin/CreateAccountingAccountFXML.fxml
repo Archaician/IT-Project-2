@@ -119,7 +119,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Register ID:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registration ID:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -155,7 +155,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #5a81ff;" text="CONFIRM" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+            <Button fx:id="confirm_Btn" mnemonicParsing="false" onAction="#confirmButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #5a81ff;" text="CONFIRM" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets left="10.0" />
                </GridPane.margin>

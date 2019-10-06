@@ -19,7 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 /**
  *
@@ -66,8 +65,8 @@ public class AdminOptionsController implements Initializable {
             
                 if (event.getSource() == createRegistrarAcc_Btn) {
                         root = FXMLLoader.load(getClass().getResource("CreateRegistrarAccountFXML.fxml"));
-                      //  Scene scene = new Scene(root);
-                      //  sceneval.add(scene);                                   
+                        Scene scene = new Scene(root);
+                        sceneval.add(scene);                                   
               //  stage = (Stage) validate.getScene().getWindow();
               //  sceneval.add((Scene) delete.getScene().getWindow());
                 } else if (event.getSource() == createAccountingAcc_Btn) {
