@@ -31,9 +31,9 @@ public class MainStageController implements Initializable {
         @FXML
         private AnchorPane bottom_outer_pane;
         @FXML
-        private AnchorPane container;
-        @FXML
         private AnchorPane right_outer_pane;
+        @FXML
+        private AnchorPane container;
         
         private void initialContent() throws IOException {
                 AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));

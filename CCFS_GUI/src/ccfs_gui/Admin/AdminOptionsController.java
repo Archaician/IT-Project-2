@@ -17,9 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
 /**
  *
@@ -42,23 +40,13 @@ public class AdminOptionsController implements Initializable {
         @FXML
         private Button studDiscount_Btn;
         @FXML
-        private Button studSponsorship_Btn;
-        
+        private Button studSponsorship_Btn;       
         @FXML
         private AnchorPane container;
-        @FXML
-        private BorderPane outer_borderpane;
-        @FXML
-        private AnchorPane left_outer_pane;
-        @FXML
-        private AnchorPane bottom_outer_pane;
-        @FXML
-        private AnchorPane right_outer_pane;
         
         @FXML
         private void adminOptionsButtons(ActionEvent event) throws IOException {
                 AnchorPane root = null;
-                //AnchorPane r = null;
             
                 if (event.getSource() == createNewAcc_Btn) {
                       //  fxmlval.add("AdminOptionsFXML.fxml");
@@ -66,7 +54,7 @@ public class AdminOptionsController implements Initializable {
                         Scene scene = new Scene(root);
                        // sceneval.add(scene); 
                 } else if (event.getSource() == registerStud_Btn) {
-                        root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentNew1FXML.fxml")); 
+                        root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml")); 
                 } else if (event.getSource() == enrollContStud_Btn) {
                         root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml")); 
                 } else if (event.getSource() == viewListAcc_Btn) {
