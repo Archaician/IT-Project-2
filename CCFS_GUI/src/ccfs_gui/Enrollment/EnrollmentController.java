@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ccfs_gui.Admin;
+package ccfs_gui.Enrollment;
 
 //import ccfs_gui.PopupWindows;
 import java.io.IOException;
@@ -50,6 +50,7 @@ public class EnrollmentController implements Initializable {
                 String female = "Female";
                 list.addAll(male, female);
                 gender.getItems().addAll(list);
+                gender.setValue(male);
         }
         
         private void anchorPaneConstraints(BorderPane root) {
@@ -67,7 +68,7 @@ public class EnrollmentController implements Initializable {
                     nextContainer.getChildren().setAll(root);
                     anchorPaneConstraints(root);
             } catch (IOException ex) {
-                    Logger.getLogger(AdminOptionsController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(EnrollmentController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         
