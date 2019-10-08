@@ -5,14 +5,11 @@
  */
 package ccfs_gui;
 
-import static ccfs_gui.Admin.AdminOptionsController.fxmlval;
-import static ccfs_gui.Admin.AdminOptionsController.sceneval;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import javafx.stage.StageStyle;
 
 /**
  *
@@ -28,9 +25,7 @@ public class CCFS_GUI extends Application {
                 
                 stage.setTitle("Cypress Christian Foundation School SIS");
                 stage.setScene(scene);
-              //  fxmlval.add("AdminOptionsFXML.fxml");                                   
-              //  stage = (Stage) validate.getScene().getWindow();
-              //  sceneval.add((Scene) delete.getScene().getWindow());
+
                 stage.setResizable(false);
 
                 stage.show();

@@ -29,9 +29,16 @@ public class DialogWindows {
                 }
         }
         
+        public static void dialogBox(AlertType alerttype, String title, String message, ButtonType buttontype1, ButtonType buttontype2, ButtonType buttontype3) {
+                Alert alert = new Alert(alerttype, message, buttontype1, buttontype2, buttontype3);
+                alert.setTitle(title);
+                alert.showAndWait();
+        }
+        
         public static void confirmExit() {
                 Alert alert = new Alert(AlertType.CONFIRMATION, "Are you sure you want to exit?", ButtonType.YES, ButtonType.NO);
                 alert.setTitle("Exit");
+                //alert.setHeaderText("Exit CCFS SIS");
                 alert.showAndWait();
                 
                 if (alert.getResult() == ButtonType.YES) {
@@ -39,15 +46,6 @@ public class DialogWindows {
                 } else {
                         alert.close();
                 }
-        }
+        }    
         
-        public static void errorBox(String message) {
-                Alert alert = new Alert(AlertType.ERROR, message, ButtonType.OK);
-                alert.showAndWait();
-        }
-        
-        public static void warningBox(String message) {
-                Alert alert = new Alert(AlertType.WARNING, message, ButtonType.OK);
-                alert.showAndWait();
-        }
 }
