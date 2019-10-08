@@ -6,7 +6,6 @@
 package ccfs_gui.Login;
 
 import ccfs_gui.DialogWindows;
-import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +65,7 @@ public class LoginController implements Initializable {
                         Stage stage = new Stage();
                         stageProperties(stage);
                         FXMLLoader loader = new FXMLLoader();
-                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml").openStream());
+                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/MainStageFXML.fxml").openStream());
                        // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
