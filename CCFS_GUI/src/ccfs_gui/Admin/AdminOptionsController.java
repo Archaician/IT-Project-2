@@ -5,6 +5,7 @@
  */
 package ccfs_gui.Admin;
 
+import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,14 +29,8 @@ public class AdminOptionsController implements Initializable {
         
         public static List<Scene>sceneval = new ArrayList<Scene>();
     //    public static List<String>fxmlval = new ArrayList<String>();  
-        
         @FXML
-        private Label label;
-    
-        @FXML
-        private Button createRegistrarAcc_Btn;
-        @FXML
-        private Button createAccountingAcc_Btn;
+        private Button createNewAcc_Btn;
         @FXML
         private Button registerStud_Btn;
         @FXML
@@ -48,30 +43,26 @@ public class AdminOptionsController implements Initializable {
         private Button studDiscount_Btn;
         @FXML
         private Button studSponsorship_Btn;
-    
+        
         @FXML
-        private AnchorPane innerpane;
-    
-        private void anchorPaneConstraints(BorderPane root) {
-                AnchorPane.setTopAnchor(root, 0.0);
-                AnchorPane.setRightAnchor(root, 0.0);
-                AnchorPane.setLeftAnchor(root, 0.0);
-                AnchorPane.setBottomAnchor(root, 0.0);
-        }
-    
+        private AnchorPane container;
+        @FXML
+        private BorderPane outer_borderpane;
+        @FXML
+        private AnchorPane left_outer_pane;
+        @FXML
+        private AnchorPane bottom_outer_pane;
+        @FXML
+        private AnchorPane right_outer_pane;
+        
         @FXML
         private void adminOptionsButtons(ActionEvent event) throws IOException {
-                BorderPane root = null;
+                AnchorPane root = null;
+                //AnchorPane r = null;
             
-                if (event.getSource() == createRegistrarAcc_Btn) {
-                        root = FXMLLoader.load(getClass().getResource("CreateRegistrarAccountFXML.fxml"));
-                        Scene scene = new Scene(root);
-                        sceneval.add(scene);                                   
-              //  stage = (Stage) validate.getScene().getWindow();
-              //  sceneval.add((Scene) delete.getScene().getWindow());
-                } else if (event.getSource() == createAccountingAcc_Btn) {
+                if (event.getSource() == createNewAcc_Btn) {
                       //  fxmlval.add("AdminOptionsFXML.fxml");
-                        root = FXMLLoader.load(getClass().getResource("CreateAccountingAccountFXML.fxml")); 
+                        root = FXMLLoader.load(getClass().getResource("CreateAccountFXML.fxml")); 
                         Scene scene = new Scene(root);
                        // sceneval.add(scene); 
                 } else if (event.getSource() == registerStud_Btn) {
@@ -84,14 +75,10 @@ public class AdminOptionsController implements Initializable {
                         root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewGrades.fxml"));
                 }
             
-                innerpane.getChildren().setAll(root);
-                anchorPaneConstraints(root);
+                container.getChildren().setAll(root);
+                LayoutProperties.anchorPaneConstraints(root);
         }
         
-        @FXML
-        private void logoutButton(ActionEvent event) {
-                
-        }
     
         /**
         * Initializes the controller class.
