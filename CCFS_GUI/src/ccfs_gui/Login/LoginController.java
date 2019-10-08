@@ -32,15 +32,13 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable {
         public LogInMethod loginMethod = new LogInMethod();
         public static List<Scene>sceneval = new ArrayList<Scene>();
-        @FXML
-        private Label validation;
         
         @FXML
-        private TextField inputusername;
-        
+        private Label validation;        
         @FXML
-        private TextField inputpassword;
-        
+        private TextField inputusername;        
+        @FXML
+        private TextField inputpassword;        
         @FXML
         private Button login_Btn;
         
