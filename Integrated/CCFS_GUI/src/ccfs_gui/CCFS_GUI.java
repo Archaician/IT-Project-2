@@ -5,16 +5,11 @@
  */
 package ccfs_gui;
 
-import javaRMI.ClientCon;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.application.Application;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Group;
-import javafx.stage.Screen;
 
 /**
  *
@@ -22,32 +17,30 @@ import javafx.stage.Screen;
  */
 public class CCFS_GUI extends Application {
 
-    @Override
-    public void start(Stage stage) throws Exception {
-            Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
+        @Override
+        public void start(Stage stage) throws Exception {
+                Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
+                
+                Scene scene = new Scene(root);
+                
+                stage.setTitle("Cypress Christian Foundation School SIS");
+                stage.setScene(scene);
 
-            Scene scene = new Scene(root);
+                stage.setResizable(false);
 
-            stage.setTitle("Cypress Christian Foundation School SIS");
-            stage.setScene(scene);
-           // stage.setResizable(false);
+                stage.show();
+                
+                stage.setOnCloseRequest(c -> {
+                        c.consume();
+                        DialogWindows.confirmExit();
+                        });    
+        }
 
-            //resize Stage to fit screen
-            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            stage.setX(primaryScreenBounds.getMinX());
-            stage.setY(primaryScreenBounds.getMinY());
-            stage.setWidth(primaryScreenBounds.getWidth());
-            stage.setHeight(primaryScreenBounds.getHeight());
-
-            stage.setMinHeight(500);
-            stage.setMinWidth(800);
-
-            stage.show();
-    }
-    
-    public static void main(String[] args) throws Exception {
-        //ClientCon.conRMI("localhost");
-        //System.out.print(ClientCon.stub.logIn("Paul", "Imran"));
-        launch(args);
-    }
+        /**
+         * @param args the command line arguments
+         */
+        public static void main(String[] args) {
+                launch(args);
+        }
+        
 }
