@@ -8,12 +8,14 @@ package ccfs_gui.Admin;
 import static ccfs_gui.Admin.AdminOptionsController.sceneval;
 import ccfs_gui.DialogWindows;
 import ccfs_gui.LayoutProperties;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -95,7 +97,7 @@ public class CreateAccountController implements Initializable {
                         confpasswd.setStyle("-fx-border-color: red");
                         confpasswd.setPromptText("PASSWORD DOES NOT MATCH!");       
                 } else {
-                        DialogWindows.dialogBox(Alert.AlertType.CONFIRMATION, "Create New Account", "Successfully created new account.", ButtonType.OK, null, null);
+                        DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Create New Account", "Successfully created new account.", ButtonType.OK, null, null);
                         AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
                         container.getChildren().setAll(root);
                         LayoutProperties.anchorPaneConstraints(root);
