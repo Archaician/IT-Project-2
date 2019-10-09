@@ -9,7 +9,7 @@ import java.util.LinkedList;
  */
 public class Impl implements InterfaceRMI {
     static LinkedList<Integer> id = new LinkedList<Integer>();
-    
+    //check if user and pass are in the data base
     @Override
     public boolean logIn(String user,String pass) throws Exception {
         LogInMethod.connection();
@@ -17,8 +17,7 @@ public class Impl implements InterfaceRMI {
         LogIn log = new LogIn(credent);
         return LogInMethod.logIn(log);
     }
-    
-    // refactor couple with retType
+    // check if acc is already login
     @Override
     public String retId(String user,String pass) throws Exception {
         LogInMethod.connection();
@@ -26,12 +25,12 @@ public class Impl implements InterfaceRMI {
         LogIn log = new LogIn(credent);
         if(!id.contains(LogInMethod.logInAccNum(log))) {
             id.add(LogInMethod.logInAccNum(log));
-            return "Login";
+            return "LogIn";
         }else {
-            return "Account is already login";
+            return "Already LogIn";
         }
     }
-    
+    // gets the login type to redirect to the user to the GUI
     @Override
     public String retType(String user,String pass) throws Exception {
         LogInMethod.connection();

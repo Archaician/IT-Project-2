@@ -19,6 +19,8 @@ public class App {
     public static void check() throws Exception{
         String[] ll = {"Paul","Imran"};
         LogIn log = new LogIn(ll);
-        System.out.print(LogInMethod.logInAccNum(log));
+        System.out.println(LogInMethod.logInAccNum(log));
+        System.out.println(LogInMethod.logIn(log));
+        System.out.println(LogInMethod.logInType(log));
     }
 }
