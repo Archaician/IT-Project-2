@@ -5,6 +5,7 @@
  */
 package ccfs_gui.Registrar;
 
+import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,28 +61,20 @@ public class RegistrarOptionsController implements Initializable {
         @FXML
         private AnchorPane right_outer_pane;
         @FXML
-        private AnchorPane innerpane;
-        
-        
-        private void anchorPaneConstraints(BorderPane root) {
-                AnchorPane.setTopAnchor(root, 0.0);
-                AnchorPane.setRightAnchor(root, 0.0);
-                AnchorPane.setLeftAnchor(root, 0.0);
-                AnchorPane.setBottomAnchor(root, 0.0);
-        }
+        private AnchorPane container;
         
         @FXML
         private void registrarOptionsButtons(ActionEvent event) throws IOException {
-                BorderPane root = null;
+                AnchorPane root = null;
                 
                 if (event.getSource() == registerStud_Btn) {
-                        root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentNew1FXML.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
                 } else if (event.getSource() == enrollContStud_Btn) {
                         root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
                 }
                 
-                innerpane.getChildren().setAll(root);
-                anchorPaneConstraints(root);
+                container.getChildren().setAll(root);
+                LayoutProperties.anchorPaneConstraints(root);
         }
         
         /**
