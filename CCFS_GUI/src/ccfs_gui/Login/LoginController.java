@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
                         Stage stage = new Stage();
                         stageProperties(stage);
                         FXMLLoader loader = new FXMLLoader();
-                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/MainStageFXML.fxml").openStream());
+                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/AdminMainStageFXML.fxml").openStream());
                        // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
@@ -75,7 +75,7 @@ public class LoginController implements Initializable {
                         Stage stage = new Stage();
                         stageProperties(stage);
                         FXMLLoader loader = new FXMLLoader();
-                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarOptionsFXML.fxml").openStream());
+                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarMainStageFXML.fxml").openStream());
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
                         stage.show();
@@ -84,7 +84,7 @@ public class LoginController implements Initializable {
                         Stage stage = new Stage();
                         stageProperties(stage);
                         FXMLLoader loader = new FXMLLoader();
-                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Accounting/AccountingOptionsFXML.fxml").openStream());
+                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Accounting/AccountingMainStageFXML.fxml").openStream());
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
                         stage.show();
