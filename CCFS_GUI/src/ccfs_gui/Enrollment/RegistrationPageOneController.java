@@ -98,7 +98,7 @@ public class RegistrationPageOneController implements Initializable {
                         middlename.setStyle("-fx-border-color: red");
                         middlename.setPromptText("REQUIRED!");
                 }
-                if (birthdate.equals("")) {
+                if (birthdate.getValue() == null) {
                         birthdate.setStyle("-fx-border-color: red");
                         birthdate.setPromptText("REQUIRED!");
                 }

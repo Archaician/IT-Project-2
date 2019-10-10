@@ -91,15 +91,17 @@ public class RegistrationPageTwoController implements Initializable {
         
         @FXML
         private void addSiblingButton(ActionEvent event) throws IOException {
-                DialogWindows.dialogBox(Alert.AlertType.CONFIRMATION, "Add Sibling", "WALA PA ITO.", ButtonType.OK, null, null);
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Add Sibling", "WALA PA ITO.", ButtonType.OK, null, null);
         }
+        
         @FXML
         private void enrollButton(ActionEvent event) throws IOException {
-                DialogWindows.dialogBox(Alert.AlertType.CONFIRMATION, "Register Student", "Successfully registered student.", ButtonType.OK, null, null);
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Register Student", "Successfully registered student.", ButtonType.OK, null, null);
                 AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
                 container.getChildren().setAll(root);
                 LayoutProperties.anchorPaneConstraints(root);
         }
+        
         /**
          * Initializes the controller class.
          */
