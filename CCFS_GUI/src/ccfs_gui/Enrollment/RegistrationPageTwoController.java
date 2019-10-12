@@ -91,7 +91,9 @@ public class RegistrationPageTwoController implements Initializable {
         
         @FXML
         private void addSiblingButton(ActionEvent event) throws IOException {
-                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Add Sibling", "WALA PA ITO.", ButtonType.OK, null, null);
+                AnchorPane root = FXMLLoader.load(getClass().getResource("AddSiblingFXML.fxml"));
+                container.getChildren().setAll(root);
+                LayoutProperties.anchorPaneConstraints(root);
         }
         
         @FXML
