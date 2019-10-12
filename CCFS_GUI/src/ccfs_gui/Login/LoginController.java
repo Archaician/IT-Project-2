@@ -31,7 +31,6 @@ import javafx.stage.Stage;
  */
 public class LoginController implements Initializable {
         public LogInMethod loginMethod = new LogInMethod();
-        public static List<Scene>sceneval = new ArrayList<Scene>();
         
         @FXML
         private Label validation;        
@@ -68,8 +67,6 @@ public class LoginController implements Initializable {
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
                         stage.show();
-                        sceneval.add(scene);
-                      //  sceneval.add((Scene) delete.getScene().getWindow());
                     } else if (inputusername.getText().equalsIgnoreCase("Registrar")) {
                         ((Node)event.getSource()).getScene().getWindow().hide();
                         Stage stage = new Stage();
