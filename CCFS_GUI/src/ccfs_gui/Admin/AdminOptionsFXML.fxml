@@ -17,7 +17,7 @@
          <bottom>
             <ButtonBar fx:id="bottom_inner_pane" prefHeight="50.0" prefWidth="1100.0" style="-fx-background-color: #e9e9e9;" BorderPane.alignment="CENTER">
               <buttons>
-                <Button fx:id="logout_button" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="LOGOUT">
+                <Button fx:id="logout_Btn" mnemonicParsing="false" onAction="#logoutButton" prefHeight="30.0" prefWidth="80.0" text="LOGOUT">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

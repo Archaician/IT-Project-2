@@ -5,7 +5,9 @@
  */
 package ccfs_gui.Admin;
 
+import ccfs_gui.CCFS_GUI;
 import ccfs_gui.LayoutProperties;
+import ccfs_gui.Login.Logout;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -40,7 +43,9 @@ public class AdminOptionsController implements Initializable {
         @FXML
         private Button studDiscount_Btn;
         @FXML
-        private Button studSponsorship_Btn;       
+        private Button studSponsorship_Btn;
+        @FXML
+        private Button logout_Btn;
         @FXML
         private AnchorPane container;
         
@@ -51,7 +56,7 @@ public class AdminOptionsController implements Initializable {
                 if (event.getSource() == createNewAcc_Btn) {
                       //  fxmlval.add("AdminOptionsFXML.fxml");
                         root = FXMLLoader.load(getClass().getResource("CreateAccountFXML.fxml")); 
-                        Scene scene = new Scene(root);
+                       // Scene scene = new Scene(root);
                        // sceneval.add(scene); 
                 } else if (event.getSource() == registerStud_Btn) {
                         root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml")); 
@@ -61,10 +66,20 @@ public class AdminOptionsController implements Initializable {
                         root = FXMLLoader.load(getClass().getResource("ListOfAccounts.fxml")); 
                 } else if (event.getSource() == studGrades_Btn) {
                         root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewGrades.fxml"));
+                } else if (event.getSource() == studDiscount_Btn) {
+                        //root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Accounting/"));
+                } else if (event.getSource() == studSponsorship_Btn) {
+                        //root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Accounting/"));
                 }
             
                 container.getChildren().setAll(root);
                 LayoutProperties.anchorPaneConstraints(root);
+        }
+        
+        @FXML
+        private void logoutButton(ActionEvent event) throws IOException {
+                ((Node)event.getSource()).getScene().getWindow().hide();
+                //Logout.logout(event, logout_Btn);
         }
         
     
