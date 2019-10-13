@@ -41,6 +41,11 @@ public class AdminMainStageController implements Initializable {
                 LayoutProperties.anchorPaneConstraints(root);
         }
         
+        @FXML
+        private void homeButton() throws IOException {
+                initialContent();
+        }
+        
         
         /**
          * Initializes the controller class.
