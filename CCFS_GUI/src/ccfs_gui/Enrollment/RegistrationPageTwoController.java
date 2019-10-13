@@ -26,7 +26,7 @@ import javafx.scene.layout.GridPane;
 /**
  * FXML Controller class
  *
- * @author Acer
+ * @author Imran
  */
 public class RegistrationPageTwoController implements Initializable {
 
