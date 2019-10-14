@@ -30,88 +30,88 @@ import javafx.scene.layout.GridPane;
  */
 public class RegistrationPageTwoController implements Initializable {
 
-        @FXML
-        private AnchorPane container;
-        @FXML
-        private BorderPane innerpane;
-        @FXML
-        private Label studID;
-        @FXML
-        private Label schYR;
-        @FXML
-        private Button sibling_Btn;
-        @FXML
-        private Button back_Btn;
-        @FXML
-        private Button enroll_Btn;
-        @FXML
-        private GridPane innerborderpane;
-        @FXML
-        private TextField fathername;
-        @FXML
-        private TextField mothername;
-        @FXML
-        private TextField fatheraddress;
-        @FXML
-        private TextField fatheroccupation;
-        @FXML
-        private TextField fatherworknum;
-        @FXML
-        private TextField fatherhomenum;
-        @FXML
-        private TextField fathermobile;
-        @FXML
-        private TextField fatheremail;
-        @FXML
-        private TextField motheraddress;
-        @FXML
-        private TextField motheroccupation;
-        @FXML
-        private TextField motherworknum;
-        @FXML
-        private TextField motherhomenum;
-        @FXML
-        private TextField mothermobile;
-        @FXML
-        private TextField motheremail;
-        @FXML
-        private TextField guardianname;
-        @FXML
-        private TextField guardianaddress;
-        @FXML
-        private TextField guardiannumber;
-        
-        public void getStudentID(String text) {
-                studID.setText(text);
-        }
-        
-        public void getSchoolYear(String text) {
-                schYR.setText(text);
-        }
-        
-        @FXML
-        private void addSiblingButton(ActionEvent event) throws IOException {
-                AnchorPane root = FXMLLoader.load(getClass().getResource("AddSiblingFXML.fxml"));
-                container.getChildren().setAll(root);
-                LayoutProperties.anchorPaneConstraints(root);
-        }
-        
-        @FXML
-        private void enrollButton(ActionEvent event) throws IOException {
-                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Register Student", "Successfully registered student.", ButtonType.OK, null, null);
-                AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
-                container.getChildren().setAll(root);
-                LayoutProperties.anchorPaneConstraints(root);
-        }
-        
-        /**
-         * Initializes the controller class.
-         */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                //getStudentID("");
-                //getSchoolYear("");
-                // TODO
-        }        
-        
+    @FXML
+    private AnchorPane container;
+    @FXML
+    private BorderPane innerpane;
+    @FXML
+    private Label studID;
+    @FXML
+    private Label schYR;
+    @FXML
+    private Button sibling_Btn;
+    @FXML
+    private Button back_Btn;
+    @FXML
+    private Button enroll_Btn;
+    @FXML
+    private GridPane innerborderpane;
+    @FXML
+    private TextField fathername;
+    @FXML
+    private TextField mothername;
+    @FXML
+    private TextField fatheraddress;
+    @FXML
+    private TextField fatheroccupation;
+    @FXML
+    private TextField fatherworknum;
+    @FXML
+    private TextField fatherhomenum;
+    @FXML
+    private TextField fathermobile;
+    @FXML
+    private TextField fatheremail;
+    @FXML
+    private TextField motheraddress;
+    @FXML
+    private TextField motheroccupation;
+    @FXML
+    private TextField motherworknum;
+    @FXML
+    private TextField motherhomenum;
+    @FXML
+    private TextField mothermobile;
+    @FXML
+    private TextField motheremail;
+    @FXML
+    private TextField guardianname;
+    @FXML
+    private TextField guardianaddress;
+    @FXML
+    private TextField guardiannumber;
+
+    public void getStudentID(String text) {
+        studID.setText(text);
+    }
+
+    public void getSchoolYear(String text) {
+        schYR.setText(text);
+    }
+
+    @FXML
+    private void addSiblingButton(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("AddSiblingFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root);
+    }
+
+    @FXML
+    private void enrollButton(ActionEvent event) throws IOException {
+        DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Register Student", "Successfully registered student.", ButtonType.OK, null, null);
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root);
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        //getStudentID("");
+        //getSchoolYear("");
+        // TODO
+    }
+
 }

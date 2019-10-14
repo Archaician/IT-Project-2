@@ -31,74 +31,74 @@ import javafx.scene.layout.BorderPane;
  * @author Acer
  */
 public class EnrollmentContinuingController implements Initializable {
-        
-        ObservableList list = FXCollections.observableArrayList();
 
-        @FXML
-        private AnchorPane container;
-        @FXML
-        private BorderPane innerpane;
-        @FXML
-        private Label studID;
-        @FXML
-        private Label schYR;
-        @FXML
-        private TextField searchbar;
-        @FXML
-        private Label noResultText;
-        @FXML
-        private Button back_Btn;
-        @FXML
-        private Button enroll_Btn;
-        @FXML
-        private TextField idnumber;
-        @FXML
-        private TextField name;
-        @FXML
-        private TextField birthdate;
-        @FXML
-        private TextField birthplace;
-        @FXML
-        private TextField address;
-        @FXML
-        private TextField telephone;
-        @FXML
-        private TextField mobile;
-        @FXML
-        private TextField prevschool;
-        @FXML
-        private ChoiceBox<?> newgradelvl;
-        @FXML
-        private Label lastGradeLvl;
-        
-        /*Show grade level choicebox choices.*/
-        private void loadGradeLevel() {
-                list.removeAll(list);
-                String nursery = "Nursery";
-                String prekinder = "Pre-Kinder";
-                String kinder = "Kinder";
-                String one = "Grade 1";
-                String two = "Grade 2";
-                String three = "Grade 3";
-                String four = "Grade 4";
-                String five = "Grade 5";
-                String six = "Grade 6";
-                list.addAll(nursery, prekinder, kinder, one, two, three, four, five, six);
-                newgradelvl.getItems().addAll(list);
-                //newgradelvl.setValue();
-        }
-        
-        @FXML
-        private void enrollButton(ActionEvent event) throws IOException {
-                //TODO
-        }
-        
-        /**
-         * Initializes the controller class.
-         */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                loadGradeLevel();
-        }        
-        
+    ObservableList list = FXCollections.observableArrayList();
+
+    @FXML
+    private AnchorPane container;
+    @FXML
+    private BorderPane innerpane;
+    @FXML
+    private Label studID;
+    @FXML
+    private Label schYR;
+    @FXML
+    private TextField searchbar;
+    @FXML
+    private Label noResultText;
+    @FXML
+    private Button back_Btn;
+    @FXML
+    private Button enroll_Btn;
+    @FXML
+    private TextField idnumber;
+    @FXML
+    private TextField name;
+    @FXML
+    private TextField birthdate;
+    @FXML
+    private TextField birthplace;
+    @FXML
+    private TextField address;
+    @FXML
+    private TextField telephone;
+    @FXML
+    private TextField mobile;
+    @FXML
+    private TextField prevschool;
+    @FXML
+    private ChoiceBox<?> newgradelvl;
+    @FXML
+    private Label lastGradeLvl;
+
+    /*Show grade level choicebox choices.*/
+    private void loadGradeLevel() {
+        list.removeAll(list);
+        String nursery = "Nursery";
+        String prekinder = "Pre-Kinder";
+        String kinder = "Kinder";
+        String one = "Grade 1";
+        String two = "Grade 2";
+        String three = "Grade 3";
+        String four = "Grade 4";
+        String five = "Grade 5";
+        String six = "Grade 6";
+        list.addAll(nursery, prekinder, kinder, one, two, three, four, five, six);
+        newgradelvl.getItems().addAll(list);
+        //newgradelvl.setValue();
+    }
+
+    @FXML
+    private void enrollButton(ActionEvent event) throws IOException {
+        //TODO
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        loadGradeLevel();
+    }
+
 }

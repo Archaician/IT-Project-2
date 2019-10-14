@@ -25,51 +25,52 @@ import javafx.scene.layout.BorderPane;
  */
 public class AddSiblingController implements Initializable {
 
-        @FXML
-        private AnchorPane container;
-        @FXML
-        private BorderPane innerpane;
-        @FXML
-        private Label studID;
-        @FXML
-        private TextField surname;
-        @FXML
-        private TextField givenname;
-        @FXML
-        private DatePicker birthdate;
-        @FXML
-        private TextField school;
-        @FXML
-        private Button sibling_Btn;
-        
-        @FXML
-        private void addSiblingButton(ActionEvent event) throws IOException {
-                /*Required textfields validation.*/
-                if (surname.getText().isEmpty()) {
-                        surname.setStyle("-fx-border-color: red");
-                        surname.setPromptText("REQUIRED!");
-                }
-                if (givenname.getText().isEmpty()) {
-                        givenname.setStyle("-fx-border-color: red");
-                        givenname.setPromptText("REQUIRED!"); 
-                }
-                if (birthdate.getValue() == null) {
-                        birthdate.setStyle("-fx-border-color: red");
-                        birthdate.setPromptText("REQUIRED!");
-                }
-                if (school.getText().isEmpty()) {
-                        school.setStyle("-fx-border-color: red");
-                        school.setPromptText("REQUIRED!");
-                } else {
-                        //TODO
-                }
+    @FXML
+    private AnchorPane container;
+    @FXML
+    private BorderPane innerpane;
+    @FXML
+    private Label studID;
+    @FXML
+    private TextField surname;
+    @FXML
+    private TextField givenname;
+    @FXML
+    private DatePicker birthdate;
+    @FXML
+    private TextField school;
+    @FXML
+    private Button sibling_Btn;
+
+    @FXML
+    private void addSiblingButton(ActionEvent event) throws IOException {
+        /*Required textfields validation.*/
+        if (surname.getText().isEmpty()) {
+            surname.setStyle("-fx-border-color: red");
+            surname.setPromptText("REQUIRED!");
         }
-        /**
-         * Initializes the controller class.
-         */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                // TODO
-        }        
-        
+        if (givenname.getText().isEmpty()) {
+            givenname.setStyle("-fx-border-color: red");
+            givenname.setPromptText("REQUIRED!");
+        }
+        if (birthdate.getValue() == null) {
+            birthdate.setStyle("-fx-border-color: red");
+            birthdate.setPromptText("REQUIRED!");
+        }
+        if (school.getText().isEmpty()) {
+            school.setStyle("-fx-border-color: red");
+            school.setPromptText("REQUIRED!");
+        } else {
+            //TODO
+        }
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+
 }
