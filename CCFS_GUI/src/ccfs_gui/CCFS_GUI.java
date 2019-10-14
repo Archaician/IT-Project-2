@@ -17,30 +17,30 @@ import javafx.application.Application;
  */
 public class CCFS_GUI extends Application {
 
-        @Override
-        public void start(Stage stage) throws Exception {
-                Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
-                
-                Scene scene = new Scene(root);
-                
-                stage.setTitle("Cypress Christian Foundation School SIS");
-                stage.setScene(scene);
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
 
-                stage.setResizable(false);
+        Scene scene = new Scene(root);
 
-                stage.show();
-                
-                stage.setOnCloseRequest(c -> {
-                        c.consume();
-                        DialogWindows.confirmExit();
-                        });    
-        }
+        stage.setTitle("Cypress Christian Foundation School SIS");
+        stage.setScene(scene);
 
-        /**
-         * @param args the command line arguments
-         */
-        public static void main(String[] args) {
-                launch(args);
-        }
-        
+        stage.setResizable(false);
+
+        stage.show();
+
+        stage.setOnCloseRequest(c -> {
+            c.consume();
+            DialogWindows.confirmExit();
+        });
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
 }
