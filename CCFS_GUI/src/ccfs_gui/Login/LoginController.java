@@ -30,79 +30,80 @@ import javafx.stage.Stage;
  * @author Imran
  */
 public class LoginController implements Initializable {
-        public LogInMethod loginMethod = new LogInMethod();
-        
-        @FXML
-        private Label validation;        
-        @FXML
-        private TextField inputusername;        
-        @FXML
-        private TextField inputpassword;        
-        @FXML
-        private Button login_Btn;
-        
-        public void stageProperties(Stage stage) {
-            stage.setMaximized(true);
-            stage.setMinHeight(500);
-            stage.setMinWidth(800);
-            stage.setTitle("Cypress Christian Foundation School SIS");
-            stage.setOnCloseRequest(c -> {
-                        c.consume();
-                        DialogWindows.confirmExit();
-                        }); 
+
+    public LogInMethod loginMethod = new LogInMethod();
+
+    @FXML
+    private Label validation;
+    @FXML
+    private TextField inputusername;
+    @FXML
+    private TextField inputpassword;
+    @FXML
+    private Button login_Btn;
+
+    public void stageProperties(Stage stage) {
+        stage.setMaximized(true);
+        stage.setMinHeight(500);
+        stage.setMinWidth(800);
+        stage.setTitle("Cypress Christian Foundation School SIS");
+        stage.setOnCloseRequest(c -> {
+            c.consume();
+            DialogWindows.confirmExit();
+        });
+    }
+
+    /* SAMPLE LOGIN ONLY! NO DATABASE VALIDATION. */
+    @FXML
+    private void loginButtonAction(ActionEvent event) {
+        try {
+
+            if (inputusername.getText().equalsIgnoreCase("Admin")) {
+                ((Node) event.getSource()).getScene().getWindow().hide();
+                Stage stage = new Stage();
+                stageProperties(stage);
+                FXMLLoader loader = new FXMLLoader();
+                Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/AdminMainStageFXML.fxml").openStream());
+                // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else if (inputusername.getText().equalsIgnoreCase("Registrar")) {
+                ((Node) event.getSource()).getScene().getWindow().hide();
+                Stage stage = new Stage();
+                stageProperties(stage);
+                FXMLLoader loader = new FXMLLoader();
+                Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarMainStageFXML.fxml").openStream());
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else if (inputusername.getText().equalsIgnoreCase("Accounting")) {
+                ((Node) event.getSource()).getScene().getWindow().hide();
+                Stage stage = new Stage();
+                stageProperties(stage);
+                FXMLLoader loader = new FXMLLoader();
+                Pane root = loader.load(getClass().getResource("/ccfs_gui/Accounting/AccountingMainStageFXML.fxml").openStream());
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                validation.setText("Username or password not found!");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        
-        /* SAMPLE LOGIN ONLY! NO DATABASE VALIDATION. */
-        @FXML
-        private void loginButtonAction(ActionEvent event) {
-                try {
-                    
-                    if (inputusername.getText().equalsIgnoreCase("Admin")) {
-                        ((Node)event.getSource()).getScene().getWindow().hide();
-                        Stage stage = new Stage();
-                        stageProperties(stage);
-                        FXMLLoader loader = new FXMLLoader();
-                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/AdminMainStageFXML.fxml").openStream());
-                       // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } else if (inputusername.getText().equalsIgnoreCase("Registrar")) {
-                        ((Node)event.getSource()).getScene().getWindow().hide();
-                        Stage stage = new Stage();
-                        stageProperties(stage);
-                        FXMLLoader loader = new FXMLLoader();
-                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarMainStageFXML.fxml").openStream());
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } else if (inputusername.getText().equalsIgnoreCase("Accounting")) {
-                        ((Node)event.getSource()).getScene().getWindow().hide();
-                        Stage stage = new Stage();
-                        stageProperties(stage);
-                        FXMLLoader loader = new FXMLLoader();
-                        Pane root = loader.load(getClass().getResource("/ccfs_gui/Accounting/AccountingMainStageFXML.fxml").openStream());
-                        Scene scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    } else {
-                        validation.setText("Username or password not found!");
-                    }
-                } catch(Exception e) {
-                        e.printStackTrace();
-                }
-        } 
-        
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                // TODO
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
         /*        if (loginMethod.dbConnected()) {
                         label.setText("Connected to database.");
                 } else {
                         label.setText("Error connecting to database!");
                 } */
-        }        
-        
+    }
+
     /*    public void login(ActionEvent event) {
                 try {
                         if (loginMethod.logIn(inputusername.getText(), inputpassword.getText())){
