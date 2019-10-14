@@ -65,7 +65,7 @@ public class AdminOptionsController implements Initializable {
         } else if (event.getSource() == viewListAcc_Btn) {
             root = FXMLLoader.load(getClass().getResource("ListOfAccounts.fxml"));
         } else if (event.getSource() == studGrades_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewGrades.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
         } else if (event.getSource() == studDiscount_Btn) {
             //root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Accounting/"));
         } else if (event.getSource() == studSponsorship_Btn) {
