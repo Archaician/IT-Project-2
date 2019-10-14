@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -20,11 +21,15 @@ import javafx.scene.layout.BorderPane;
  * @author D528_PC24
  */
 public class ViewStudentArchiveController implements Initializable {
+    
     ObservableList list = FXCollections.observableArrayList();
+    
     @FXML
     private BorderPane innerpane;
     @FXML
     private ChoiceBox<String> sort;
+    @FXML
+    private AnchorPane container;
     
     private void loadSortBy(){
       list.removeAll(list);
@@ -34,6 +39,13 @@ public class ViewStudentArchiveController implements Initializable {
       list.addAll(latest, ascend, descend);
       sort.getItems().addAll(list);
     }
+    
+     private void anchorPaneConstraints(BorderPane root) {
+      AnchorPane.setTopAnchor(root, 0.0);
+      AnchorPane.setRightAnchor(root, 0.0);
+      AnchorPane.setLeftAnchor(root, 0.0);
+      AnchorPane.setBottomAnchor(root, 0.0);
+     }       
 
     /**
      * Initializes the controller class.

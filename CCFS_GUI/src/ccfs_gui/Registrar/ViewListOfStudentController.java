@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -29,6 +30,9 @@ public class ViewListOfStudentController implements Initializable {
     @FXML
     private ChoiceBox<String> sort;
     
+    @FXML
+    private AnchorPane container;
+    
     //Show Sort By Options
     private void loadSortBy(){
       list.removeAll(list);
@@ -38,6 +42,13 @@ public class ViewListOfStudentController implements Initializable {
       list.addAll(latest, ascend, descend);
       sort.getItems().addAll(list);
     }
+    
+    private void anchorPaneConstraints(BorderPane root) {
+      AnchorPane.setTopAnchor(root, 0.0);
+      AnchorPane.setRightAnchor(root, 0.0);
+      AnchorPane.setLeftAnchor(root, 0.0);
+      AnchorPane.setBottomAnchor(root, 0.0);
+     }    
 
     /**
      * Initializes the controller class.
