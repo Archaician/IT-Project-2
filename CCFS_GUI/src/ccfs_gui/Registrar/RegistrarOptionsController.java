@@ -71,6 +71,8 @@ public class RegistrarOptionsController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
         } else if (event.getSource() == enrollContStud_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
+        } else if (event.getSource() == studGrades_Btn) {
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
         }
 
         container.getChildren().setAll(root);
