@@ -16,23 +16,23 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author Acer
+ * @author Imran
  */
 public class AccountingOptionsController implements Initializable {
 
-        @FXML
-        private AnchorPane container;
-        @FXML
-        private ButtonBar bottom_inner_pane;
-        @FXML
-        private Button logout_button;
+    @FXML
+    private AnchorPane container;
+    @FXML
+    private ButtonBar bottom_inner_pane;
+    @FXML
+    private Button logout_button;
 
-        /**
-         * Initializes the controller class.
-         */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                // TODO
-        }        
-        
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+
 }
