@@ -34,99 +34,99 @@ import javafx.scene.layout.AnchorPane;
  * @author Imran
  */
 public class CreateAccountController implements Initializable {
-        
-        ObservableList list = FXCollections.observableArrayList();
-        
-        @FXML
-        private AnchorPane container;
-        @FXML
-        private Label regID;
-        @FXML
-        private ChoiceBox<String> acctype;
-        @FXML
-        private TextField firstname;
-        @FXML
-        private TextField lastname;
-        @FXML
-        private TextField username;
-        @FXML
-        private PasswordField passwd;
-        @FXML
-        private PasswordField confpasswd;
-        @FXML
-        private Button back_Btn;
-        @FXML
-        private Button confirm_Btn;
-        
-        private void setRegistrationID() {
-                /*SAMPLE ONLY */
-                regID.setText("01");
-        }
-        
-        /*Show account type choicebox choices.*/
-        private void loadAccountType() {
-                list.removeAll(list);
-                String registrar = "Registrar";
-                String accounting = "Accounting";
-                list.addAll(registrar, accounting);
-                acctype.getItems().addAll(list);
-                acctype.setValue(registrar);
-        }
-        
-        @FXML
-        private void confirmButton(ActionEvent event) throws IOException {
-                /*Required textfields validation.*/
-                if (firstname.getText().isEmpty()) {
-                        firstname.setStyle("-fx-border-color: red");
-                        firstname.setPromptText("REQUIRED!");
-                }
-                if (lastname.getText().isEmpty()) {
-                        lastname.setStyle("-fx-border-color: red");
-                        lastname.setPromptText("REQUIRED!"); 
-                }
-                if (username.getText().isEmpty()) {
-                        username.setStyle("-fx-border-color: red");
-                        username.setPromptText("REQUIRED!");
-                }
-                if (passwd.getText().isEmpty()) {
-                        passwd.setStyle("-fx-border-color: red");
-                        passwd.setPromptText("REQUIRED!");
-                } else if (!passwd.getText().equals(confpasswd.getText())) {
-                        confpasswd.clear();
-                        passwd.setStyle("-fx-border-color: red");
-                        confpasswd.setStyle("-fx-border-color: red");
-                        confpasswd.setPromptText("PASSWORD DOES NOT MATCH!");       
-                } else {
-                        DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Create New Account", "Successfully created new account.", ButtonType.OK, null, null);
-                        AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
-                        container.getChildren().setAll(root);
-                        LayoutProperties.anchorPaneConstraints(root);
-                }
-        }
-        
-        @FXML
-        private void back() throws IOException {
-                BackButton bb = new BackButton();
 
-                bb.back(sceneval.get(sceneval.size() - 1));
-               // fxmlval.remove(fxmlval.size() - 1);
-                sceneval.remove(sceneval.size() - 1);
-                
+    ObservableList list = FXCollections.observableArrayList();
+
+    @FXML
+    private AnchorPane container;
+    @FXML
+    private Label regID;
+    @FXML
+    private ChoiceBox<String> acctype;
+    @FXML
+    private TextField firstname;
+    @FXML
+    private TextField lastname;
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField passwd;
+    @FXML
+    private PasswordField confpasswd;
+    @FXML
+    private Button back_Btn;
+    @FXML
+    private Button confirm_Btn;
+
+    private void setRegistrationID() {
+        /*SAMPLE ONLY */
+        regID.setText("01");
+    }
+
+    /*Show account type choicebox choices.*/
+    private void loadAccountType() {
+        list.removeAll(list);
+        String registrar = "Registrar";
+        String accounting = "Accounting";
+        list.addAll(registrar, accounting);
+        acctype.getItems().addAll(list);
+        acctype.setValue(registrar);
+    }
+
+    @FXML
+    private void confirmButton(ActionEvent event) throws IOException {
+        /*Required textfields validation.*/
+        if (firstname.getText().isEmpty()) {
+            firstname.setStyle("-fx-border-color: red");
+            firstname.setPromptText("REQUIRED!");
         }
-        
-        @FXML
-        private void backButton(ActionEvent event) throws IOException {
-                back();               
+        if (lastname.getText().isEmpty()) {
+            lastname.setStyle("-fx-border-color: red");
+            lastname.setPromptText("REQUIRED!");
         }
-        
-        /**
-         * Initializes the controller class.
-         */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                setRegistrationID();
-                loadAccountType();
-                // TODO
-        }        
-        
+        if (username.getText().isEmpty()) {
+            username.setStyle("-fx-border-color: red");
+            username.setPromptText("REQUIRED!");
+        }
+        if (passwd.getText().isEmpty()) {
+            passwd.setStyle("-fx-border-color: red");
+            passwd.setPromptText("REQUIRED!");
+        } else if (!passwd.getText().equals(confpasswd.getText())) {
+            confpasswd.clear();
+            passwd.setStyle("-fx-border-color: red");
+            confpasswd.setStyle("-fx-border-color: red");
+            confpasswd.setPromptText("PASSWORD DOES NOT MATCH!");
+        } else {
+            DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Create New Account", "Successfully created new account.", ButtonType.OK, null, null);
+            AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
+            container.getChildren().setAll(root);
+            LayoutProperties.anchorPaneConstraints(root);
+        }
+    }
+
+    @FXML
+    private void back() throws IOException {
+        BackButton bb = new BackButton();
+
+        bb.back(sceneval.get(sceneval.size() - 1));
+        // fxmlval.remove(fxmlval.size() - 1);
+        sceneval.remove(sceneval.size() - 1);
+
+    }
+
+    @FXML
+    private void backButton(ActionEvent event) throws IOException {
+        back();
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        setRegistrationID();
+        loadAccountType();
+        // TODO
+    }
+
 }

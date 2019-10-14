@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ccfs_gui.Admin;
 
 //import static ccfs_gui.Admin.AdminOptionsController.fxmlval;
@@ -20,12 +19,12 @@ import javafx.stage.Stage;
  * @version 1.0
  */
 public class BackButton {
-        
-        public void back(Scene scene) throws IOException{
-                
-                Stage stage = new Stage();
-                //Parent parent = FXMLLoader.load(getClass().getResource(instance));
-             //   scene = new Scene(parent);
-                stage.setScene(scene);
+
+    public void back(Scene scene) throws IOException {
+
+        Stage stage = new Stage();
+        //Parent parent = FXMLLoader.load(getClass().getResource(instance));
+        //   scene = new Scene(parent);
+        stage.setScene(scene);
     }
 }

@@ -24,39 +24,38 @@ import javafx.scene.layout.BorderPane;
  */
 public class AdminMainStageController implements Initializable {
 
-        @FXML
-        private BorderPane outer_borderpane;
-        @FXML
-        private AnchorPane left_outer_pane;
-        @FXML
-        private AnchorPane bottom_outer_pane;
-        @FXML
-        private AnchorPane right_outer_pane;
-        @FXML
-        private AnchorPane container;
-        
-        private void initialContent() throws IOException {
-                AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
-                container.getChildren().setAll(root);
-                LayoutProperties.anchorPaneConstraints(root);
+    @FXML
+    private BorderPane outer_borderpane;
+    @FXML
+    private AnchorPane left_outer_pane;
+    @FXML
+    private AnchorPane bottom_outer_pane;
+    @FXML
+    private AnchorPane right_outer_pane;
+    @FXML
+    private AnchorPane container;
+
+    private void initialContent() throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root);
+    }
+
+    @FXML
+    private void homeButton() throws IOException {
+        initialContent();
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            initialContent();
+        } catch (IOException ex) {
+            Logger.getLogger(AdminMainStageController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        @FXML
-        private void homeButton() throws IOException {
-                initialContent();
-        }
-        
-        
-        /**
-         * Initializes the controller class.
-         */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                try {
-                        initialContent();
-                } catch (IOException ex) {
-                        Logger.getLogger(AdminMainStageController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-        }        
-        
+    }
+
 }
