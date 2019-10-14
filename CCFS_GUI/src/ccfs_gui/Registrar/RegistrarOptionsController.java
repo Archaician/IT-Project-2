@@ -26,63 +26,63 @@ import javafx.scene.layout.GridPane;
  */
 public class RegistrarOptionsController implements Initializable {
 
-        @FXML
-        private BorderPane outer_borderpane;
-        @FXML
-        private AnchorPane left_outer_pane;
-        @FXML
-        private AnchorPane bottom_outer_pane;
-        @FXML
-        private ButtonBar bottom_inner_pane;
-        @FXML
-        private Button logout_button;
-        @FXML
-        private GridPane inner_borderpane;
-        @FXML
-        private Button registerStud_Btn;
-        @FXML
-        private Button enrollContStud_Btn;
-        @FXML
-        private Button viewStudList_Btn;
-        @FXML
-        private Button viewArchive_Btn;
-        @FXML
-        private Button attendance_Btn;
-        @FXML
-        private Button studGrades_Btn;
-        @FXML
-        private Button studDiscount_Btn;
-        @FXML
-        private Button studSponsorship_Btn;
-        @FXML
-        private Button studChecklist_Btn;
-        @FXML
-        private Button generateReports_Btn;
-        @FXML
-        private AnchorPane right_outer_pane;
-        @FXML
-        private AnchorPane container;
-        
-        @FXML
-        private void registrarOptionsButtons(ActionEvent event) throws IOException {
-                AnchorPane root = null;
-                
-                if (event.getSource() == registerStud_Btn) {
-                        root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
-                } else if (event.getSource() == enrollContStud_Btn) {
-                        root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
-                }
-                
-                container.getChildren().setAll(root);
-                LayoutProperties.anchorPaneConstraints(root);
+    @FXML
+    private BorderPane outer_borderpane;
+    @FXML
+    private AnchorPane left_outer_pane;
+    @FXML
+    private AnchorPane bottom_outer_pane;
+    @FXML
+    private ButtonBar bottom_inner_pane;
+    @FXML
+    private Button logout_button;
+    @FXML
+    private GridPane inner_borderpane;
+    @FXML
+    private Button registerStud_Btn;
+    @FXML
+    private Button enrollContStud_Btn;
+    @FXML
+    private Button viewStudList_Btn;
+    @FXML
+    private Button viewArchive_Btn;
+    @FXML
+    private Button attendance_Btn;
+    @FXML
+    private Button studGrades_Btn;
+    @FXML
+    private Button studDiscount_Btn;
+    @FXML
+    private Button studSponsorship_Btn;
+    @FXML
+    private Button studChecklist_Btn;
+    @FXML
+    private Button generateReports_Btn;
+    @FXML
+    private AnchorPane right_outer_pane;
+    @FXML
+    private AnchorPane container;
+
+    @FXML
+    private void registrarOptionsButtons(ActionEvent event) throws IOException {
+        AnchorPane root = null;
+
+        if (event.getSource() == registerStud_Btn) {
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
+        } else if (event.getSource() == enrollContStud_Btn) {
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
         }
-        
-        /**
-         * Initializes the controller class.
-         */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-                // TODO
-        }        
-        
+
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root);
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }
+
 }
