@@ -47,9 +47,13 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private GridPane innerborderpane;
     @FXML
-    private TextField fathername;
+    private TextField fatherfirstname;
     @FXML
-    private TextField mothername;
+    private TextField fatherlastname;
+    @FXML
+    private TextField motherfirstname;
+    @FXML
+    private TextField motherlastname;
     @FXML
     private TextField fatheraddress;
     @FXML
@@ -98,6 +102,7 @@ public class RegistrationPageTwoController implements Initializable {
 
     @FXML
     private void enrollButton(ActionEvent event) throws IOException {
+        //TODO
         DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Register Student", "Successfully registered student.", ButtonType.OK, null, null);
         AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
         container.getChildren().setAll(root);
