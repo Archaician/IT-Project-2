@@ -39,8 +39,8 @@ public class EnrollmentMethod {
                 + "'studstatus') VALUES "
                 + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
                 + "?,?,?,?,?,?)");
-        prepedSt.setString(1,enroll.info[0]);
-        prepedSt.setString(2,enroll.info[1]);
+        prepedSt.setInt(1,Integer.parseInt(enroll.info[0]));
+        prepedSt.setInt(2,Integer.parseInt(enroll.info[1]));
         prepedSt.setString(3,enroll.info[2]);
         prepedSt.setString(4,enroll.info[3]);
         prepedSt.setString(5,enroll.info[4]);

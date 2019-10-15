@@ -2,7 +2,7 @@ package javaRMI;
 
 import logIn.*;
 import java.util.LinkedList;
-
+import enrollment.*;
 /**
  *
  * @author Acer
@@ -37,5 +37,14 @@ public class Impl implements InterfaceRMI {
         String[] credent = {user,pass};
         LogIn log = new LogIn(credent);
         return LogInMethod.logInType(log);
+    }
+    // enroll student
+    @Override
+    public void enStud(String sclyear, String id, String[] studInfo) 
+            throws Exception {
+        studInfo[0] = id;
+        studInfo[1] = sclyear;
+        Enrollment enrmnt = new Enrollment(studInfo);
+        EnrollmentMethod.addStud(enrmnt);
     }
 }
