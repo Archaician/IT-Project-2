@@ -19,7 +19,7 @@ public class CCFS_GUI extends Application {
 
         @Override
         public void start(Stage stage) throws Exception {
-                Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("Admin/MainStageFXML.fxml"));
                 
                 Scene scene = new Scene(root);
                 
