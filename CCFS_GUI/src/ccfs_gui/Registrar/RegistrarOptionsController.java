@@ -13,11 +13,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -81,11 +84,19 @@ public class RegistrarOptionsController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewAttendanceOfStudent.fxml"));
         } else if (event.getSource() == generateReports_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarReports.fxml"));
-        }
+        } 
         
 
         container.getChildren().setAll(root);
         LayoutProperties.anchorPaneConstraints(root);
+    }
+    @FXML
+    private void checklistSelection(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/Registrar/ViewChecklistSelection.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));  
+        stage.show();
     }
 
     /**
