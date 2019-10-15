@@ -38,6 +38,7 @@ public class ViewStudentArchiveController implements Initializable {
       String descend = "Descending";
       list.addAll(latest, ascend, descend);
       sort.getItems().addAll(list);
+      sort.setValue(latest);
     }
     
      private void anchorPaneConstraints(BorderPane root) {
