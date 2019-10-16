@@ -31,6 +31,8 @@ public class AdminOptionsController implements Initializable {
     public static List<Scene> sceneval = new ArrayList<Scene>();
     //    public static List<String>fxmlval = new ArrayList<String>();  
     @FXML
+    private Button createSchYr_Btn;
+    @FXML
     private Button createNewAcc_Btn;
     @FXML
     private Button registerStud_Btn;
@@ -52,8 +54,10 @@ public class AdminOptionsController implements Initializable {
     @FXML
     private void adminOptionsButtons(ActionEvent event) throws IOException {
         AnchorPane root = null;
-
-        if (event.getSource() == createNewAcc_Btn) {
+        
+        if (event.getSource() == createSchYr_Btn) {
+            root = FXMLLoader.load(getClass().getResource(""));
+        } else if (event.getSource() == createNewAcc_Btn) {
             //  fxmlval.add("AdminOptionsFXML.fxml");
             root = FXMLLoader.load(getClass().getResource("CreateAccountFXML.fxml"));
             // Scene scene = new Scene(root);
