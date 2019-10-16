@@ -115,7 +115,7 @@ public class CreateAccountController implements Initializable {
             confpasswd.setStyle("-fx-border-color: red");
             confpasswd.setPromptText("PASSWORD DOES NOT MATCH!");
         } else {
-            DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Create New Account", "Successfully created new account.", ButtonType.OK, null, null);
+            DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Create New Account", "Successfully created new account.", ButtonType.OK);
             AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
             container.getChildren().setAll(root);
             LayoutProperties.anchorPaneConstraints(root);
