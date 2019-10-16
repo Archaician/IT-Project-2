@@ -28,8 +28,8 @@ public class DialogWindows {
         }
     }
 
-    public static void dialogBox(AlertType alerttype, String title, String message, ButtonType buttontype1, ButtonType buttontype2, ButtonType buttontype3) {
-        Alert alert = new Alert(alerttype, message, buttontype1, buttontype2, buttontype3);
+    public static void dialogBox(AlertType alerttype, String title, String message, ButtonType ... buttontype) {
+        Alert alert = new Alert(alerttype, message, buttontype);
         alert.setTitle(title);
         alert.showAndWait();
     }
