@@ -53,7 +53,11 @@ public class EnrollmentContinuingController implements Initializable {
     @FXML
     private TextField idnumber;
     @FXML
-    private TextField name;
+    private TextField surname;
+    @FXML
+    private TextField givenname;
+    @FXML
+    private TextField middlename;
     @FXML
     private TextField birthdate;
     @FXML
@@ -65,11 +69,11 @@ public class EnrollmentContinuingController implements Initializable {
     @FXML
     private TextField mobile;
     @FXML
-    private TextField prevschool;
+    private TextField lastGradeLvl;
     @FXML
     private ChoiceBox<?> newgradelvl;
     @FXML
-    private Label lastGradeLvl;
+    private TextField prevschool;
 
     /*Show grade level choicebox choices.*/
     private void loadGradeLevel() {
@@ -86,6 +90,16 @@ public class EnrollmentContinuingController implements Initializable {
         list.addAll(nursery, prekinder, kinder, one, two, three, four, five, six);
         newgradelvl.getItems().addAll(list);
         //newgradelvl.setValue();
+    }
+    
+    @FXML
+    private void searchByLastName(ActionEvent event) throws IOException {
+        //TODO
+    }
+    
+    @FXML
+    private void searchByID(ActionEvent event) throws IOException {
+        //TODO
     }
 
     @FXML
