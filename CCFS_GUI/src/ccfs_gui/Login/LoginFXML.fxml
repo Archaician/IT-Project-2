@@ -86,7 +86,7 @@
             </ImageView>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
                <children>
-                  <TextField fx:id="inputusername" alignment="CENTER" prefHeight="50.0" promptText="Enter Username" style="-fx-border-color: BLACK;">
+                  <TextField fx:id="inputusername" alignment="CENTER" onAction="#loginButtonAction" prefHeight="50.0" promptText="Enter Username" style="-fx-border-color: BLACK;">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
@@ -94,7 +94,7 @@
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </TextField>
-                  <PasswordField fx:id="inputpassword" alignment="CENTER" prefHeight="50.0" promptText="Enter Password" style="-fx-border-color: BLACK;">
+                  <PasswordField fx:id="inputpassword" alignment="CENTER" onAction="#loginButtonAction" prefHeight="50.0" promptText="Enter Password" style="-fx-border-color: BLACK;">
                      <VBox.margin>
                         <Insets bottom="10.0" left="50.0" right="50.0" top="5.0" />
                      </VBox.margin>
