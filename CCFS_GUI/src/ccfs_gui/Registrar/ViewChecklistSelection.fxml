@@ -30,10 +30,13 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" text="Cancel">
+                  <Button fx:id="closeButton" mnemonicParsing="false" onAction="#closebuttonApp" prefHeight="22.0" prefWidth="90.0" style="-fx-background-color: red;" text="Cancel" textFill="WHITE">
                      <GridPane.margin>
                         <Insets left="15.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
                   </Button>
                </children>
             </GridPane>

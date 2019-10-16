@@ -14,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -21,11 +22,15 @@ import javafx.scene.layout.AnchorPane;
  * @author D528_PC24
  */
 public class ViewChecklistSelectionController implements Initializable {
+    
     @FXML
     private Button kinderChecklist_Btn;
 
     @FXML
     private Button gradeSchoolCheklist_Btn;
+    
+    @FXML
+    private Button closeButton;
 
     @FXML
     private void checklistSelection(ActionEvent event) throws IOException{
@@ -37,6 +42,12 @@ public class ViewChecklistSelectionController implements Initializable {
            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/GradeSchoolGrades.fxml"));  
         
     }
+    
+    @FXML
+    private void closebuttonApp(){
+    Stage stage = (Stage) closeButton.getScene().getWindow();
+    stage.close();
+}
 
     /**
      * Initializes the controller class.
