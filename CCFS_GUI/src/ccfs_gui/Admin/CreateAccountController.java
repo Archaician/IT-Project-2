@@ -64,7 +64,7 @@ public class CreateAccountController implements Initializable {
     @FXML
     private Button confirm_Btn;
 
-    private void setRegistrationID() {
+    private void setAccountID() {
         /*SAMPLE ONLY */
         accID.setText("01");
     }
@@ -142,7 +142,7 @@ public class CreateAccountController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        setRegistrationID();
+        setAccountID();
         loadAccountType();
         // TODO
     }
