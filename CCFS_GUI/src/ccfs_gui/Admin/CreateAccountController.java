@@ -40,7 +40,9 @@ public class CreateAccountController implements Initializable {
     @FXML
     private AnchorPane container;
     @FXML
-    private Label regID;
+    private Label accID;
+    @FXML
+    private TextField empID;
     @FXML
     private ChoiceBox<String> acctype;
     @FXML
@@ -49,6 +51,10 @@ public class CreateAccountController implements Initializable {
     private TextField lastname;
     @FXML
     private TextField username;
+    @FXML
+    private TextField address;
+    @FXML
+    private TextField contact;
     @FXML
     private PasswordField passwd;
     @FXML
@@ -60,7 +66,7 @@ public class CreateAccountController implements Initializable {
 
     private void setRegistrationID() {
         /*SAMPLE ONLY */
-        regID.setText("01");
+        accID.setText("01");
     }
 
     /*Show account type choicebox choices.*/
@@ -76,6 +82,10 @@ public class CreateAccountController implements Initializable {
     @FXML
     private void confirmButton(ActionEvent event) throws IOException {
         /*Required textfields validation.*/
+        if (empID.getText().isEmpty()) {
+            empID.setStyle("-fx-border-color: red");
+            empID.setPromptText("REQUIRED!");
+        }
         if (firstname.getText().isEmpty()) {
             firstname.setStyle("-fx-border-color: red");
             firstname.setPromptText("REQUIRED!");
@@ -87,6 +97,14 @@ public class CreateAccountController implements Initializable {
         if (username.getText().isEmpty()) {
             username.setStyle("-fx-border-color: red");
             username.setPromptText("REQUIRED!");
+        }
+        if (address.getText().isEmpty()) {
+            address.setStyle("-fx-border-color: red");
+            address.setPromptText("REQUIRED!");
+        }
+        if (contact.getText().isEmpty()) {
+            contact.setStyle("-fx-border-color: red");
+            contact.setPromptText("REQUIRED!");
         }
         if (passwd.getText().isEmpty()) {
             passwd.setStyle("-fx-border-color: red");
