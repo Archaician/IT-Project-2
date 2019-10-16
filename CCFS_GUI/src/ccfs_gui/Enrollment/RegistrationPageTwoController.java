@@ -97,7 +97,7 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private void enrollButton(ActionEvent event) throws IOException {
         //TODO
-        DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Register Student", "Successfully registered student.", ButtonType.OK, null, null);
+        DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Register Student", "Successfully registered student.", ButtonType.OK);
         AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
         container.getChildren().setAll(root);
         LayoutProperties.anchorPaneConstraints(root);
