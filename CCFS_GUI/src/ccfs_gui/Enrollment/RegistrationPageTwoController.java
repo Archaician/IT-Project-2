@@ -59,10 +59,6 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private TextField fatheroccupation;
     @FXML
-    private TextField fatherworknum;
-    @FXML
-    private TextField fatherhomenum;
-    @FXML
     private TextField fathermobile;
     @FXML
     private TextField fatheremail;
@@ -71,15 +67,13 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private TextField motheroccupation;
     @FXML
-    private TextField motherworknum;
-    @FXML
-    private TextField motherhomenum;
-    @FXML
     private TextField mothermobile;
     @FXML
     private TextField motheremail;
     @FXML
-    private TextField guardianname;
+    private TextField guardianfirstname;
+    @FXML
+    private TextField guardianlastname;
     @FXML
     private TextField guardianaddress;
     @FXML

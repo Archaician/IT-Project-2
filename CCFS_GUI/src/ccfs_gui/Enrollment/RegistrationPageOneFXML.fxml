@@ -275,7 +275,7 @@
                         <Insets bottom="20.0" left="95.0" top="20.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Previous School(s) Attended:" GridPane.rowIndex="6">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Previous School Attended:" GridPane.rowIndex="6">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
@@ -285,7 +285,7 @@
                         <Font size="20.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="20.0" left="260.0" top="20.0" />
+                        <Insets bottom="20.0" left="240.0" top="20.0" />
                      </GridPane.margin>
                   </TextField>
                </children>
