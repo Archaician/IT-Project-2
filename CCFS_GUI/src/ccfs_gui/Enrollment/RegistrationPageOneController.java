@@ -5,7 +5,6 @@
  */
 package ccfs_gui.Enrollment;
 
-//import ccfs_gui.PopupWindows;
 import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
@@ -49,7 +48,7 @@ public class RegistrationPageOneController implements Initializable {
     @FXML
     private DatePicker birthdate;
     @FXML
-    private TextField gradelvl;
+    private ChoiceBox<String> gradelvl;
     @FXML
     private TextField birthplace;
     @FXML
@@ -65,12 +64,16 @@ public class RegistrationPageOneController implements Initializable {
 
     private void setStudentID() {
         /*SAMPLE ONLY */
-        studID.setText("01");
+        studID.setText("[ID here]");
     }
 
     private void setSchoolYear() {
         /*SAMPLE ONLY */
         schYR.setText("2018-2019");
+    }
+    
+    private void setSurname() {
+        String sur = surname.getText();
     }
 
     /*Show gender choicebox choices*/
@@ -81,6 +84,23 @@ public class RegistrationPageOneController implements Initializable {
         list.addAll(male, female);
         gender.getItems().addAll(list);
         gender.setValue(male);
+    }
+    
+    /*Show grade level choicebox choices.*/
+    private void loadGradeLevel() {
+        list.removeAll(list);
+        String nursery = "Nursery";
+        String prekinder = "Pre-Kinder";
+        String kinder = "Kinder";
+        String one = "Grade 1";
+        String two = "Grade 2";
+        String three = "Grade 3";
+        String four = "Grade 4";
+        String five = "Grade 5";
+        String six = "Grade 6";
+        list.addAll(nursery, prekinder, kinder, one, two, three, four, five, six);
+        gradelvl.getItems().addAll(list);
+        gradelvl.setValue(nursery);
     }
 
     @FXML
@@ -102,10 +122,6 @@ public class RegistrationPageOneController implements Initializable {
             birthdate.setStyle("-fx-border-color: red");
             birthdate.setPromptText("REQUIRED!");
         }
-        if (gradelvl.getText().isEmpty()) {
-            gradelvl.setStyle("-fx-border-color: red");
-            gradelvl.setPromptText("REQUIRED!");
-        }
         if (birthplace.getText().isEmpty()) {
             birthplace.setStyle("-fx-border-color: red");
             birthplace.setPromptText("REQUIRED!");
@@ -120,11 +136,13 @@ public class RegistrationPageOneController implements Initializable {
         } else {
             FXMLLoader loader = new FXMLLoader();
             AnchorPane root = FXMLLoader.load(getClass().getResource("RegistrationPageTwoFXML.fxml"));
+            
             RegistrationPageTwoController pageTwo = (RegistrationPageTwoController) loader.getController();
 
             /*Pass student ID and school year values to the next page.*/
             //  pageTwo.getStudentID(studID.getText());
             //  pageTwo.getSchoolYear(schYR.getText());
+            pageTwo.getSurname(surname.getText());
             container.getChildren().setAll(root);
             LayoutProperties.anchorPaneConstraints(root);
         }
@@ -137,7 +155,9 @@ public class RegistrationPageOneController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         setStudentID();
         setSchoolYear();
+        setSurname();
         loadGender();
+        loadGradeLevel();
         // TODO
     }
 

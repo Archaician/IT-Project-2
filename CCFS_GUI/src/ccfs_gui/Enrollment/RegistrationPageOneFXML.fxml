@@ -215,14 +215,6 @@
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="gradelvl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="20.0" left="115.0" top="20.0" />
-                     </GridPane.margin>
-                  </TextField>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Birthplace:" GridPane.rowIndex="3">
                      <font>
                         <Font name="Ebrima" size="20.0" />
@@ -288,6 +280,11 @@
                         <Insets bottom="20.0" left="240.0" top="20.0" />
                      </GridPane.margin>
                   </TextField>
+                  <ChoiceBox fx:id="gradelvl" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="115.0" top="20.0" />
+                     </GridPane.margin>
+                  </ChoiceBox>
                </children>
             </GridPane>
          </center>
