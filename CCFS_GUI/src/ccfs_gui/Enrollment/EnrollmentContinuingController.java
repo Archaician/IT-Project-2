@@ -97,6 +97,9 @@ public class EnrollmentContinuingController implements Initializable {
         //TODO
         if (searchbar.getText().isEmpty()) {
             searchbar.setStyle("-fx-border-color: red");
+            searchbar.setOnMouseClicked(e -> {
+                    searchbar.setStyle("-fx-border-color: none");
+            });
         }
     }
     
@@ -105,6 +108,9 @@ public class EnrollmentContinuingController implements Initializable {
         //TODO
         if (searchbar.getText().isEmpty()) {
             searchbar.setStyle("-fx-border-color: red");
+            searchbar.setOnMouseClicked(e -> {
+                    searchbar.setStyle("-fx-border-color: none");
+            });
         }
     }
 
