@@ -24,6 +24,9 @@ public class FieldValidation {
             if (t.getText().isEmpty()) {
                 t.setStyle("-fx-border-color: red");
                 t.setPromptText("REQUIRED!");
+                t.setOnMouseClicked(e -> {
+                    t.setStyle("-fx-border-color: none");
+                });
                 //return tf;
             }
        // return t;
