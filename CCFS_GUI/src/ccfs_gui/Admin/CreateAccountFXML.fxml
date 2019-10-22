@@ -29,8 +29,6 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
@@ -74,17 +72,17 @@
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="317.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                  <Text layoutX="317.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="322.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+                  <Text layoutX="322.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="passwd" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                  <PasswordField fx:id="passwd" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                      </GridPane.margin>
@@ -92,7 +90,7 @@
                         <Font size="20.0" />
                      </font>
                   </PasswordField>
-                  <PasswordField fx:id="confpasswd" layoutX="420.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+                  <PasswordField fx:id="confpasswd" layoutX="420.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                      </GridPane.margin>
@@ -110,32 +108,6 @@
                         <Insets bottom="20.0" left="10.0" top="20.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                     <font>
-                        <Font name="Ebrima" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact #:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-                     <font>
-                        <Font name="Ebrima" size="20.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="address" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
-                     </GridPane.margin>
-                  </TextField>
-                  <TextField fx:id="contact" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
-                     </GridPane.margin>
-                  </TextField>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
@@ -212,7 +184,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="confirm_Btn" mnemonicParsing="false" onAction="#confirmButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #5a81ff;" text="CONFIRM" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <Button fx:id="create_Btn" mnemonicParsing="false" onAction="#createButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #5a81ff;" text="CREATE" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
