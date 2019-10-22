@@ -69,7 +69,7 @@ public class RegistrationPageOneController implements Initializable {
 
     private void setSchoolYear() {
         /*SAMPLE ONLY */
-        schYR.setText("2018-2019");
+        schYR.setText("[YR here]");
     }
     
     private void setSurname() {
@@ -142,7 +142,7 @@ public class RegistrationPageOneController implements Initializable {
             /*Pass student ID and school year values to the next page.*/
             //  pageTwo.getStudentID(studID.getText());
             //  pageTwo.getSchoolYear(schYR.getText());
-            pageTwo.getSurname(surname.getText());
+           // pageTwo.getSurname(surname.getText());
             container.getChildren().setAll(root);
             LayoutProperties.anchorPaneConstraints(root);
         }

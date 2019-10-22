@@ -86,6 +86,11 @@ public class RegistrationPageTwoController implements Initializable {
     public void getSchoolYear(String text) {
         schYR.setText(text);
     }
+    
+    public void getSurname(String text) {
+        fatherlastname.setText(text);
+        motherlastname.setText(text);
+    }
 
     @FXML
     private void addSiblingButton(ActionEvent event) throws IOException {
@@ -97,10 +102,17 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private void enrollButton(ActionEvent event) throws IOException {
         //TODO
-        DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Register Student", "Successfully registered student.", ButtonType.OK);
-        AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
-        container.getChildren().setAll(root);
-        LayoutProperties.anchorPaneConstraints(root);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
+        alert.showAndWait();
+        
+        if (alert.getResult() == ButtonType.YES) {
+            DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Registered Student", "Successfully registered student.", ButtonType.OK);
+            AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+            container.getChildren().setAll(root);
+            LayoutProperties.anchorPaneConstraints(root);
+        } else {
+            alert.close();
+        }
     }
 
     /**
@@ -110,6 +122,7 @@ public class RegistrationPageTwoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //getStudentID("");
         //getSchoolYear("");
+        getSurname("");
         // TODO
     }
 

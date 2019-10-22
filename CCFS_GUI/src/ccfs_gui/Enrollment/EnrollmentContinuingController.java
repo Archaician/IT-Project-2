@@ -71,7 +71,7 @@ public class EnrollmentContinuingController implements Initializable {
     @FXML
     private TextField lastGradeLvl;
     @FXML
-    private ChoiceBox<?> newgradelvl;
+    private ChoiceBox<String> newgradelvl;
     @FXML
     private TextField prevschool;
 
@@ -95,16 +95,38 @@ public class EnrollmentContinuingController implements Initializable {
     @FXML
     private void searchByLastName(ActionEvent event) throws IOException {
         //TODO
+        if (searchbar.getText().isEmpty()) {
+            searchbar.setStyle("-fx-border-color: red");
+        }
     }
     
     @FXML
     private void searchByID(ActionEvent event) throws IOException {
         //TODO
+        if (searchbar.getText().isEmpty()) {
+            searchbar.setStyle("-fx-border-color: red");
+        }
     }
 
     @FXML
     private void enrollButton(ActionEvent event) throws IOException {
-        //TODO
+        if (idnumber.getText().isEmpty()) {
+            DialogWindows.dialogBox(Alert.AlertType.ERROR, "No Student Selected", "Please select a student to enroll.", ButtonType.OK);
+            //noResultText.setText("Please select a student to enroll.");
+        } else {
+            //TODO
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
+            alert.showAndWait();
+            
+            if (alert.getResult() == ButtonType.YES) {
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Enrolled Student", "Successfully enrolled student.", ButtonType.OK);
+                AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+                container.getChildren().setAll(root);
+                LayoutProperties.anchorPaneConstraints(root);
+            } else {
+                alert.close();
+            }
+        }
     }
 
     /**
