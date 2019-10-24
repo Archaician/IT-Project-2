@@ -18,50 +18,46 @@ import javafx.util.converter.IntegerStringConverter;
  */
 public class FieldValidation {
     
-    private static TextField t;
-    public static TextField requiredTextField(TextField ... textfield) {
-        for (TextField t : textfield)
-            if (t.getText().isEmpty()) {
-                t.setStyle("-fx-border-color: red");
-                t.setPromptText("REQUIRED!");
-                t.setOnMouseClicked(e -> {
-                    t.setStyle("-fx-border-color: none");
+    /*Required textfields validation.*/
+    public static void requiredTextFieldWarning(TextField... textfield) {
+        for (TextField tf : textfield)
+            if (tf.getText().isEmpty()) {
+                tf.setStyle("-fx-border-color: red");
+                tf.setPromptText("REQUIRED!");
+                tf.setOnKeyTyped(e -> {
+                    tf.setStyle("-fx-border-color: none");
                 });
-                //return tf;
             }
-       // return t;
-        return t;
     }
-    
-    private void textfieldKeyTyped(java.awt.event.KeyEvent event) {
-        TextField tf = new TextField();
-        tf.setStyle("-fx-border-color: none");
-    }
-    
-    public static void numericTextField(TextField ... textfield) {
+
+    /*Numeric textfields validation.*/
+    public static void numericTextField(TextField... textfield) {
         UnaryOperator<Change> integerFilter = change -> {
             String newText = change.getControlNewText();
-            if (newText.matches("-?([1-9][0-9]*)?")) { 
+            if (newText.matches("-?([1-9][0-9]*)?")) {
                 return change;
-                }
+            }
             return null;
         };
-        
-        for (TextField tf : textfield)
+
+        for (TextField tf : textfield) {
             tf.setTextFormatter(
                     new TextFormatter<Integer>(new IntegerStringConverter(), 0, integerFilter));
+        }
         /*if (!tf.getText().matches("[0-9]")) {
             tf.clear();
             tf.setStyle("-fx-border-color: red");
             tf.setPromptText("PLEASE ENTER NUMBERS ONLY!"); 
         } */
     }
-    /*
-    public static void capsLock(TextField ... textfield) {
-        for (TextField tf : textfield)
+
+    /*Force text input to be capitalized.*/
+    public static void capsLock(TextField... textfield) {
+        for (TextField tf : textfield) {
             tf.setTextFormatter(new TextFormatter<>((change) -> {
-                change.setText(change.getText().charAt(0).toUpperCase());
+                change.setText(change.getText().toUpperCase());
                 return change;
-                }));
-    } */
+            }));
+        }
+    }
 }
