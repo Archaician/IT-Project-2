@@ -5,6 +5,7 @@
  */
 package ccfs_gui.Enrollment;
 
+import ccfs_gui.FieldValidation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -45,21 +46,14 @@ public class AddSiblingController implements Initializable {
     @FXML
     private void addSiblingButton(ActionEvent event) throws IOException {
         /*Required textfields validation.*/
-        if (surname.getText().isEmpty()) {
-            surname.setStyle("-fx-border-color: red");
-            surname.setPromptText("REQUIRED!");
-        }
-        if (givenname.getText().isEmpty()) {
-            givenname.setStyle("-fx-border-color: red");
-            givenname.setPromptText("REQUIRED!");
-        }
-        if (birthdate.getValue() == null) {
+        if (surname.getText().isEmpty() || givenname.getText().isEmpty() || school.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(surname, givenname, school);
+        } else if (birthdate.getValue() == null) {
             birthdate.setStyle("-fx-border-color: red");
             birthdate.setPromptText("REQUIRED!");
-        }
-        if (school.getText().isEmpty()) {
-            school.setStyle("-fx-border-color: red");
-            school.setPromptText("REQUIRED!");
+            birthdate.setOnKeyTyped(e -> {
+                birthdate.setStyle("-fx-border-color: none");
+            });
         } else {
             //TODO
         }

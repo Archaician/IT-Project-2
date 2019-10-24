@@ -97,7 +97,7 @@ public class EnrollmentContinuingController implements Initializable {
         //TODO
         if (searchbar.getText().isEmpty()) {
             searchbar.setStyle("-fx-border-color: red");
-            searchbar.setOnMouseClicked(e -> {
+            searchbar.setOnKeyTyped(e -> {
                     searchbar.setStyle("-fx-border-color: none");
             });
         }
@@ -108,7 +108,7 @@ public class EnrollmentContinuingController implements Initializable {
         //TODO
         if (searchbar.getText().isEmpty()) {
             searchbar.setStyle("-fx-border-color: red");
-            searchbar.setOnMouseClicked(e -> {
+            searchbar.setOnKeyTyped(e -> {
                     searchbar.setStyle("-fx-border-color: none");
             });
         }
@@ -133,6 +133,13 @@ public class EnrollmentContinuingController implements Initializable {
                 alert.close();
             }
         }
+    }
+    
+    @FXML
+    private void backButton(ActionEvent event) throws IOException {
+        /*AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root); */
     }
 
     /**

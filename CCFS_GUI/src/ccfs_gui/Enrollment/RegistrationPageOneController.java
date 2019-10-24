@@ -5,6 +5,7 @@
  */
 package ccfs_gui.Enrollment;
 
+import ccfs_gui.FieldValidation;
 import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
@@ -106,33 +107,15 @@ public class RegistrationPageOneController implements Initializable {
     @FXML
     private void nextButton(ActionEvent event) throws IOException {
         /*Required textfields validation.*/
-        if (surname.getText().isEmpty()) {
-            surname.setStyle("-fx-border-color: red");
-            surname.setPromptText("REQUIRED!");
-        }
-        if (givenname.getText().isEmpty()) {
-            givenname.setStyle("-fx-border-color: red");
-            givenname.setPromptText("REQUIRED!");
-        }
-        if (middlename.getText().isEmpty()) {
-            middlename.setStyle("-fx-border-color: red");
-            middlename.setPromptText("REQUIRED!");
-        }
-        if (birthdate.getValue() == null) {
+        if (surname.getText().isEmpty() || givenname.getText().isEmpty() || middlename.getText().isEmpty()
+                || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(surname, givenname, middlename, birthplace, address, prevschool);
+        } else if (birthdate.getValue() == null) {
             birthdate.setStyle("-fx-border-color: red");
             birthdate.setPromptText("REQUIRED!");
-        }
-        if (birthplace.getText().isEmpty()) {
-            birthplace.setStyle("-fx-border-color: red");
-            birthplace.setPromptText("REQUIRED!");
-        }
-        if (address.getText().isEmpty()) {
-            address.setStyle("-fx-border-color: red");
-            address.setPromptText("REQUIRED!");
-        }
-        if (prevschool.getText().isEmpty()) {
-            prevschool.setStyle("-fx-border-color: red");
-            prevschool.setPromptText("REQUIRED!");
+            birthdate.setOnKeyTyped(e -> {
+                birthdate.setStyle("-fx-border-color: none");
+            });
         } else {
             FXMLLoader loader = new FXMLLoader();
             AnchorPane root = FXMLLoader.load(getClass().getResource("RegistrationPageTwoFXML.fxml"));
@@ -146,6 +129,13 @@ public class RegistrationPageOneController implements Initializable {
             container.getChildren().setAll(root);
             LayoutProperties.anchorPaneConstraints(root);
         }
+    }
+    
+    @FXML
+    private void backButton(ActionEvent event) throws IOException {
+        /*AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root); */
     }
 
     /**
