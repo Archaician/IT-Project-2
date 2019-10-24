@@ -5,7 +5,6 @@
  */
 package ccfs_gui.Admin;
 
-import ccfs_gui.CCFS_GUI;
 import ccfs_gui.LayoutProperties;
 import ccfs_gui.Login.Logout;
 import java.io.IOException;
@@ -67,7 +66,7 @@ public class AdminOptionsController implements Initializable {
         } else if (event.getSource() == enrollContStud_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
         } else if (event.getSource() == viewListAcc_Btn) {
-            root = FXMLLoader.load(getClass().getResource("ListOfAccounts.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ListOfAccountsFXML.fxml"));
         } else if (event.getSource() == studGrades_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
         } else if (event.getSource() == studDiscount_Btn) {

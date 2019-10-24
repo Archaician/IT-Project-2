@@ -7,15 +7,14 @@ package ccfs_gui.Admin;
 
 import static ccfs_gui.Admin.AdminOptionsController.sceneval;
 import ccfs_gui.DialogWindows;
+import ccfs_gui.FieldValidation;
 import ccfs_gui.LayoutProperties;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -52,21 +51,17 @@ public class CreateAccountController implements Initializable {
     @FXML
     private TextField username;
     @FXML
-    private TextField address;
-    @FXML
-    private TextField contact;
-    @FXML
     private PasswordField passwd;
     @FXML
     private PasswordField confpasswd;
     @FXML
     private Button back_Btn;
     @FXML
-    private Button confirm_Btn;
-
+    private Button create_Btn;
+    
     private void setAccountID() {
         /*SAMPLE ONLY */
-        accID.setText("01");
+        accID.setText("[ID here]");
     }
 
     /*Show account type choicebox choices.*/
@@ -80,45 +75,40 @@ public class CreateAccountController implements Initializable {
     }
 
     @FXML
-    private void confirmButton(ActionEvent event) throws IOException {
+    private void createButton(ActionEvent event) throws IOException {
+        String strEmpid = empID.getText();
+        String strAcctype = acctype.getValue();
+        String strFirstname = firstname.getText();
+        String strLastname = lastname.getText();
+        String strUsername = username.getText();
+        
         /*Required textfields validation.*/
-        if (empID.getText().isEmpty()) {
-            empID.setStyle("-fx-border-color: red");
-            empID.setPromptText("REQUIRED!");
-        }
-        if (firstname.getText().isEmpty()) {
-            firstname.setStyle("-fx-border-color: red");
-            firstname.setPromptText("REQUIRED!");
-        }
-        if (lastname.getText().isEmpty()) {
-            lastname.setStyle("-fx-border-color: red");
-            lastname.setPromptText("REQUIRED!");
-        }
-        if (username.getText().isEmpty()) {
-            username.setStyle("-fx-border-color: red");
-            username.setPromptText("REQUIRED!");
-        }
-        if (address.getText().isEmpty()) {
-            address.setStyle("-fx-border-color: red");
-            address.setPromptText("REQUIRED!");
-        }
-        if (contact.getText().isEmpty()) {
-            contact.setStyle("-fx-border-color: red");
-            contact.setPromptText("REQUIRED!");
-        }
-        if (passwd.getText().isEmpty()) {
-            passwd.setStyle("-fx-border-color: red");
-            passwd.setPromptText("REQUIRED!");
+        if (empID.getText().isEmpty() || firstname.getText().isEmpty() || lastname.getText().isEmpty()
+                || username.getText().isEmpty() || passwd.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(empID, firstname, lastname, username, passwd);
         } else if (!passwd.getText().equals(confpasswd.getText())) {
             confpasswd.clear();
             passwd.setStyle("-fx-border-color: red");
             confpasswd.setStyle("-fx-border-color: red");
             confpasswd.setPromptText("PASSWORD DOES NOT MATCH!");
-        } else {
-            DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Create New Account", "Successfully created new account.", ButtonType.OK);
-            AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
-            container.getChildren().setAll(root);
-            LayoutProperties.anchorPaneConstraints(root);
+            confpasswd.setOnKeyTyped(e -> {
+                    passwd.setStyle("-fx-border-color: none");
+                    confpasswd.setStyle("-fx-border-color: none");
+            });
+        } else {         
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create an account with the following information?"
+                    + "\nEmployee ID: " + strEmpid + "\nAccount Type: " + strAcctype + "\nFirst Name: " + strFirstname
+                    + "\nLast Name: " + strLastname + "\nUsername: " + strUsername, ButtonType.YES, ButtonType.NO);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New Account", "Successfully created new account.", ButtonType.OK);
+                AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
+                container.getChildren().setAll(root);
+                LayoutProperties.anchorPaneConstraints(root);
+            } else {
+                alert.close();
+            }
         }
     }
 
@@ -134,7 +124,10 @@ public class CreateAccountController implements Initializable {
 
     @FXML
     private void backButton(ActionEvent event) throws IOException {
-        back();
+        //back();
+        AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root);
     }
 
     /**
@@ -142,9 +135,9 @@ public class CreateAccountController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //FieldValidation.capsLock(empID, firstname, lastname, username);
         setAccountID();
         loadAccountType();
-        // TODO
     }
 
 }
