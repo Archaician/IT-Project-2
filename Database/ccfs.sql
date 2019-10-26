@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 16, 2019 at 06:20 AM
--- Server version: 5.7.21
--- PHP Version: 5.6.35
+-- Generation Time: Oct 26, 2019 at 01:29 PM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,22 +36,28 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `password` varchar(16) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
-  `address` varchar(20) NOT NULL,
   `contact` int(16) NOT NULL,
   `type` varchar(15) NOT NULL,
   `accstatus` text,
   PRIMARY KEY (`accid`),
   UNIQUE KEY `empID` (`empid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `accounts`
+-- Table structure for table `assessment`
 --
 
-INSERT INTO `accounts` (`accid`, `empid`, `username`, `password`, `fname`, `lname`, `address`, `contact`, `type`, `accstatus`) VALUES
-(1, '1', 'Paul', 'Imran', 'Perez', 'mahmood', 'Adljkhawghhjk', 13, 'R', NULL),
-(2, '2', 'Perez', 'Mahmood', 'Perez', 'mahmood', 'awd', 1112, 'A', NULL),
-(3, '3', 'Adam', 'Andrei', 'Perez', 'PeePee', 'KDJkjhawww', 11122, 'Ac', NULL);
+DROP TABLE IF EXISTS `assessment`;
+CREATE TABLE IF NOT EXISTS `assessment` (
+  `assessID` int(11) NOT NULL AUTO_INCREMENT,
+  `assessname` varchar(20) NOT NULL,
+  `amount` double NOT NULL,
+  `payid` int(11) NOT NULL,
+  PRIMARY KEY (`assessID`),
+  KEY `pyid` (`payid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -62,10 +68,13 @@ INSERT INTO `accounts` (`accid`, `empid`, `username`, `password`, `fname`, `lnam
 DROP TABLE IF EXISTS `attendance`;
 CREATE TABLE IF NOT EXISTS `attendance` (
   `attid` int(11) NOT NULL AUTO_INCREMENT,
-  `date` date DEFAULT NULL,
-  `attType` varchar(45) DEFAULT NULL,
-  `studid` int(11) NOT NULL,
-  PRIMARY KEY (`attid`)
+  `month` varchar(31) DEFAULT NULL,
+  `days` varchar(45) DEFAULT NULL,
+  `IDno` int(11) NOT NULL,
+  `idyear` int(11) NOT NULL,
+  PRIMARY KEY (`attid`),
+  UNIQUE KEY `studid` (`IDno`,`idyear`),
+  UNIQUE KEY `idyear` (`idyear`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -86,7 +95,9 @@ CREATE TABLE IF NOT EXISTS `checklist` (
   `thirdrating` varchar(3) NOT NULL,
   `fourthrating` varchar(3) NOT NULL,
   `studatt` int(11) NOT NULL,
-  PRIMARY KEY (`checkid`)
+  `IDno` int(11) NOT NULL,
+  PRIMARY KEY (`checkid`),
+  KEY `idnumber` (`IDno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -100,8 +111,12 @@ CREATE TABLE IF NOT EXISTS `curriculum` (
   `curid` int(45) NOT NULL,
   `subject` varchar(11) NOT NULL,
   `grade` varchar(11) NOT NULL,
-  PRIMARY KEY (`curid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `yearid` int(11) NOT NULL,
+  `IDno` int(11) NOT NULL,
+  PRIMARY KEY (`curid`),
+  UNIQUE KEY `sid` (`IDno`),
+  KEY `idyear` (`yearid`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -111,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `curriculum` (
 
 DROP TABLE IF EXISTS `curstudent`;
 CREATE TABLE IF NOT EXISTS `curstudent` (
-  `studentid` int(11) NOT NULL COMMENT 'ID FOR TABLE',
+  `studentid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID FOR TABLE',
   `IDno` int(11) NOT NULL COMMENT 'ID OF THE STUDENT',
   `gradelvl` varchar(45) NOT NULL,
   `section` varchar(11) NOT NULL,
@@ -121,25 +136,19 @@ CREATE TABLE IF NOT EXISTS `curstudent` (
   `yearID` int(40) NOT NULL,
   `enrID` int(90) NOT NULL,
   PRIMARY KEY (`studentid`),
+  UNIQUE KEY `IDno_2` (`IDno`),
   KEY `gradlvl_idx` (`gradelvl`),
   KEY `yearID_idx` (`yearID`),
   KEY `enrID_idx` (`enrID`),
   KEY `IDno` (`IDno`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Table structure for table `discount`
+-- Dumping data for table `curstudent`
 --
 
-DROP TABLE IF EXISTS `discount`;
-CREATE TABLE IF NOT EXISTS `discount` (
-  `disid` int(11) NOT NULL,
-  `type` text NOT NULL,
-  `disamount` float DEFAULT NULL,
-  PRIMARY KEY (`disid`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+INSERT INTO `curstudent` (`studentid`, `IDno`, `gradelvl`, `section`, `teacher`, `totalpayment`, `dateenrolled`, `yearID`, `enrID`) VALUES
+(2, 2, '6', '2', 'sya', 399, '2019-10-01', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -150,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `discount` (
 DROP TABLE IF EXISTS `enstudent`;
 CREATE TABLE IF NOT EXISTS `enstudent` (
   `enid` int(90) NOT NULL AUTO_INCREMENT,
-  `studIDno` int(11) NOT NULL,
+  `IDno` int(11) DEFAULT NULL,
   `GivenName` varchar(45) NOT NULL,
   `MiddleName` varchar(45) NOT NULL,
   `SurName` varchar(45) NOT NULL,
@@ -172,29 +181,32 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   `faoccupation` varchar(45) NOT NULL,
   `moFname` varchar(45) DEFAULT NULL,
   `moLname` varchar(45) DEFAULT NULL,
-  `moAdd` varchar(45) DEFAULT NULL,
   `momobilenum` varchar(45) DEFAULT NULL,
   `moEmail` varchar(45) DEFAULT NULL,
   `mooccupation` varchar(45) NOT NULL,
-  `guaFname` varchar(45) DEFAULT NULL,
-  `guaLname` varchar(45) DEFAULT NULL,
-  `guaAdd` varchar(45) DEFAULT NULL,
-  `guaContact` varchar(45) DEFAULT NULL,
   `sibFname` varchar(60) DEFAULT NULL,
   `sibLname` varchar(60) DEFAULT NULL,
-  `sibBirthdate` date NOT NULL,
   `sibschoolname` varchar(45) DEFAULT NULL,
   `dateenrolled` date NOT NULL,
-  `IDyear` int(40) NOT NULL,
-  `studstatus` varchar(45) NOT NULL,
+  `yearid` int(40) NOT NULL,
   PRIMARY KEY (`enid`),
+  UNIQUE KEY `dateenrolled_2` (`dateenrolled`),
+  UNIQUE KEY `dateenrolled_3` (`dateenrolled`),
   KEY `studFname` (`GivenName`),
   KEY `studLname` (`SurName`),
   KEY `gradelvl` (`gradelvl`),
   KEY `dateenrolled` (`dateenrolled`),
-  KEY `YearID_idx` (`IDyear`),
-  KEY `studIDno_idx` (`studIDno`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `YearID_idx` (`yearid`),
+  KEY `studIDno_idx` (`IDno`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `enstudent`
+--
+
+INSERT INTO `enstudent` (`enid`, `IDno`, `GivenName`, `MiddleName`, `SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, `homeTelnum`, `mobilenum`, `studaddress`, `prevschoolattended`, `studstat`, `sponsor`, `faFname`, `falname`, `faAdd`, `faMobilenum`, `faEmail`, `faoccupation`, `moFname`, `moLname`, `momobilenum`, `moEmail`, `mooccupation`, `sibFname`, `sibLname`, `sibschoolname`, `dateenrolled`, `yearid`) VALUES
+(1, NULL, 'asd', 'asd', 'asd', 'asd', '2019-10-01', 'asd', 'M', '223', '233', 'asd', 'asd', 'tasd', 'sdasd', 'sdad', 'bsh', 'hshsh', NULL, 'hahaha', 'haha', 'haha', 'sdbhab', 'asbdhb', 'ashdbhasb', 'ahsdbhds', 'ahsdbah', 'ashbdha', 'hasbdh', '2019-10-10', 1),
+(2, 2, 'the', 'the', 'the', '6', '2019-10-01', 'doon', 'F', 'owo', 'owo', 'wowo', 'owo', 'owo', 'owo', 'owo', 'owo', 'owo', 'owo', 'oow', 'owo', 'owo', 'owo', 'oowo', 'oow', 'oow', 'woo', 'wo', 'owo', '2019-10-08', 1);
 
 -- --------------------------------------------------------
 
@@ -205,13 +217,12 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
 DROP TABLE IF EXISTS `fees`;
 CREATE TABLE IF NOT EXISTS `fees` (
   `feeid` int(11) NOT NULL,
-  `disctype` varchar(45) NOT NULL,
-  `discpercetage` float NOT NULL,
-  `feeamount` float NOT NULL,
-  `feedate` date NOT NULL,
-  `duedate` date NOT NULL,
-  `feestatus` varchar(45) NOT NULL,
-  PRIMARY KEY (`feeid`)
+  `totalfee` double NOT NULL,
+  `feegrade` double NOT NULL,
+  `feepre` double NOT NULL,
+  `IDno` int(11) NOT NULL,
+  PRIMARY KEY (`feeid`),
+  UNIQUE KEY `studeid` (`IDno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='	';
 
 -- --------------------------------------------------------
@@ -230,26 +241,11 @@ CREATE TABLE IF NOT EXISTS `grades` (
   `fourthquartergrade` int(11) DEFAULT NULL,
   `finalgrade` int(11) DEFAULT NULL,
   `remarks` varchar(45) DEFAULT NULL,
-  `estudid` int(11) NOT NULL,
+  `IDno` int(11) NOT NULL,
+  `yearid` int(11) NOT NULL,
   PRIMARY KEY (`gradeid`),
-  KEY `studid_idx` (`estudid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `logs`
---
-
-DROP TABLE IF EXISTS `logs`;
-CREATE TABLE IF NOT EXISTS `logs` (
-  `logid` int(100) NOT NULL AUTO_INCREMENT,
-  `accid` int(11) NOT NULL,
-  `description` varchar(45) NOT NULL,
-  `date` date NOT NULL,
-  `time` timestamp NOT NULL,
-  PRIMARY KEY (`logid`),
-  KEY `accid_idx` (`accid`)
+  UNIQUE KEY `yid` (`yearid`),
+  KEY `studid_idx` (`IDno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -261,31 +257,28 @@ CREATE TABLE IF NOT EXISTS `logs` (
 DROP TABLE IF EXISTS `payment`;
 CREATE TABLE IF NOT EXISTS `payment` (
   `payid` int(11) NOT NULL,
-  `studeid` int(11) NOT NULL,
-  `payfname` varchar(45) DEFAULT NULL,
-  `paylname` varchar(45) DEFAULT NULL,
+  `payname` varchar(45) DEFAULT NULL,
   `payamount` float DEFAULT NULL,
   `paydate` date DEFAULT NULL,
+  `feeid` int(11) NOT NULL,
   PRIMARY KEY (`payid`),
-  KEY `studeid_idx` (`studeid`)
+  KEY `idfee` (`feeid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `schooldays`
+-- Table structure for table `schoolfee`
 --
 
-DROP TABLE IF EXISTS `schooldays`;
-CREATE TABLE IF NOT EXISTS `schooldays` (
-  `scid` int(11) NOT NULL,
-  `month` date NOT NULL,
-  `days` int(30) NOT NULL,
-  `schyearstart` year(4) NOT NULL,
-  `schyearend` year(4) NOT NULL,
-  PRIMARY KEY (`scid`),
-  KEY `schyearstart_idx` (`schyearstart`),
-  KEY `schyearend_idx` (`schyearend`)
+DROP TABLE IF EXISTS `schoolfee`;
+CREATE TABLE IF NOT EXISTS `schoolfee` (
+  `scfeeid` int(11) NOT NULL AUTO_INCREMENT,
+  `amount` double NOT NULL,
+  `scfeename` varchar(20) NOT NULL,
+  `yearid` int(11) NOT NULL,
+  PRIMARY KEY (`scfeeid`),
+  UNIQUE KEY `yID` (`yearid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -306,34 +299,49 @@ CREATE TABLE IF NOT EXISTS `schoolyear` (
   PRIMARY KEY (`yearid`),
   KEY `yearstart` (`yearstart`),
   KEY `yearend` (`yearend`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `schoolyear`
+--
+
+INSERT INTO `schoolyear` (`yearid`, `yearstart`, `yearend`, `totalAtt`, `atteID`, `feeID`, `Status`) VALUES
+(1, 2019, 2020, 360, 1, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `section`
+--
+
+DROP TABLE IF EXISTS `section`;
+CREATE TABLE IF NOT EXISTS `section` (
+  `secID` int(11) NOT NULL AUTO_INCREMENT,
+  `sename` varchar(10) NOT NULL,
+  `adviserid` varchar(45) NOT NULL,
+  `yearid` int(11) NOT NULL,
+  PRIMARY KEY (`secID`),
+  UNIQUE KEY `adviserid` (`adviserid`),
+  UNIQUE KEY `yearid` (`yearid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sponsorhip`
+-- Table structure for table `subject`
 --
 
-DROP TABLE IF EXISTS `sponsorhip`;
-CREATE TABLE IF NOT EXISTS `sponsorhip` (
-  `sponsorid` int(45) NOT NULL AUTO_INCREMENT,
-  `fname` varchar(11) DEFAULT NULL,
-  `lname` varchar(11) DEFAULT NULL,
-  `studentid` int(11) NOT NULL,
-  PRIMARY KEY (`sponsorid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `surcharge`
---
-
-DROP TABLE IF EXISTS `surcharge`;
-CREATE TABLE IF NOT EXISTS `surcharge` (
-  `surid` int(11) NOT NULL,
-  `suramount` float DEFAULT NULL,
-  PRIMARY KEY (`surid`)
+DROP TABLE IF EXISTS `subject`;
+CREATE TABLE IF NOT EXISTS `subject` (
+  `subjID` int(90) NOT NULL AUTO_INCREMENT,
+  `subname` varchar(12) NOT NULL,
+  `curID` int(11) NOT NULL,
+  `yearid` int(11) NOT NULL,
+  `empid` varchar(45) NOT NULL,
+  PRIMARY KEY (`subjID`),
+  UNIQUE KEY `currID` (`curID`),
+  UNIQUE KEY `empid` (`empid`),
+  KEY `yeaid` (`yearid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -341,10 +349,36 @@ CREATE TABLE IF NOT EXISTS `surcharge` (
 --
 
 --
+-- Constraints for table `assessment`
+--
+ALTER TABLE `assessment`
+  ADD CONSTRAINT `pyid` FOREIGN KEY (`payid`) REFERENCES `payment` (`payid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `attendance`
+--
+ALTER TABLE `attendance`
+  ADD CONSTRAINT `stid` FOREIGN KEY (`IDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `yerid` FOREIGN KEY (`idyear`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `checklist`
+--
+ALTER TABLE `checklist`
+  ADD CONSTRAINT `idnumber` FOREIGN KEY (`IDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `curriculum`
+--
+ALTER TABLE `curriculum`
+  ADD CONSTRAINT `iyear` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `sid` FOREIGN KEY (`IDno`) REFERENCES `enstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `curstudent`
 --
 ALTER TABLE `curstudent`
-  ADD CONSTRAINT `IDno` FOREIGN KEY (`IDno`) REFERENCES `enstudent` (`studIDno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `IDno` FOREIGN KEY (`IDno`) REFERENCES `enstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `enrID` FOREIGN KEY (`enrID`) REFERENCES `enstudent` (`enid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `gradlvl` FOREIGN KEY (`gradelvl`) REFERENCES `enstudent` (`gradelvl`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `yearID` FOREIGN KEY (`yearID`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -353,33 +387,47 @@ ALTER TABLE `curstudent`
 -- Constraints for table `enstudent`
 --
 ALTER TABLE `enstudent`
-  ADD CONSTRAINT `IDYear` FOREIGN KEY (`IDyear`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `studIDno` FOREIGN KEY (`studIDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `IDYear` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `fees`
+--
+ALTER TABLE `fees`
+  ADD CONSTRAINT `stdeID` FOREIGN KEY (`IDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `grades`
 --
 ALTER TABLE `grades`
-  ADD CONSTRAINT `estudid` FOREIGN KEY (`estudid`) REFERENCES `curstudent` (`studentid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `logs`
---
-ALTER TABLE `logs`
-  ADD CONSTRAINT `accid` FOREIGN KEY (`accid`) REFERENCES `accounts` (`accid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `estudid` FOREIGN KEY (`IDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `yid` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `payment`
 --
 ALTER TABLE `payment`
-  ADD CONSTRAINT `studeid` FOREIGN KEY (`studeid`) REFERENCES `curstudent` (`studentid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `idfee` FOREIGN KEY (`feeid`) REFERENCES `fees` (`feeid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `schooldays`
+-- Constraints for table `schoolfee`
 --
-ALTER TABLE `schooldays`
-  ADD CONSTRAINT `schyearend` FOREIGN KEY (`schyearend`) REFERENCES `schoolyear` (`yearend`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `schyearstart` FOREIGN KEY (`schyearstart`) REFERENCES `schoolyear` (`yearstart`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `schoolfee`
+  ADD CONSTRAINT `idy` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `section`
+--
+ALTER TABLE `section`
+  ADD CONSTRAINT `adviserid` FOREIGN KEY (`adviserid`) REFERENCES `accounts` (`empid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `idye` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `subject`
+--
+ALTER TABLE `subject`
+  ADD CONSTRAINT `currid` FOREIGN KEY (`curID`) REFERENCES `curriculum` (`curid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `empid` FOREIGN KEY (`empid`) REFERENCES `accounts` (`empid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `yeaid` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
