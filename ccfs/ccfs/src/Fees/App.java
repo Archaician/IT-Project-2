@@ -20,7 +20,9 @@ public class App {
     }
     
     public static void check() throws Exception{
-        //FeesMethod.insertFees();
+        String[] arr = {"2", "2000", "2", "2", "02"};
+        Fees f = new Fees(arr);
+        FeesMethod.insertFees(f);
     }
 
 }

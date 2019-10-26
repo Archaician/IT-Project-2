@@ -38,12 +38,12 @@ public class FeesMethod {
 //            String id = rs.getString("IDno");
 
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO fees"
-                + "(feeid, totalfee, feegrade, feepre, IDno) VALUES('?', '?', '?', '?', '?')");
-        prepedSt.setString(1, fees.feeInfo[0]);
-        prepedSt.setString(2, fees.feeInfo[1]);
-        prepedSt.setString(3, fees.feeInfo[2]);
-        prepedSt.setString(4, fees.feeInfo[3]);
-        prepedSt.setString(5, fees.feeInfo[4]);
+                + "(feeid, totalfee, feegrade, feepre, IDno) VALUES(?, ?, ?, ?, ?)");
+        prepedSt.setInt(1, Integer.parseInt(fees.feeInfo[0]));
+        prepedSt.setDouble(2, Double.parseDouble(fees.feeInfo[1]));
+        prepedSt.setDouble(3, Double.parseDouble(fees.feeInfo[2]));
+        prepedSt.setDouble(4, Double.parseDouble(fees.feeInfo[3]));
+        prepedSt.setInt(5, Integer.parseInt(fees.feeInfo[4]));
         prepedSt.executeUpdate();
         }
     }
