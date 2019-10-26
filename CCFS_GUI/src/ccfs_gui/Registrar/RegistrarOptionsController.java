@@ -77,13 +77,13 @@ public class RegistrarOptionsController implements Initializable {
         } else if (event.getSource() == studGrades_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
         } else if (event.getSource() == viewStudList_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewListOfStudent.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ViewListOfStudent.fxml"));
         } else if (event.getSource() == viewArchive_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewStudentArchive.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ViewStudentArchive.fxml"));
         } else if (event.getSource() == attendance_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewAttendanceOfStudent.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewAttendanceOfStudent.fxml"));
         } else if (event.getSource() == generateReports_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarReports.fxml"));
+            root = FXMLLoader.load(getClass().getResource("RegistrarReports.fxml"));
         } 
         
 
