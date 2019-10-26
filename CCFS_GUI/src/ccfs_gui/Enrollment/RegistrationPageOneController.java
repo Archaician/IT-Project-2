@@ -80,8 +80,8 @@ public class RegistrationPageOneController implements Initializable {
     /*Show gender choicebox choices*/
     private void loadGender() {
         list.removeAll(list);
-        String male = "Male";
-        String female = "Female";
+        String male = "MALE";
+        String female = "FEMALE";
         list.addAll(male, female);
         gender.getItems().addAll(list);
         gender.setValue(male);
@@ -90,15 +90,15 @@ public class RegistrationPageOneController implements Initializable {
     /*Show grade level choicebox choices.*/
     private void loadGradeLevel() {
         list.removeAll(list);
-        String nursery = "Nursery";
-        String prekinder = "Pre-Kinder";
-        String kinder = "Kinder";
-        String one = "Grade 1";
-        String two = "Grade 2";
-        String three = "Grade 3";
-        String four = "Grade 4";
-        String five = "Grade 5";
-        String six = "Grade 6";
+        String nursery = "NURSERY";
+        String prekinder = "PRE-KINDER";
+        String kinder = "KINDER";
+        String one = "GRADE 1";
+        String two = "GRADE 2";
+        String three = "GRADE 3";
+        String four = "GRADE 4";
+        String five = "GRADE 5";
+        String six = "GRADE 6";
         list.addAll(nursery, prekinder, kinder, one, two, three, four, five, six);
         gradelvl.getItems().addAll(list);
         gradelvl.setValue(nursery);
@@ -143,6 +143,7 @@ public class RegistrationPageOneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        FieldValidation.capsLock(surname, givenname, middlename, birthplace, address, prevschool);
         setStudentID();
         setSchoolYear();
         setSurname();

@@ -78,15 +78,15 @@ public class EnrollmentContinuingController implements Initializable {
     /*Show grade level choicebox choices.*/
     private void loadGradeLevel() {
         list.removeAll(list);
-        String nursery = "Nursery";
-        String prekinder = "Pre-Kinder";
-        String kinder = "Kinder";
-        String one = "Grade 1";
-        String two = "Grade 2";
-        String three = "Grade 3";
-        String four = "Grade 4";
-        String five = "Grade 5";
-        String six = "Grade 6";
+        String nursery = "NURSERY";
+        String prekinder = "PRE-KINDER";
+        String kinder = "KINDER";
+        String one = "GRADE 1";
+        String two = "GRADE 2";
+        String three = "GRADE 3";
+        String four = "GRADE 4";
+        String five = "GRADE 5";
+        String six = "GRADE 6";
         list.addAll(nursery, prekinder, kinder, one, two, three, four, five, six);
         newgradelvl.getItems().addAll(list);
         //newgradelvl.setValue();

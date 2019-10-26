@@ -6,6 +6,7 @@
 package ccfs_gui.Enrollment;
 
 import ccfs_gui.DialogWindows;
+import ccfs_gui.FieldValidation;
 import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
@@ -120,6 +121,8 @@ public class RegistrationPageTwoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        FieldValidation.capsLock(fatherfirstname, fatherlastname, motherfirstname, motherlastname, fatheraddress, fatheroccupation,
+                fatheremail, motheraddress, motheroccupation, motheremail, guardianfirstname, guardianlastname, guardianaddress);
         //getStudentID("");
         //getSchoolYear("");
         getSurname("");

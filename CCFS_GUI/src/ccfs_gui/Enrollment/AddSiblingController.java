@@ -64,6 +64,7 @@ public class AddSiblingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        FieldValidation.capsLock(surname, givenname, school);
         // TODO
     }
 
