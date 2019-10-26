@@ -58,7 +58,7 @@ public class CreateAccountController implements Initializable {
     private Button back_Btn;
     @FXML
     private Button create_Btn;
-    
+
     private void setAccountID() {
         /*SAMPLE ONLY */
         accID.setText("[ID here]");
@@ -67,8 +67,8 @@ public class CreateAccountController implements Initializable {
     /*Show account type choicebox choices.*/
     private void loadAccountType() {
         list.removeAll(list);
-        String registrar = "Registrar";
-        String accounting = "Accounting";
+        String registrar = "REGISTRAR";
+        String accounting = "ACCOUNTING";
         list.addAll(registrar, accounting);
         acctype.getItems().addAll(list);
         acctype.setValue(registrar);
@@ -81,7 +81,7 @@ public class CreateAccountController implements Initializable {
         String strFirstname = firstname.getText();
         String strLastname = lastname.getText();
         String strUsername = username.getText();
-        
+
         /*Required textfields validation.*/
         if (empID.getText().isEmpty() || firstname.getText().isEmpty() || lastname.getText().isEmpty()
                 || username.getText().isEmpty() || passwd.getText().isEmpty()) {
@@ -92,10 +92,10 @@ public class CreateAccountController implements Initializable {
             confpasswd.setStyle("-fx-border-color: red");
             confpasswd.setPromptText("PASSWORD DOES NOT MATCH!");
             confpasswd.setOnKeyTyped(e -> {
-                    passwd.setStyle("-fx-border-color: none");
-                    confpasswd.setStyle("-fx-border-color: none");
+                passwd.setStyle("-fx-border-color: none");
+                confpasswd.setStyle("-fx-border-color: none");
             });
-        } else {         
+        } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create an account with the following information?"
                     + "\nEmployee ID: " + strEmpid + "\nAccount Type: " + strAcctype + "\nFirst Name: " + strFirstname
                     + "\nLast Name: " + strLastname + "\nUsername: " + strUsername, ButtonType.YES, ButtonType.NO);
@@ -135,7 +135,7 @@ public class CreateAccountController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //FieldValidation.capsLock(empID, firstname, lastname, username);
+        FieldValidation.capsLock(empID, firstname, lastname, username);
         setAccountID();
         loadAccountType();
     }
