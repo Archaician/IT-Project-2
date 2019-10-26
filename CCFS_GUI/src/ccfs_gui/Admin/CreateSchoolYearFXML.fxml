@@ -81,7 +81,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="cancel_Btn" cancelButton="true" mnemonicParsing="false" onAction="#backButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="CANCEL" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="cancel_Btn" cancelButton="true" mnemonicParsing="false" onAction="#otherButtons" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="CANCEL" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin>

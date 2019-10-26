@@ -51,12 +51,13 @@ public class CreateSchoolYearController implements Initializable {
     }    
 
     @FXML
-    private void backButton(ActionEvent event) {
-    }
-
-    @FXML
     private void createButton(ActionEvent event) {
+        //TODO
     }
     
+    @FXML
+    private void otherButtons(ActionEvent event) {
+        
+    }
     
 }
