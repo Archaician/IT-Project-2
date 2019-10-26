@@ -1,21 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package logIn;
-//import enrollment.EnrollmentMethod; // do the same thing on LoginMethod
 
 /**
  *
- * @author Adam
+ * @author Acer
  */
 public class App {
     
     public static void main(String[] args) throws Exception {
-        LogInMethod.connection();
-        login();
+            LogInMethod.connection();
+            check();
+           
     }
-    
-    public static void login() throws Exception {
-        String credent[] = {"dick","head"};
-        LogIn log = new LogIn(credent);
-        LogInMethod.logIn(log);
-        
+    public static void check() throws Exception{
+        String[] ll = {"Paul","Imran"};
+        LogIn log = new LogIn(ll);
+        System.out.println(LogInMethod.logInAccNum(log));
+        System.out.println(LogInMethod.logIn(log));
+        System.out.println(LogInMethod.logInType(log));
     }
 }

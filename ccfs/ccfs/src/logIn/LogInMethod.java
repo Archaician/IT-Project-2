@@ -6,9 +6,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.LinkedList;
 
 public class LogInMethod {
     
@@ -20,24 +17,31 @@ public class LogInMethod {
         //connect to database but this will be merge on system integration
     }
     //did not include con.close
-    public static void logIn(LogIn log) throws Exception {
-        PreparedStatement prepedSt = con.prepareStatement("SELECT * FROM `accounting` where accUser=? AND accPass=? ");
-        /*PreparedStatement prepedSt1 = con.prepareStatement("SELECT regUser,regPass FROM `registrar` where regUser = ? regPass = ?");
-        PreparedStatement prepedSt2 = con.prepareStatement("SELECT adminUser,adminPassword FROM `accounting` where adminUser = ? adminPassword= ?");*/
+    public static boolean logIn(LogIn log) throws Exception {
+        PreparedStatement prepedSt = con.prepareStatement("Select username,"
+                + "password from accounts where username=? And password=?");
         prepedSt.setString(1,log.credent[0]);
         prepedSt.setString(2,log.credent[1]);
-        /*prepedSt1.setString(1,log.credent[0]);
-        prepedSt1.setString(1,log.credent[1]);
-        prepedSt2.setString(1,log.credent[0]);
-        prepedSt2.setString(1,log.credent[1]);*/
-        ResultSet resultSet = prepedSt.executeQuery();
-        //ResultSet resultSet1 = prepedSt1.executeQuery();
-        //ResultSet resultSet2 = prepedSt2.executeQuery();
-        //refactor
-        //to be continue
-        //use resultSet.next == false to check if result is empty
-        resultSet.next();
-        String a = resultSet.getString("accPass");
-        
-   }
+        ResultSet rs = prepedSt.executeQuery();  
+        return rs.next() != false;
+    }
+    
+    public static int logInAccNum(LogIn log) throws Exception {
+        PreparedStatement prepedSt = con.prepareStatement("Select accid from "
+                + "accounts where username=? And password=?");
+        prepedSt.setString(1,log.credent[0]);
+        prepedSt.setString(2,log.credent[1]);
+        ResultSet rs = prepedSt.executeQuery();
+        rs.next();
+        return rs.getInt(1);
+    }
+    
+    public static String logInType(LogIn log) throws Exception {
+        PreparedStatement prepedSt = con.prepareStatement("Select type from accounts where username=? And password=?");
+        prepedSt.setString(1,log.credent[0]);
+        prepedSt.setString(2,log.credent[1]);
+        ResultSet rs = prepedSt.executeQuery();
+        rs.next();
+        return rs.getString(1);
+    }
 }
