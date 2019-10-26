@@ -98,7 +98,14 @@ public class RegistrarOptionsController implements Initializable {
         stage.setScene(new Scene(root1));  
         stage.show();
     }
-
+    @FXML
+    private void addDiscount(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/DiscountSponsor/AddDiscount.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));  
+        stage.show();
+    }
     /**
      * Initializes the controller class.
      */
