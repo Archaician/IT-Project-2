@@ -17,9 +17,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  *
@@ -53,9 +55,14 @@ public class AdminOptionsController implements Initializable {
     @FXML
     private void adminOptionsButtons(ActionEvent event) throws IOException {
         AnchorPane root = null;
-        
+
         if (event.getSource() == createSchYr_Btn) {
-            root = FXMLLoader.load(getClass().getResource(""));
+            //root = FXMLLoader.load(getClass().getResource(""));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateSchoolYearFXML.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
         } else if (event.getSource() == createNewAcc_Btn) {
             //  fxmlval.add("AdminOptionsFXML.fxml");
             root = FXMLLoader.load(getClass().getResource("CreateAccountFXML.fxml"));
