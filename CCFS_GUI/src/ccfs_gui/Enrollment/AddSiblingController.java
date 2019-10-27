@@ -49,11 +49,7 @@ public class AddSiblingController implements Initializable {
         if (surname.getText().isEmpty() || givenname.getText().isEmpty() || school.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(surname, givenname, school);
         } else if (birthdate.getValue() == null) {
-            birthdate.setStyle("-fx-border-color: red");
-            birthdate.setPromptText("REQUIRED!");
-            birthdate.setOnKeyTyped(e -> {
-                birthdate.setStyle("-fx-border-color: none");
-            });
+            FieldValidation.requiredDateWarning(birthdate);
         } else {
             //TODO
         }

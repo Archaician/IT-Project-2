@@ -111,11 +111,7 @@ public class RegistrationPageOneController implements Initializable {
                 || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(surname, givenname, middlename, birthplace, address, prevschool);
         } else if (birthdate.getValue() == null) {
-            birthdate.setStyle("-fx-border-color: red");
-            birthdate.setPromptText("REQUIRED!");
-            birthdate.setOnKeyTyped(e -> {
-                birthdate.setStyle("-fx-border-color: none");
-            });
+            FieldValidation.requiredDateWarning(birthdate);
         } else {
             FXMLLoader loader = new FXMLLoader();
             AnchorPane root = FXMLLoader.load(getClass().getResource("RegistrationPageTwoFXML.fxml"));
