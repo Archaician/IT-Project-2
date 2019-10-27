@@ -6,6 +6,7 @@
 package ccfs_gui;
 
 import java.util.function.UnaryOperator;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.TextFormatter.Change;
@@ -17,10 +18,10 @@ import javafx.util.converter.IntegerStringConverter;
  * @version 1.0
  */
 public class FieldValidation {
-    
+
     /*Required textfields validation.*/
     public static void requiredTextFieldWarning(TextField... textfield) {
-        for (TextField tf : textfield)
+        for (TextField tf : textfield) {
             if (tf.getText().isEmpty()) {
                 tf.setStyle("-fx-border-color: red");
                 tf.setPromptText("REQUIRED!");
@@ -28,6 +29,22 @@ public class FieldValidation {
                     tf.setStyle("-fx-border-color: none");
                 });
             }
+        }
+    }
+
+    /*Required dates validation.*/
+    public static void requiredDateWarning(DatePicker... datepicker) {
+        for (DatePicker dt : datepicker) {
+            if (dt.getValue() == null) {
+                dt.setStyle("-fx-border-color: red");
+                dt.setPromptText("REQUIRED!");
+                dt.setOnMouseClicked(e -> {
+                    if (dt.getValue() != null) {
+                        dt.setStyle("-fx-border-color: none");
+                    }
+                });
+            }
+        }
     }
 
     /*Numeric textfields validation.*/
@@ -51,7 +68,7 @@ public class FieldValidation {
         } */
     }
 
-    /*Force text input to be capitalized.*/
+    /*Force textfield input to be capitalized.*/
     public static void capsLock(TextField... textfield) {
         for (TextField tf : textfield) {
             tf.setTextFormatter(new TextFormatter<>((change) -> {
