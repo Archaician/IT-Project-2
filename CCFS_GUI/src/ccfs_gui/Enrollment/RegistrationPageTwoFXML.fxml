@@ -245,14 +245,6 @@
                               <Insets bottom="20.0" left="225.0" top="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guardian's Last Name:" GridPane.columnIndex="1" GridPane.rowIndex="9">
-                           <font>
-                              <Font name="Ebrima" size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets left="5.0" />
-                           </GridPane.margin>
-                        </Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guardian's Address:" GridPane.rowIndex="10">
                            <font>
                               <Font name="Ebrima" size="20.0" />
@@ -311,27 +303,19 @@
                               <Insets bottom="20.0" left="195.0" top="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="guardianfirstname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                        <TextField fx:id="guardianname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.rowIndex="9" GridPane.valignment="CENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="210.0" right="20.0" top="20.0" />
+                              <Insets bottom="20.0" left="165.0" right="20.0" top="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guardian's First Name:" GridPane.rowIndex="9">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Guardian's Name:" GridPane.rowIndex="9">
                            <font>
                               <Font name="Ebrima" size="20.0" />
                            </font>
                         </Text>
-                        <TextField fx:id="guardianlastname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="9" GridPane.valignment="CENTER">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                           <GridPane.margin>
-                              <Insets bottom="20.0" left="210.0" top="20.0" />
-                           </GridPane.margin>
-                        </TextField>
                      </children>
                   </GridPane>
                </content>
@@ -347,7 +331,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER STUDENT" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ENROLL NEW STUDENT" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font name="Ebrima" size="30.0" />
                      </font>

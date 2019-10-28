@@ -72,9 +72,7 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private TextField motheremail;
     @FXML
-    private TextField guardianfirstname;
-    @FXML
-    private TextField guardianlastname;
+    private TextField guardianname;
     @FXML
     private TextField guardianaddress;
     @FXML
@@ -122,7 +120,7 @@ public class RegistrationPageTwoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         FieldValidation.capsLock(fatherfirstname, fatherlastname, motherfirstname, motherlastname, fatheraddress, fatheroccupation,
-                fatheremail, motheraddress, motheroccupation, motheremail, guardianfirstname, guardianlastname, guardianaddress);
+                fatheremail, motheraddress, motheroccupation, motheremail, guardianname, guardianaddress);
         //getStudentID("");
         //getSchoolYear("");
         getSurname("");
