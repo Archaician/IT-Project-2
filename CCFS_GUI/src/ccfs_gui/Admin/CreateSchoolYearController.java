@@ -22,6 +22,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -90,7 +91,8 @@ public class CreateSchoolYearController implements Initializable {
         if (event.getSource() == viewSchYrList_Btn) {
             //TODO
         } else if (event.getSource() == cancel_Btn) {
-            //TODO
+            Stage stage = (Stage) cancel_Btn.getScene().getWindow();
+            stage.close();
         }
 
     }
