@@ -62,18 +62,23 @@ public class CreateSchoolYearController implements Initializable {
     private void createButton(ActionEvent event) {
         LocalDate start = datestart.getValue();
         LocalDate end = dateend.getValue();
+        int yrStart = datestart.getValue().getYear();
+        int yrEnd = dateend.getValue().getYear();
         
         /*Field validation.*/
-        if (datestart.getValue() == null) {
-            FieldValidation.requiredDateWarning(datestart);
+        if (datestart.getValue().equals("") || dateend.getValue().equals("")) {
+            FieldValidation.requiredDateWarning(datestart, dateend);
+        } else if (start.isEqual(end) || start.isAfter(end) || yrStart == yrEnd) {
+            invalid.setText("INVALID SCHOOL YEAR!");
         } else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create a new school year with the following information?"
-                    + "\nDate Start: " + start + "\nDate End: " + end, ButtonType.YES, ButtonType.NO);
+            invalid.setText("");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create a new school year with the following information?\n"
+                    + "\nSchool Year: " + yrStart + "-" + yrEnd + "\nDate Start: " + start + "\nDate End: " + end, ButtonType.YES, ButtonType.NO);
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
                 //TODO
-                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New School Year", "Successfully created new school year.", ButtonType.OK);
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New School Year", "Successfully created school year " + yrStart + "-" + yrEnd + ".", ButtonType.OK);
             } else {
                 alert.close();
             }

@@ -81,10 +81,10 @@ public class CreateAccountController implements Initializable {
         String strFirstname = firstname.getText();
         String strLastname = lastname.getText();
         String strUsername = username.getText();
+        String strPasswd = passwd.getText();
 
         /*Required textfields validation.*/
-        if (empID.getText().isEmpty() || firstname.getText().isEmpty() || lastname.getText().isEmpty()
-                || username.getText().isEmpty() || passwd.getText().isEmpty()) {
+        if (strEmpid.isEmpty() || strFirstname.isEmpty() || strLastname.isEmpty() || strUsername.isEmpty() || strPasswd.isEmpty()) {
             FieldValidation.requiredTextFieldWarning(empID, firstname, lastname, username, passwd);
         } else if (!passwd.getText().equals(confpasswd.getText())) {
             confpasswd.clear();
@@ -96,7 +96,7 @@ public class CreateAccountController implements Initializable {
                 confpasswd.setStyle("-fx-border-color: none");
             });
         } else {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create an account with the following information?"
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create an account with the following information?\n"
                     + "\nEmployee ID: " + strEmpid + "\nAccount Type: " + strAcctype + "\nFirst Name: " + strFirstname
                     + "\nLast Name: " + strLastname + "\nUsername: " + strUsername, ButtonType.YES, ButtonType.NO);
             alert.showAndWait();
