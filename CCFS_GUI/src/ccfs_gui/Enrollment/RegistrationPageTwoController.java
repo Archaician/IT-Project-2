@@ -85,7 +85,7 @@ public class RegistrationPageTwoController implements Initializable {
     public void getSchoolYear(String text) {
         schYR.setText(text);
     }
-    
+
     public void getSurname(String text) {
         fatherlastname.setText(text);
         motherlastname.setText(text);
@@ -100,18 +100,40 @@ public class RegistrationPageTwoController implements Initializable {
 
     @FXML
     private void enrollButton(ActionEvent event) throws IOException {
-        //TODO
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
-        alert.showAndWait();
-        
-        if (alert.getResult() == ButtonType.YES) {
-            DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Registered Student", "Successfully registered student.", ButtonType.OK);
-            AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
-            container.getChildren().setAll(root);
-            LayoutProperties.anchorPaneConstraints(root);
+        /*Textfield validation.*/
+        if (!fatherfirstname.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(fatherlastname, fatheraddress, fathermobile);
+        } else if (!motherfirstname.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(motherlastname, motheraddress, mothermobile);
+        } else if (!fatherlastname.getText().isEmpty() || !fatheraddress.getText().isEmpty() || !fatheroccupation.getText().isEmpty()
+                || !fathermobile.getText().isEmpty() || !fatheremail.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(fatherfirstname);
+        } else if (!motherlastname.getText().isEmpty() || !motheraddress.getText().isEmpty() || !motheroccupation.getText().isEmpty()
+                || !mothermobile.getText().isEmpty() || !motheremail.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(motherfirstname);
+        } else if (fatherfirstname.getText().isEmpty() && motherfirstname.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(guardianname, guardianaddress, guardiannumber);
         } else {
-            alert.close();
+            //TODO
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Registered Student", "Successfully registered student.", ButtonType.OK);
+                AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+                container.getChildren().setAll(root);
+                LayoutProperties.anchorPaneConstraints(root);
+            } else {
+                alert.close();
+            }
         }
+    }
+
+    @FXML
+    private void backButton(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root);
     }
 
     /**
