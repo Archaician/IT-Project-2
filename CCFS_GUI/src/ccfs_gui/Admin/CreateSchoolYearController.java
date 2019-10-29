@@ -67,7 +67,7 @@ public class CreateSchoolYearController implements Initializable {
         int yrEnd = dateend.getValue().getYear();
         
         /*Field validation.*/
-        if (datestart.getValue().equals("") || dateend.getValue().equals("")) {
+        if (datestart.getValue() == null || dateend.getValue() == null) {
             FieldValidation.requiredDateWarning(datestart, dateend);
         } else if (start.isEqual(end) || start.isAfter(end) || yrStart == yrEnd) {
             invalid.setText("INVALID SCHOOL YEAR!");
@@ -80,6 +80,8 @@ public class CreateSchoolYearController implements Initializable {
             if (alert.getResult() == ButtonType.YES) {
                 //TODO
                 DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New School Year", "Successfully created school year " + yrStart + "-" + yrEnd + ".", ButtonType.OK);
+                //Stage stage = (Stage) ButtonType.OK.getScene().getWindow();
+                //stage.close();
             } else {
                 alert.close();
             }

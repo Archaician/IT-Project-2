@@ -58,14 +58,13 @@ public class AdminOptionsController implements Initializable {
         AnchorPane root = null;
 
         if (event.getSource() == createSchYr_Btn) {
-            //root = FXMLLoader.load(getClass().getResource(""));
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateSchoolYearFXML.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
-            stage.show();
             stage.setResizable(false);
-           // stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
         } else if (event.getSource() == createNewAcc_Btn) {
             //  fxmlval.add("AdminOptionsFXML.fxml");
             root = FXMLLoader.load(getClass().getResource("CreateAccountFXML.fxml"));
@@ -87,6 +86,12 @@ public class AdminOptionsController implements Initializable {
 
         container.getChildren().setAll(root);
         LayoutProperties.anchorPaneConstraints(root);
+    }
+    
+    /*Enable or disable enrollment.*/
+    @FXML
+    private void disableEnableEnrollment(ActionEvent event) {
+        //TODO
     }
 
     @FXML
