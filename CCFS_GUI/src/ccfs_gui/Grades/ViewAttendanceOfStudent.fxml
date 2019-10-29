@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="container" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ccfs_gui.Registrar.ViewAttendanceOfStudentController">
+<AnchorPane fx:id="container" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ccfs_gui.Grades.ViewAttendanceOfStudentController">
    <children>
       <BorderPane layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1100.0" style="-fx-background-color: #e9e9e9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -71,7 +71,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="43.0" prefWidth="104.0" style="-fx-background-color: green;" text="ADD" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <Button fx:id="add_Btn" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addButton" prefHeight="43.0" prefWidth="104.0" style="-fx-background-color: green;" text="ADD" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -79,7 +79,7 @@
                         <Insets bottom="10.0" left="30.0" top="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button cancelButton="true" mnemonicParsing="false" prefHeight="64.0" prefWidth="98.0" style="-fx-background-color: #ff2121;" text="BACK" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="back_Btn" cancelButton="true" mnemonicParsing="false" onAction="#backButton" prefHeight="64.0" prefWidth="98.0" style="-fx-background-color: #ff2121;" text="BACK" textFill="WHITE" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
