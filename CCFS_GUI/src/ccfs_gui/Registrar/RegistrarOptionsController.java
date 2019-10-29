@@ -20,6 +20,7 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -74,38 +75,40 @@ public class RegistrarOptionsController implements Initializable {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
         } else if (event.getSource() == enrollContStud_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
-        } else if (event.getSource() == studGrades_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
         } else if (event.getSource() == viewStudList_Btn) {
             root = FXMLLoader.load(getClass().getResource("ViewListOfStudent.fxml"));
         } else if (event.getSource() == viewArchive_Btn) {
             root = FXMLLoader.load(getClass().getResource("ViewStudentArchive.fxml"));
         } else if (event.getSource() == attendance_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewAttendanceOfStudent.fxml"));
+        } else if (event.getSource() == studGrades_Btn) {
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
+        } else if (event.getSource() == studDiscount_Btn) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/DiscountSponsor/AddDiscount.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+        } else if (event.getSource() == studSponsorship_Btn) {
+            //TODO
+        } else if (event.getSource() == studChecklist_Btn) {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/Grades/ViewChecklistSelection.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
         } else if (event.getSource() == generateReports_Btn) {
             root = FXMLLoader.load(getClass().getResource("RegistrarReports.fxml"));
-        } 
-        
+        }
 
         container.getChildren().setAll(root);
         LayoutProperties.anchorPaneConstraints(root);
     }
-    @FXML
-    private void checklistSelection(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/Registrar/ViewChecklistSelection.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1));  
-        stage.show();
-    }
-    @FXML
-    private void addDiscount(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/DiscountSponsor/AddDiscount.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1));  
-        stage.show();
-    }
+
     /**
      * Initializes the controller class.
      */

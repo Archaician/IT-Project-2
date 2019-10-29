@@ -5,10 +5,15 @@
  */
 package ccfs_gui.Registrar;
 
+import ccfs_gui.LayoutProperties;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -21,17 +26,29 @@ public class RegistrarReportsController implements Initializable {
 
     @FXML
     private BorderPane innerpane;
-    
     @FXML
     private AnchorPane container;
+    @FXML
+    private Button enrolledlist_Btn;
+    @FXML
+    private Button unenrolledlist_Btn;
+    @FXML
+    private Button withrawedlist_Btn;
+    @FXML
+    private Button back_Btn;
     
-    private void anchorPaneConstraints(BorderPane root) {
-            AnchorPane.setTopAnchor(root, 0.0);
-            AnchorPane.setRightAnchor(root, 0.0);
-            AnchorPane.setLeftAnchor(root, 0.0);
-            AnchorPane.setBottomAnchor(root, 0.0);
-    }        
-
+    @FXML
+    private void reportsButtons(ActionEvent event) {
+        //TODO
+    }
+            
+    @FXML
+    private void backButton(ActionEvent event) throws IOException {
+        AnchorPane root = FXMLLoader.load(getClass().getResource("RegistrarOptionsFXML.fxml"));
+        container.getChildren().setAll(root);
+        LayoutProperties.anchorPaneConstraints(root);
+    }
+    
     /**
      * Initializes the controller class.
      */

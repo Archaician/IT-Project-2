@@ -39,14 +39,7 @@ public class ViewStudentArchiveController implements Initializable {
       list.addAll(latest, ascend, descend);
       sort.getItems().addAll(list);
       sort.setValue(latest);
-    }
-    
-     private void anchorPaneConstraints(BorderPane root) {
-      AnchorPane.setTopAnchor(root, 0.0);
-      AnchorPane.setRightAnchor(root, 0.0);
-      AnchorPane.setLeftAnchor(root, 0.0);
-      AnchorPane.setBottomAnchor(root, 0.0);
-     }       
+    }      
 
     /**
      * Initializes the controller class.
