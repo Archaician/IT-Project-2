@@ -22,7 +22,6 @@ public class AdminMethod {
         con.close();
     }
     
-    
     public static void createSchoolYear(Admin admin) throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO "
                 + "`schoolyear`(`yearid`, `yearstart`, `yearend`, `totalAtt`, "
@@ -92,6 +91,12 @@ public class AdminMethod {
         PreparedStatement prepedSt = con.prepareStatement("SELECT IDno, "
                 + "GivenName, MiddleName, SurName, gradelvl,sponsor FROM "
                 + "`enstudent`");
+        ResultSet rs = prepedSt.executeQuery();
+        return rs.getString(1);
+    }
+    public static String vieAcc() throws Exception {
+        PreparedStatement prepedSt = con.prepareStatement("SELECT * FROM "
+                + "`accounts`;");
         ResultSet rs = prepedSt.executeQuery();
         return rs.getString(1);
     }
