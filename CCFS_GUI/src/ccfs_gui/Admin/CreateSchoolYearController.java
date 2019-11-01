@@ -49,7 +49,7 @@ public class CreateSchoolYearController implements Initializable {
     private DatePicker dateend;
     @FXML
     private Label invalid;
-
+    
     @FXML
     private void createButton(ActionEvent event) {
         LocalDate start = datestart.getValue();
