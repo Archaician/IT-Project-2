@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author Imran
+ * @author Imran ; Paul
  */
 public class RegistrarOptionsController implements Initializable {
 
@@ -84,15 +84,9 @@ public class RegistrarOptionsController implements Initializable {
         } else if (event.getSource() == studGrades_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
         } else if (event.getSource() == studDiscount_Btn) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/DiscountSponsor/AddDiscount.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/DiscountSponsor/AddDiscount.fxml"));
         } else if (event.getSource() == studSponsorship_Btn) {
-            //TODO
+            //root = FXMLLoader.load(getClass().getResource("/ccfs_gui/DiscountSponsor/"));
         } else if (event.getSource() == studChecklist_Btn) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/Grades/ViewChecklistSelection.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
