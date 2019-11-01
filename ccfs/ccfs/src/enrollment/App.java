@@ -14,7 +14,11 @@ public class App {
 
     public static void enrollStud() {
         try {
-            EnrollmentMethod.addStud();
+            String[] arr = {"7","q","q","q","q","2020-10-03",
+            "q","q","q","q","q","q","q","q","q","q","q","q",
+            "q","q","q","q","q","q","q","q","q","q","2020-11-01","1"};
+            Enrollment en = new Enrollment(arr);
+            EnrollmentMethod.addStud(en);
         }catch(Exception e) {
         }
     }

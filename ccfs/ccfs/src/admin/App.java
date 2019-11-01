@@ -10,20 +10,12 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         AdminMethod.connection();
-        Scanner kbd = new Scanner(System.in);
-        int opp = kbd.nextInt();
-        // case for option
-        switch(opp) {
-            case 1:
-            createAcc();
-            break;
-        }
-        kbd.close();
+        createAcc();
     }
 
     public static void createAcc() throws Exception {
-        String[] acc = new String[7];
-        Admin adminCreateAcc = new Admin(acc);
-        AdminMethod.createAccount(adminCreateAcc);
+        String[] arr = {"4","e","e","e","e","13","e"};
+        Admin ad = new Admin(arr);
+        AdminMethod.addAccounts(ad);
     }
 }
