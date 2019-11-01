@@ -80,7 +80,7 @@ public class AdminOptionsController implements Initializable {
         } else if (event.getSource() == studGrades_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Grades/ViewGrades.fxml"));
         } else if (event.getSource() == studDiscount_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/DiscountSponsor/AddDiscount.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/DiscountSponsor/DiscountOptionsFXML.fxml"));
         } else if (event.getSource() == studSponsorship_Btn) {
             //root = FXMLLoader.load(getClass().getResource("/ccfs_gui/DiscountSponsor/"));
         }
