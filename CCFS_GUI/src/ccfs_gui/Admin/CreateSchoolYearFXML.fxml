@@ -52,7 +52,7 @@
                         <Insets bottom="30.0" left="10.0" top="30.0" />
                      </GridPane.margin>
                   </DatePicker>
-                  <Label fx:id="invalid" textFill="#ff2121" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+                  <Label fx:id="invalid" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" textFill="#ff2121" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima Bold" size="15.0" />
                      </font>

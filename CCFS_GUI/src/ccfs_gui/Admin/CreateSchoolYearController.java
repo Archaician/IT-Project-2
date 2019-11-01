@@ -50,40 +50,37 @@ public class CreateSchoolYearController implements Initializable {
     @FXML
     private Label invalid;
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        /*Set datepicker value to current date.*/
-        datestart.setValue(Optional.ofNullable(datestart.getValue()).orElse(LocalDate.now()));
-    }
-
     @FXML
     private void createButton(ActionEvent event) {
         LocalDate start = datestart.getValue();
         LocalDate end = dateend.getValue();
-        int yrStart = datestart.getValue().getYear();
-        int yrEnd = dateend.getValue().getYear();
-        
+
         /*Field validation.*/
         if (datestart.getValue() == null || dateend.getValue() == null) {
-            FieldValidation.requiredDateWarning(datestart, dateend);
-        } else if (start.isEqual(end) || start.isAfter(end) || yrStart == yrEnd) {
-            invalid.setText("INVALID SCHOOL YEAR!");
-        } else {
             invalid.setText("");
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create a new school year with the following information?\n"
-                    + "\nSchool Year: " + yrStart + "-" + yrEnd + "\nDate Start: " + start + "\nDate End: " + end, ButtonType.YES, ButtonType.NO);
-            alert.showAndWait();
+            FieldValidation.requiredDateWarning(datestart, dateend);
+        } else if (start.isEqual(end) || start.isAfter(end)) {
+            invalid.setText("INVALID SCHOOL YEAR!\nDATE END MUST BE AFTER DATE START.");
+        } else {
+            String yrStart = Integer.toString(datestart.getValue().getYear());
+            String yrEnd = Integer.toString(dateend.getValue().getYear());
 
-            if (alert.getResult() == ButtonType.YES) {
-                //TODO
-                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New School Year", "Successfully created school year " + yrStart + "-" + yrEnd + ".", ButtonType.OK);
-                //Stage stage = (Stage) ButtonType.OK.getScene().getWindow();
-                //stage.close();
+            if (yrStart.equals(yrEnd)) {
+                invalid.setText("INVALID SCHOOL YEAR!\nYEAR START AND YEAR END ARE THE SAME.");
             } else {
-                alert.close();
+                invalid.setText("");
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create a new school year with the following information?\n"
+                        + "\nSchool Year: " + yrStart + "-" + yrEnd + "\nDate Start: " + start + "\nDate End: " + end, ButtonType.YES, ButtonType.NO);
+                alert.showAndWait();
+
+                if (alert.getResult() == ButtonType.YES) {
+                    //TODO
+                    DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New School Year", "Successfully created school year " + yrStart + "-" + yrEnd + ".", ButtonType.OK);
+                    //Stage stage = (Stage) ButtonType.OK.getScene().getWindow();
+                    //stage.close();
+                } else {
+                    alert.close();
+                }
             }
         }
     }
@@ -97,6 +94,15 @@ public class CreateSchoolYearController implements Initializable {
             stage.close();
         }
 
+    }
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        /*Set datepicker value to current date.*/
+        datestart.setValue(Optional.ofNullable(datestart.getValue()).orElse(LocalDate.now()));
     }
 
 }
