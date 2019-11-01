@@ -5,17 +5,25 @@
  */
 package ccfs_gui.Accounting;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
- * @author Lenovo
+ * @author Paul ; Imran
  */
 public class ViewAddPaymentsController implements Initializable {
 
@@ -23,16 +31,23 @@ public class ViewAddPaymentsController implements Initializable {
     private BorderPane innerpane;
     @FXML
     private AnchorPane container;
+    @FXML
+    private Button schoolservice_Btn;
 
-    private void anchorPaneConstraints(BorderPane root) {
-            AnchorPane.setTopAnchor(root, 0.0);
-            AnchorPane.setRightAnchor(root, 0.0);
-            AnchorPane.setLeftAnchor(root, 0.0);
-            AnchorPane.setBottomAnchor(root, 0.0);
-        }
+    @FXML
+    private void addSchoolServiceFee(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SchoolService.fxml"));
+        Parent root1 = (Parent) fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root1));
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

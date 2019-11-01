@@ -33,10 +33,13 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <TextField alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="140.0" promptText="Enter ID Number" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <TextField alignment="CENTER" prefHeight="50.0" promptText="Enter ID Number" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets left="50.0" right="50.0" />
                      </GridPane.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
                   </TextField>
                   <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <columnConstraints>
@@ -47,7 +50,10 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button contentDisplay="RIGHT" mnemonicParsing="false" text="ADD SCHOOL SERVICE FEE" GridPane.columnIndex="1" />
+                        <Button fx:id="schoolservice_Btn" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#addSchoolServiceFee" prefHeight="30.0" style="-fx-background-color: #539e4a;" text="ADD SCHOOL SERVICE FEE" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Button>
                      </children>
                   </GridPane>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name of Student" GridPane.rowIndex="1">

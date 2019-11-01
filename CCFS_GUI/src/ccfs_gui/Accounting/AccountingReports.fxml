@@ -30,7 +30,7 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2018 - 2019" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Text fx:id="schYr" strokeType="OUTSIDE" strokeWidth="0.0" text="2018 - 2019" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -97,17 +97,17 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="137.0" text="Generate File" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Button fx:id="genpaid_Btn" mnemonicParsing="false" onAction="#generateFile" prefHeight="24.0" prefWidth="137.0" text="Generate File" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="24.0" prefWidth="137.0" text="Generate File" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                  <Button fx:id="genunpaid_Btn" mnemonicParsing="false" onAction="#generateFile" prefHeight="24.0" prefWidth="137.0" text="Generate File" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="73.0" text="Yearly" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <Button fx:id="yearlyreport_Btn" mnemonicParsing="false" onAction="#showReports" prefHeight="30.0" prefWidth="73.0" text="Yearly" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -115,7 +115,7 @@
                         <Insets top="80.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button mnemonicParsing="false" text="Monthly" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <Button fx:id="monthlyreport_Btn" mnemonicParsing="false" onAction="#showReports" text="Monthly" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <font>
                         <Font size="14.0" />
                      </font>
