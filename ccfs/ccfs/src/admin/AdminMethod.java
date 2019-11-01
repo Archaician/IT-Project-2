@@ -62,6 +62,13 @@ public class AdminMethod {
         return rs.next() != false;
     }
     
+    public static String viewAcc() throws Exception {
+        PreparedStatement prepedSt = con.prepareStatement("SELECT * FROM "
+                + "`accounts`;");
+        ResultSet rs = prepedSt.executeQuery();
+        return rs.getString(1);
+    }
+    
     public static void addSchoolYear(Admin admin) throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO "
                 + "`schoolyear`(`yearstart`, `yearend`, `totalAtt`, "
@@ -80,6 +87,7 @@ public class AdminMethod {
         ResultSet rs = prepedSt.executeQuery();
         return rs.getString(1);
     }
+    
     public static void upSpon(Admin admin) throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("UPDATE `enstudent` "
                 + "SET sponsor=? where idNo = ?");
@@ -87,6 +95,7 @@ public class AdminMethod {
         prepedSt.setString(2,admin.acc[0]);
         prepedSt.execute();
     }
+    
     public static String viewStud() throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("SELECT IDno, "
                 + "GivenName, MiddleName, SurName, gradelvl,sponsor FROM "
@@ -94,9 +103,10 @@ public class AdminMethod {
         ResultSet rs = prepedSt.executeQuery();
         return rs.getString(1);
     }
-    public static String vieAcc() throws Exception {
-        PreparedStatement prepedSt = con.prepareStatement("SELECT * FROM "
-                + "`accounts`;");
+    
+    public static String viewGrade() throws Exception {
+        PreparedStatement prepedSt = con.prepareStatement("Select * from "
+                + "`grades`;");
         ResultSet rs = prepedSt.executeQuery();
         return rs.getString(1);
     }
