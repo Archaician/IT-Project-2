@@ -93,6 +93,7 @@ public class RegistrarOptionsController implements Initializable {
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
+            return;
         } else if (event.getSource() == studChecklist_Btn) {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/Grades/ViewChecklistSelection.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -101,6 +102,7 @@ public class RegistrarOptionsController implements Initializable {
             stage.setResizable(false);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
+            return;
         } else if (event.getSource() == generateReports_Btn) {
             root = FXMLLoader.load(getClass().getResource("RegistrarReports.fxml"));
         }
