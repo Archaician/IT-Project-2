@@ -12,7 +12,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
 /**
@@ -25,11 +28,17 @@ public class DiscountOptionsController implements Initializable {
     ObservableList list = FXCollections.observableArrayList();
 
     @FXML
-    private Text studentName_label;
-    @FXML
     private ChoiceBox<String> discountType;
     @FXML
     private ChoiceBox<String> discountPercentage;
+    @FXML
+    private AnchorPane container;
+    @FXML
+    private Button back_Btn;
+    @FXML
+    private Button confrm_Btn;
+    @FXML
+    private TextField searchbar;
 
     private void selectDiscountPercentage() {
         list.removeAll(list);
