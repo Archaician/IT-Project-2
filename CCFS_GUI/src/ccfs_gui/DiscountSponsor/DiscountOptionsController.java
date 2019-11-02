@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -39,6 +40,8 @@ public class DiscountOptionsController implements Initializable {
     private Button confrm_Btn;
     @FXML
     private TextField searchbar;
+    @FXML
+    private Label nameLabel;
 
     private void selectDiscountPercentage() {
         list.removeAll(list);
