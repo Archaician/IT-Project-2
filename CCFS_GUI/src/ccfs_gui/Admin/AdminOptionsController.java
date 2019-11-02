@@ -82,7 +82,14 @@ public class AdminOptionsController implements Initializable {
         } else if (event.getSource() == studDiscount_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/DiscountSponsor/DiscountOptionsFXML.fxml"));
         } else if (event.getSource() == studSponsorship_Btn) {
-            //root = FXMLLoader.load(getClass().getResource("/ccfs_gui/DiscountSponsor/"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ccfs_gui/DiscountSponsor/SponsorshipSelection.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.setResizable(false);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+            return;
         }
 
         container.getChildren().setAll(root);
