@@ -30,12 +30,6 @@ public class FeesMethod {
     }
     
     public static void insertFees(Fees fees) throws Exception {
-//        ResultSet rs;
-//        Statement st = null;
-//        String idnum = "SELECT IDno FROM enstudent WHERE enid = 2";
-//        rs = st.executeQuery(idnum);
-//        if (rs.next()) {
-//            String id = rs.getString("IDno");
 
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO fees"
                 + "(feeid, totalfee, feegrade, feepre, IDno) VALUES(?, ?, ?, ?, ?)");

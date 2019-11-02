@@ -26,18 +26,17 @@ public class EnrollmentMethod {
     
     public static void addStud(Enrollment enroll) throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO "
-                + "`enstudent` (`IDno`, `GivenName`, `MiddleName`, "
-                + "`SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, "
-                + "`homeTelnum`, `mobilenum`, `studaddress`, "
-                + "`prevschoolattended`, `studstat`, `sponsor`, "
-                + "`faFname`, `falname`, `faAdd`, `faMobilenum`, "
-                + "`faEmail`, `faoccupation`, `moFname`, `moLname`, "
-                + "`momobilenum`, `moEmail`, `mooccupation`, `sibFname`, "
-                + "`sibLname`, `sibschoolname`, `yearid`,`dateenrolled`, "
-                + "`dateenrolled`, `guardianName`, `guardianAddress`, "
-                + "`guardianContact`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
+                + "'enstudent' (IDno', 'GivenName', 'MiddleName', 'SurName', "
+                + "'gradelvl', 'birthdate', 'birthplace', 'gender', "
+                + "'homeTelnum', 'mobilenum', 'studaddress', "
+                + "'prevschoolattended', 'studstat', 'sponsor', "
+                + "'faFname', 'falname', 'faAdd', 'faMobilenum', 'faEmail', "
+                + "'faoccupation', 'moFname', 'moLname', 'momobilenum', "
+                + "'moEmail', 'mooccupation', 'sibFname', 'sibLname', "
+                + "'sibschoolname', 'yearid', 'dateenrolled', 'guardianName', "
+                + "'guardianAddress', 'guardianContact') VALUES (?, ?, ?, ?, "
                 + "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-                + "?, ?, ?, ?);");
+                + "?, ?, ?, ?, ?, ?, ?, ?, ?);");
         prepedSt.setInt(1,Integer.parseInt(enroll.info[0]));
         prepedSt.setString(2,enroll.info[1]);
         prepedSt.setString(3,enroll.info[2]);
@@ -66,18 +65,15 @@ public class EnrollmentMethod {
         prepedSt.setString(26,enroll.info[25]);
         prepedSt.setString(27,enroll.info[26]);
         prepedSt.setString(28,enroll.info[27]);
-        prepedSt.setString(29,enroll.info[28]);
-        prepedSt.setInt(30,Integer.parseInt(enroll.info[29]));
+        prepedSt.setInt(29,Integer.parseInt(enroll.info[28]));
+        prepedSt.setString(30,enroll.info[29]);
         prepedSt.setString(31,enroll.info[30]);
         prepedSt.setString(32,enroll.info[31]);
         prepedSt.setString(33,enroll.info[32]);
-        prepedSt.setString(34,enroll.info[33]);
-
         prepedSt.execute();
     }
     public static void addSchoolYear(Enrollment enroll) throws SQLException {
          
-        
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO 'schoolyear' "
                 + "('yearstart', 'yearend', 'totalAtt', 'atteID', "
                 + "'feeID', 'Status') VALUES "

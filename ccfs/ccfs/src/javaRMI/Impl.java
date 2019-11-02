@@ -51,4 +51,15 @@ public class Impl implements InterfaceRMI {
     public void addAcc(String[] info) throws Exception {
         
     }
+    //view Accounts
+    @Override
+    public String viewAcc() throws Exception {
+        return AdminMethod.viewAcc();
+    }
+    
+    @Override
+    public String srchStud(String[] studInfo) throws Exception {
+        Admin admin = new Admin(studInfo);
+        return AdminMethod.searchStud(admin);
+    }
 }

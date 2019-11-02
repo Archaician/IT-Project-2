@@ -96,18 +96,19 @@ public class AdminMethod {
         prepedSt.execute();
     }
     
-    public static String viewStud() throws Exception {
+    public static String searchStud(Admin admin) throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("SELECT IDno, "
                 + "GivenName, MiddleName, SurName, gradelvl,sponsor FROM "
-                + "`enstudent`");
+                + "`enstudent` where IDno=?");
+        prepedSt.setString(1,admin.acc[1]);
         ResultSet rs = prepedSt.executeQuery();
-        return rs.getString(1);
+        return rs.getString(0);
     }
     
     public static String viewGrade() throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("Select * from "
                 + "`grades`;");
         ResultSet rs = prepedSt.executeQuery();
-        return rs.getString(1);
+        return rs.getString(0);
     }
 }
