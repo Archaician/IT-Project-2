@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -24,6 +25,8 @@ public class RemoveSponsorController implements Initializable {
     private Button closeButton;
     @FXML
     private TextField idNumSearch_Btn;
+    @FXML
+    private Label nameLabel;
 
     @FXML
     private void closebuttonApp(){
