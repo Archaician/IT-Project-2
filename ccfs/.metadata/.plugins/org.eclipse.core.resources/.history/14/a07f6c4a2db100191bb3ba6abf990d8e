@@ -1,0 +1,29 @@
+package ccfs;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.LinkedList;
+
+public class EnrollmentMethod {
+	
+    private static Connection con;
+    
+    public static void connection() throws Exception {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?user=root&password=");
+    }
+    public static void closeCon() throws Exception{
+        con.close();
+    }
+    public static void addStudId(Enrollment enroll) throws Exception {
+    	PreparedStatement prepedSt = con.prepareStatement("insert into event(studid,"
+    			+ "studFname,studLname,gradelvl,birthdate,birthplace,gender"
+    			+ "homeTelnum,mobilenumber,studaddress,sponsorship,prevschoolattended,"
+    			+ "studstat,faFname,falname,faAdd,faMobilenum,faEmail,moFname,"
+    			+ "moLname,momobilenum,moEmail,sibFname,sibLname,sibschoolname) "
+    			+ "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    	prepedSt.setInt(1,enroll.studId);
+    }
+}

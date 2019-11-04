@@ -1,0 +1,37 @@
+package ccfs;
+
+public class Enrollment {
+	
+	int studid;
+	String studFname;
+	String studLname;
+	String gradelvl;
+	String date;
+	String birthplace;
+	String gender;
+	String homeTelnum;
+	String mobilenum;
+	String studaddress;
+	String sponsorship;
+	String prevschoolattended;
+	String studstat;
+	String faFname;
+	String falName;
+	String faAdd;
+	String faMobilenum;
+	String faEmail;
+	String moFname;
+	String moLname;
+	String momobilenum;
+	String moEmail;
+	String sibFname;
+	String sibLname;
+	String sibschoolname;
+	
+	public Enrollment(int studid,String studFname,String studLname,String gradelvl,String date,String birthplace,
+String gender,String homeTelnum,String mobilenum,String studaddress,String sponsorship,String prevschoolattended,
+String studstat,String faFname,String falName,String faAdd,String faMobilenum,String faEmail,String moFname,
+String moLname,String momobilenum,String moEmail,String sibFname,String sibLname,String sibschoolname) {
+		
+	}
+}

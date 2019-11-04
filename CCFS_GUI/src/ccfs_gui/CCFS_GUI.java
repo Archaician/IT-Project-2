@@ -22,7 +22,8 @@ public class CCFS_GUI extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/ccfs_gui/login.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ccfs_gui/login.css")
+                .toExternalForm());
 
         stage.setTitle("Cypress Christian Foundation School SIS");
         stage.setScene(scene);

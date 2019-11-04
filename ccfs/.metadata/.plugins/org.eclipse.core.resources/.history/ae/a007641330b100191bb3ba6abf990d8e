@@ -1,0 +1,18 @@
+package ccfs;
+
+
+import java.util.Scanner;
+import java.util.LinkedList;
+
+public class app {
+
+	public static void main(String[] args) throws Exception {
+		enrollStud();
+	}
+	
+	public static void enrollStud() {
+		Scanner kbd = new Scanner(System.in);
+		System.out.print("Enter ID");
+		kbd.nextInt
+	}
+}

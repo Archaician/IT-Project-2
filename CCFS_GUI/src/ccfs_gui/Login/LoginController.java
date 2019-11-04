@@ -24,14 +24,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javaRMI.ClientCon;
 
 /**
  *
  * @author Imran
  */
 public class LoginController implements Initializable {
-
-    public LogInMethod loginMethod = new LogInMethod();
 
     @FXML
     private Label validation;
@@ -57,32 +56,47 @@ public class LoginController implements Initializable {
     @FXML
     private void loginButtonAction(ActionEvent event) {
         try {
-
-            if (inputusername.getText().equalsIgnoreCase("Admin")) {
-                ((Node) event.getSource()).getScene().getWindow().hide();
+            ClientCon.conRMI("localhost");
+            if (ClientCon.stub.logIn(inputusername.getText(), 
+                    inputpassword.getText()) == true && ClientCon.stub.retType
+                    (inputusername.getText(), inputpassword.getText()).equals("A")&&
+                    ClientCon.stub.retId(inputusername.getText(), 
+                    inputpassword.getText()).equals("LogIn")) {
+                ((Node)event.getSource()).getScene().getWindow().hide();
                 Stage stage = new Stage();
                 stageProperties(stage);
                 FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/AdminMainStageFXML.fxml").openStream());
-                // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
+                Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/MainStageFXML.fxml").openStream());
+               // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else if (inputusername.getText().equalsIgnoreCase("Registrar")) {
-                ((Node) event.getSource()).getScene().getWindow().hide();
+              //  sceneval.add((Scene) delete.getScene().getWindow());
+            } else if (ClientCon.stub.logIn(inputusername.getText(), 
+                    inputpassword.getText()) == true && ClientCon.stub.retType
+                    (inputusername.getText(), inputpassword.getText()).equals("R")&&
+                    ClientCon.stub.retId(inputusername.getText(), 
+                    inputpassword.getText()).equals("LogIn")) {
+                ((Node)event.getSource()).getScene().getWindow().hide();
                 Stage stage = new Stage();
                 stageProperties(stage);
                 FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar/RegistrarMainStageFXML.fxml").openStream());
+                Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar"
+                        + "/RegistrarOptionsFXML.fxml").openStream());
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else if (inputusername.getText().equalsIgnoreCase("Accounting")) {
-                ((Node) event.getSource()).getScene().getWindow().hide();
+            } else if (ClientCon.stub.logIn(inputusername.getText(), 
+                    inputpassword.getText()) == true && ClientCon.stub.retType
+                    (inputusername.getText(), inputpassword.getText()).equals("Ac")
+                    && ClientCon.stub.retId(inputusername.getText(),
+                    inputpassword.getText()).equals("LogIn")) {
+                ((Node)event.getSource()).getScene().getWindow().hide();
                 Stage stage = new Stage();
                 stageProperties(stage);
                 FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("/ccfs_gui/Accounting/AccountingMainStageFXML.fxml").openStream());
+                Pane root = loader.load(getClass().getResource("/ccfs_gui"
+                        + "/Accounting/AccountingOptionsFXML.fxml").openStream());
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();

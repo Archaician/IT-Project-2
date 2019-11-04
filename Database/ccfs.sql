@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 26, 2019 at 01:29 PM
+-- Generation Time: Nov 04, 2019 at 02:13 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -36,7 +36,6 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `password` varchar(16) NOT NULL,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
-  `contact` int(16) NOT NULL,
   `type` varchar(15) NOT NULL,
   `accstatus` text,
   PRIMARY KEY (`accid`),
@@ -187,26 +186,27 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   `sibFname` varchar(60) DEFAULT NULL,
   `sibLname` varchar(60) DEFAULT NULL,
   `sibschoolname` varchar(45) DEFAULT NULL,
-  `dateenrolled` date NOT NULL,
   `yearid` int(40) NOT NULL,
+  `dateenrolled` date NOT NULL,
+  `guardianName` varchar(45) NOT NULL,
+  `guardianAddress` varchar(45) NOT NULL,
+  `guardianContact` varchar(45) NOT NULL,
   PRIMARY KEY (`enid`),
-  UNIQUE KEY `dateenrolled_2` (`dateenrolled`),
-  UNIQUE KEY `dateenrolled_3` (`dateenrolled`),
   KEY `studFname` (`GivenName`),
   KEY `studLname` (`SurName`),
   KEY `gradelvl` (`gradelvl`),
-  KEY `dateenrolled` (`dateenrolled`),
   KEY `YearID_idx` (`yearid`),
   KEY `studIDno_idx` (`IDno`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `enstudent`
 --
 
-INSERT INTO `enstudent` (`enid`, `IDno`, `GivenName`, `MiddleName`, `SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, `homeTelnum`, `mobilenum`, `studaddress`, `prevschoolattended`, `studstat`, `sponsor`, `faFname`, `falname`, `faAdd`, `faMobilenum`, `faEmail`, `faoccupation`, `moFname`, `moLname`, `momobilenum`, `moEmail`, `mooccupation`, `sibFname`, `sibLname`, `sibschoolname`, `dateenrolled`, `yearid`) VALUES
-(1, NULL, 'asd', 'asd', 'asd', 'asd', '2019-10-01', 'asd', 'M', '223', '233', 'asd', 'asd', 'tasd', 'sdasd', 'sdad', 'bsh', 'hshsh', NULL, 'hahaha', 'haha', 'haha', 'sdbhab', 'asbdhb', 'ashdbhasb', 'ahsdbhds', 'ahsdbah', 'ashbdha', 'hasbdh', '2019-10-10', 1),
-(2, 2, 'the', 'the', 'the', '6', '2019-10-01', 'doon', 'F', 'owo', 'owo', 'wowo', 'owo', 'owo', 'owo', 'owo', 'owo', 'owo', 'owo', 'oow', 'owo', 'owo', 'owo', 'oowo', 'oow', 'oow', 'woo', 'wo', 'owo', '2019-10-08', 1);
+INSERT INTO `enstudent` (`enid`, `IDno`, `GivenName`, `MiddleName`, `SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, `homeTelnum`, `mobilenum`, `studaddress`, `prevschoolattended`, `studstat`, `sponsor`, `faFname`, `falname`, `faAdd`, `faMobilenum`, `faEmail`, `faoccupation`, `moFname`, `moLname`, `momobilenum`, `moEmail`, `mooccupation`, `sibFname`, `sibLname`, `sibschoolname`, `yearid`, `dateenrolled`, `guardianName`, `guardianAddress`, `guardianContact`) VALUES
+(1, 1, 'awd', 'awd', 'awd', 'awd', '2019-11-01', 'awd', 'M', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 1, '2019-11-01', 'awd', 'awd', 'awd'),
+(2, 2, 'e', 'e', 'e', 'e', '2019-11-01', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 1, '2019-11-01', 'e', 'e', 'e'),
+(3, 3, 'm', 'm', 'm', 'm', '2019-11-01', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 1, '2019-11-01', 'm', 'm', 'm');
 
 -- --------------------------------------------------------
 
@@ -224,6 +224,13 @@ CREATE TABLE IF NOT EXISTS `fees` (
   PRIMARY KEY (`feeid`),
   UNIQUE KEY `studeid` (`IDno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='	';
+
+--
+-- Dumping data for table `fees`
+--
+
+INSERT INTO `fees` (`feeid`, `totalfee`, `feegrade`, `feepre`, `IDno`) VALUES
+(1, 1, 1, 1, 2);
 
 -- --------------------------------------------------------
 

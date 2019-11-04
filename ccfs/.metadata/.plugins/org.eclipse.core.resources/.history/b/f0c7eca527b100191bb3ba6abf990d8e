@@ -1,0 +1,134 @@
+package ccfs;
+
+public class Enrollment {
+	
+	int studId;
+	String studFname;
+	String studLname;
+	String gradelvl;
+	String date;
+	String birthplace;
+	String gender;
+	String homeTelnum;
+	String mobilenum;
+	String studaddress;
+	String sponsorship;
+	String prevschoolattended;
+	String studstat;
+	String faFname;
+	String falName;
+	String faAdd;
+	String faMobilenum;
+	String faEmail;
+	String moFname;
+	String moLname;
+	String momobilenum;
+	String moEmail;
+	String sibFname;
+	String sibLname;
+	String sibschoolname;
+	
+	public Enrollment(int studId,String studFname,String studLname,String gradelvl,String date,String birthplace,
+String gender,String homeTelnum,String mobilenum,String studaddress,String sponsorship,String prevschoolattended,
+String studstat,String faFname,String falName,String faAdd,String faMobilenum,String faEmail,String moFname,
+String moLname,String momobilenum,String moEmail,String sibFname,String sibLname,String sibschoolname) {
+		
+	}
+	
+	public int getStudId() {
+		return this.studId;
+	}
+	
+	public String getStudFname() {
+		return this.studFname;
+	}
+	
+	public String getStudLname() {
+		return this.studLname;
+	}
+	
+	public String getGradelvl() {
+		return this.gradelvl;
+	}
+	
+	public String getBirthdate() {
+		return this.birthdate;
+	}
+	
+	public String getGender() {
+		return this.gender;
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+	public String() {
+		
+	}
+	
+}
