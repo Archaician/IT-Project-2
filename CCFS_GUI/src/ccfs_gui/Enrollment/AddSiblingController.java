@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -42,6 +44,18 @@ public class AddSiblingController implements Initializable {
     private TextField school;
     @FXML
     private Button sibling_Btn;
+    @FXML
+    private TableView<?> siblingsinfo_Table;
+    @FXML
+    private TableColumn<?, ?> sibsurname_Col;
+    @FXML
+    private TableColumn<?, ?> sibgivenname_Col;
+    @FXML
+    private TableColumn<?, ?> sibbirthdate_Col;
+    @FXML
+    private TableColumn<?, ?> sibschool_Col;
+    @FXML
+    private TableColumn<?, ?> action_Col;
 
     @FXML
     private void addSiblingButton(ActionEvent event) throws IOException {
