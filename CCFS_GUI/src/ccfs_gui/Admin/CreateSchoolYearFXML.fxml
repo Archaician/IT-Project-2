@@ -103,7 +103,7 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="create_Btn1" mnemonicParsing="false" onAction="#otherButtons" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #539e4a;" text="VIEW SCHOOL YEARS" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="viewSchYrList_Btn" mnemonicParsing="false" onAction="#otherButtons" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #539e4a;" text="VIEW SCHOOL YEARS" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

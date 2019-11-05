@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -27,9 +29,24 @@ public class ListOfSchoolYearsController implements Initializable {
     private BorderPane innerpane;
     @FXML
     private Button back_Btn;
+    @FXML
+    private Button logout_Btn;
+    @FXML
+    private TableView<?> schoolyearslist_Table;
+    @FXML
+    private TableColumn<?, ?> schoolyear_Col;
+    @FXML
+    private TableColumn<?, ?> schoolyearstatus_Col;
+    @FXML
+    private TableColumn<?, ?> action_Col;
 
     @FXML
     private void backButton(ActionEvent event) {
+        //TODO
+    }
+    
+    @FXML
+    private void logoutButton(ActionEvent event) {
         //TODO
     }
 

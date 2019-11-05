@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -30,6 +32,18 @@ public class ListOfAccountsController implements Initializable {
     private BorderPane innerpane;
     @FXML
     private Button back_Btn;
+    @FXML
+    private TableView<?> accountslist_Table;
+    @FXML
+    private TableColumn<?, ?> name_Col;
+    @FXML
+    private TableColumn<?, ?> username_Col;
+    @FXML
+    private TableColumn<?, ?> accounttype_Col;
+    @FXML
+    private TableColumn<?, ?> accountstatus_Col;
+    @FXML
+    private TableColumn<?, ?> action_Col;
     
     @FXML
     private void backButton(ActionEvent event) throws IOException {

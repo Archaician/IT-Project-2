@@ -32,12 +32,13 @@
             </GridPane>
          </top>
          <center>
-            <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="accountslist_Table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="386.99998474121094" text="Name" />
-                <TableColumn prefWidth="386.0" text="Username" />
-                  <TableColumn prefWidth="213.0" text="Account Type" />
-                  <TableColumn prefWidth="116.33331298828125" text="Status" />
+                <TableColumn fx:id="name_Col" prefWidth="290.0" text="Name" />
+                <TableColumn fx:id="username_Col" prefWidth="196.0" text="Username" />
+                  <TableColumn fx:id="accounttype_Col" prefWidth="163.0" text="Account Type" />
+                  <TableColumn fx:id="accountstatus_Col" prefWidth="183.0" text="Status" />
+                  <TableColumn fx:id="action_Col" prefWidth="120.0" text="Action" />
               </columns>
             </TableView>
          </center>
@@ -51,11 +52,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="LOGOUT" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                     <font>
-                        <Font name="System Bold" size="13.0" />
-                     </font>
-                  </Button>
                   <Button fx:id="back_Btn" mnemonicParsing="false" onAction="#backButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="&lt;BACK" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
