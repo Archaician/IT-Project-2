@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -70,8 +71,7 @@ public class SchoolServiceController implements Initializable {
             if (alert.getResult() == ButtonType.YES) {
                 //TODO
                 DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Added School Service Fee", "Successfully added school service fee.", ButtonType.OK);
-                //Stage stage = (Stage) ButtonType.OK.getScene().getWindow();
-                //stage.close();
+                ((Node) event.getSource()).getScene().getWindow().hide();
             } else {
                 alert.close();
             }
