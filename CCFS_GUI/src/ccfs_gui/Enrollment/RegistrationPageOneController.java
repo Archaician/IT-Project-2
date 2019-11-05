@@ -10,6 +10,7 @@ import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javaRMI.ClientCon;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,10 +30,11 @@ import javafx.scene.layout.BorderPane;
  * @author Imran
  */
 public class RegistrationPageOneController implements Initializable {
-
+    
     ObservableList list = FXCollections.observableArrayList();
-
-    @FXML
+    public static String[] infoStud = new String[33];
+    
+    @FXML   
     private BorderPane innerpane;
     @FXML
     private Label schYR;
@@ -105,14 +107,18 @@ public class RegistrationPageOneController implements Initializable {
     }
 
     @FXML
-    private void nextButton(ActionEvent event) throws IOException {
+    private void nextButton(ActionEvent event) throws Exception {
         /*Required textfields validation.*/
+        String studID;
         if (surname.getText().isEmpty() || givenname.getText().isEmpty() || middlename.getText().isEmpty()
                 || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(surname, givenname, middlename, birthplace, address, prevschool);
         } else if (birthdate.getValue() == null) {
             FieldValidation.requiredDateWarning(birthdate);
         } else {
+            studID = ClientCon.stub.getSchoolYear().substring
+            (ClientCon.stub.getSchoolYear().length() - 2);
+            infoStud[0] = studID;
             FXMLLoader loader = new FXMLLoader();
             AnchorPane root = FXMLLoader.load(getClass().getResource("RegistrationPageTwoFXML.fxml"));
             
