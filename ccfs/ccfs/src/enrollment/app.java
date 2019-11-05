@@ -14,7 +14,7 @@ public class App {
 
     public static void enrollStud() {
         try {
-            String[] arr = {"4", "m", "m", "m", "m", "2019-11-01", "m", "m", 
+            String[] arr = {"3", "m", "m", "m", "m", "2019-11-01", "m", "m", 
                 "m", "m", "m", "m", "m", "m", "m", "m", "m", "m", "m", "m", 
                 "m", "m", "m", "m", "m", "m", "m", "m", "1", "2019-11-01", 
                 "m", "m", "m"};

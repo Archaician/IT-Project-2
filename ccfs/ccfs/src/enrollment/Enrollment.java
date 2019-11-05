@@ -11,4 +11,5 @@ public class Enrollment {
     public String[] studInfo() {
         return this.info;
     }
+        
 }

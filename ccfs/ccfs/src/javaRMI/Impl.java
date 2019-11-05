@@ -41,10 +41,14 @@ public class Impl implements InterfaceRMI {
     }
     // enroll student
     @Override
-    public void enStud(String id, String[] studInfo) throws Exception {
-        studInfo[0] = id;
+    public void enStud(String[] studInfo) throws Exception {
         Enrollment enrmnt = new Enrollment(studInfo);
         EnrollmentMethod.addStud(enrmnt);
+    }
+    
+    @Override
+    public String getSchoolYear() throws Exception {
+        return EnrollmentMethod.getSchoolYear();
     }
     // addAccount
     @Override

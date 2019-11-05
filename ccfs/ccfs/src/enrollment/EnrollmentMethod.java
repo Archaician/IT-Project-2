@@ -3,6 +3,7 @@ package enrollment;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 /*import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,17 +27,17 @@ public class EnrollmentMethod {
     
     public static void addStud(Enrollment enroll) throws Exception {
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO "
-                + "'enstudent' (IDno', 'GivenName', 'MiddleName', 'SurName', "
-                + "'gradelvl', 'birthdate', 'birthplace', 'gender', "
-                + "'homeTelnum', 'mobilenum', 'studaddress', "
-                + "'prevschoolattended', 'studstat', 'sponsor', "
-                + "'faFname', 'falname', 'faAdd', 'faMobilenum', 'faEmail', "
-                + "'faoccupation', 'moFname', 'moLname', 'momobilenum', "
-                + "'moEmail', 'mooccupation', 'sibFname', 'sibLname', "
-                + "'sibschoolname', 'yearid', 'dateenrolled', 'guardianName', "
-                + "'guardianAddress', 'guardianContact') VALUES (?, ?, ?, ?, "
-                + "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, "
-                + "?, ?, ?, ?, ?, ?, ?, ?, ?);");
+                + "`enstudent`(`IDno`, `GivenName`, `MiddleName`, "
+                + "`SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, "
+                + "`homeTelnum`, `mobilenum`, `studaddress`, "
+                + "`prevschoolattended`, `studstat`, `sponsor`, `faFname`, "
+                + "`falname`, `faAdd`, `faMobilenum`, `faEmail`, "
+                + "`faoccupation`, `moFname`, `moLname`, `momobilenum`, "
+                + "`moEmail`, `mooccupation`, `sibFname`, `sibLname`, "
+                + "`sibschoolname`, `yearid`, `dateenrolled`, `guardianName`, "
+                + "`guardianAddress`, `guardianContact`) VALUES (?,"
+                + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
+                + "?,?);");
         prepedSt.setInt(1,Integer.parseInt(enroll.info[0]));
         prepedSt.setString(2,enroll.info[1]);
         prepedSt.setString(3,enroll.info[2]);
@@ -72,6 +73,7 @@ public class EnrollmentMethod {
         prepedSt.setString(33,enroll.info[32]);
         prepedSt.execute();
     }
+    
     public static void addSchoolYear(Enrollment enroll) throws SQLException {
          
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO 'schoolyear' "
@@ -85,5 +87,20 @@ public class EnrollmentMethod {
         prepedSt.setInt(5,Integer.parseInt(enroll.info[4]));
         prepedSt.setInt(6,Integer.parseInt(enroll.info[5]));
         prepedSt.execute();
+    }
+    
+    public static String getSchoolYear() throws SQLException {
+        PreparedStatement prepedSt = con.prepareStatement("SELECT `yearstart` "
+                + "FROM `schoolyear` ORDER BY yearstart DESC LIMIT 1");
+        ResultSet rs = prepedSt.executeQuery();
+        rs.next();
+        return rs.getString(1);
+    }
+    public static String getLastID() throws SQLException {
+        PreparedStatement prepedSt = con.prepareStatement("SELECT`IDno`FROM "
+                + "`enstudent` ORDER BY yearstart DESC LIMIT 1");
+        ResultSet rs = prepedSt.executeQuery();
+        rs.next();
+        return rs.getString(1);
     }
 }
