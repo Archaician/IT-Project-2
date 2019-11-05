@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -56,7 +57,7 @@ public class CreateSchoolYearController implements Initializable {
         LocalDate end = dateend.getValue();
 
         /*Field validation.*/
-        if (datestart.getValue() == null || dateend.getValue() == null) {
+        if (start == null || end == null) {
             invalid.setText("");
             FieldValidation.requiredDateWarning(datestart, dateend);
         } else if (start.isEqual(end) || start.isAfter(end)) {
@@ -76,8 +77,7 @@ public class CreateSchoolYearController implements Initializable {
                 if (alert.getResult() == ButtonType.YES) {
                     //TODO
                     DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New School Year", "Successfully created school year " + yrStart + "-" + yrEnd + ".", ButtonType.OK);
-                    //Stage stage = (Stage) ButtonType.OK.getScene().getWindow();
-                    //stage.close();
+                    ((Node) event.getSource()).getScene().getWindow().hide();
                 } else {
                     alert.close();
                 }
@@ -88,6 +88,8 @@ public class CreateSchoolYearController implements Initializable {
     @FXML
     private void otherButtons(ActionEvent event) {
         if (event.getSource() == viewSchYrList_Btn) {
+            Stage stage = (Stage) viewSchYrList_Btn.getScene().getWindow();
+            stage.close();
             //TODO
         } else if (event.getSource() == cancel_Btn) {
             Stage stage = (Stage) cancel_Btn.getScene().getWindow();

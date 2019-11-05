@@ -13,10 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="container" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ccfs_gui.Registrar.ViewEditStudentInformationController">
    <children>
-      <BorderPane fx:id="innerpane" prefHeight="640.0" prefWidth="993.0" style="-fx-background-color: #bdbdbd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="innerpane" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #bdbdbd;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <GridPane alignment="CENTER" prefHeight="53.0" prefWidth="802.0" style="-fx-background-color: #e9e9e9;" BorderPane.alignment="CENTER">
               <columnConstraints>
@@ -59,12 +58,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green;" text="SAVE" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="save_Btn" mnemonicParsing="false" onAction="#saveEdits" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: green;" text="SAVE" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="CANCEL" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <Button fx:id="cancel_Btn" mnemonicParsing="false" onAction="#cancelButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="CANCEL" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -107,7 +106,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student Firstname" GridPane.rowIndex="2">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Student Given Name" GridPane.rowIndex="2">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -203,7 +202,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Siblings" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sibling(s)" GridPane.columnIndex="2" GridPane.rowIndex="7">
                      <font>
                         <Font size="17.0" />
                      </font>
@@ -219,77 +218,77 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                  <TextField fx:id="surname" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                  <TextField fx:id="givenname" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                  <TextField fx:id="middlename" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+                  <TextField fx:id="birthplace" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+                  <TextField fx:id="address" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                  <TextField fx:id="age" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                  <TextField fx:id="telnumber" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+                  <TextField fx:id="mobilenumber" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+                  <TextField fx:id="fathername" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="5">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="6">
+                  <TextField fx:id="mothername" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="7">
+                  <TextField fx:id="siblings" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <DatePicker prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+                  <DatePicker fx:id="birthdate" prefHeight="33.0" prefWidth="186.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </DatePicker>
-                  <ChoiceBox prefHeight="33.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7">
+                  <ChoiceBox fx:id="status" prefHeight="33.0" prefWidth="133.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <ChoiceBox prefHeight="33.0" prefWidth="133.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                  <ChoiceBox fx:id="gender" prefHeight="33.0" prefWidth="133.0" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <ChoiceBox prefHeight="33.0" prefWidth="133.0" GridPane.columnIndex="3" GridPane.halignment="LEFT">
+                  <ChoiceBox fx:id="gradelvl" prefHeight="33.0" prefWidth="133.0" GridPane.columnIndex="3" GridPane.halignment="LEFT">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

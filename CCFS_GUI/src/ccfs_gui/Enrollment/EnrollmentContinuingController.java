@@ -21,6 +21,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -28,7 +30,7 @@ import javafx.scene.layout.BorderPane;
 /**
  * FXML Controller class
  *
- * @author Acer
+ * @author Imran
  */
 public class EnrollmentContinuingController implements Initializable {
 
@@ -73,7 +75,15 @@ public class EnrollmentContinuingController implements Initializable {
     @FXML
     private ChoiceBox<String> newgradelvl;
     @FXML
-    private TextField prevschool;
+    private TableView<?> enrollcontinuing_Table;
+    @FXML
+    private TableColumn<?, ?> idnumber_Col;
+    @FXML
+    private TableColumn<?, ?> surname_Col;
+    @FXML
+    private TableColumn<?, ?> givenname_Col;
+    @FXML
+    private TableColumn<?, ?> action_Col;
 
     /*Show grade level choicebox choices.*/
     private void loadGradeLevel() {
@@ -118,7 +128,6 @@ public class EnrollmentContinuingController implements Initializable {
     private void enrollButton(ActionEvent event) throws IOException {
         if (idnumber.getText().isEmpty()) {
             DialogWindows.dialogBox(Alert.AlertType.ERROR, "No Student Selected", "Please select a student to enroll.", ButtonType.OK);
-            //noResultText.setText("Please select a student to enroll.");
         } else {
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
@@ -137,9 +146,7 @@ public class EnrollmentContinuingController implements Initializable {
     
     @FXML
     private void backButton(ActionEvent event) throws IOException {
-        /*AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
-        container.getChildren().setAll(root);
-        LayoutProperties.anchorPaneConstraints(root); */
+        //TODO
     }
 
     /**

@@ -14,6 +14,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -33,13 +35,27 @@ public class RegistrarReportsController implements Initializable {
     @FXML
     private Button unenrolledlist_Btn;
     @FXML
-    private Button withrawedlist_Btn;
+    private Button withdrawedlist_Btn;
     @FXML
     private Button back_Btn;
+    @FXML
+    private TableView<?> reports_Table;
+    @FXML
+    private TableColumn<?, ?> idnumber_Col;
+    @FXML
+    private TableColumn<?, ?> name_Col;
+    @FXML
+    private TableColumn<?, ?> gradelvl_Col;
     
     @FXML
     private void reportsButtons(ActionEvent event) {
-        //TODO
+        if (event.getSource() == enrolledlist_Btn) {
+            //TODO
+        } else if (event.getSource() == unenrolledlist_Btn) {
+            //TODO
+        } else if (event.getSource() == withdrawedlist_Btn) {
+            //TODO
+        }
     }
             
     @FXML

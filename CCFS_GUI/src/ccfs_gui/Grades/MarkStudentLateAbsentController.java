@@ -5,6 +5,7 @@
  */
 package ccfs_gui.Grades;
 
+import ccfs_gui.DialogWindows;
 import ccfs_gui.FieldValidation;
 import java.net.URL;
 import java.time.LocalDate;
@@ -15,7 +16,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
@@ -50,11 +54,25 @@ public class MarkStudentLateAbsentController implements Initializable {
 
     @FXML
     private void saveButton(ActionEvent event) {
+        String strAtttype = attendancetype.getValue();
+        LocalDate strAttdate = attendancedate.getValue();
+
         /*Field validation.*/
-        if (attendancedate.getValue() == null) {
+        if (strAttdate == null) {
             FieldValidation.requiredDateWarning(attendancedate);
         } else {
             //TODO
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to mark this student " + strAtttype + "?\n"
+                    + "\nDate: " + strAttdate, ButtonType.YES, ButtonType.NO);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                //TODO
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Added Student Attendance", "Successfully marked student " + strAtttype + ".", ButtonType.OK);
+                ((Node) event.getSource()).getScene().getWindow().hide();
+            } else {
+                alert.close();
+            }
         }
     }
 
@@ -71,7 +89,7 @@ public class MarkStudentLateAbsentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         /*Set datepicker value to current date.*/
         attendancedate.setValue(Optional.ofNullable(attendancedate.getValue()).orElse(LocalDate.now()));
-        
+
         loadAttendanceType();
     }
 

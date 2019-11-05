@@ -28,42 +28,50 @@ import javafx.stage.Stage;
  *
  * @author Imran
  */
-public class ViewAttendanceOfStudentController implements Initializable {
+public class KinderCompetencyController implements Initializable {
 
     @FXML
     private AnchorPane container;
     @FXML
     private TextField searchbar;
     @FXML
-    private Label studname;
-    @FXML
-    private Button add_Btn;
-    @FXML
     private Button back_Btn;
     @FXML
-    private TableView<?> attendance_Table;
+    private Label studname;
     @FXML
-    private TableColumn<?, ?> attid_Col;
+    private TableView<?> competency_Table;
     @FXML
-    private TableColumn<?, ?> attdate_Col;
+    private TableColumn<?, ?> checkid_Col;
     @FXML
-    private TableColumn<?, ?> atttype_Col;
+    private TableColumn<?, ?> competencyarea_Col;
     @FXML
-    private TableColumn<?, ?> action_Col;
+    private TableColumn<?, ?> description_Col;
+    @FXML
+    private TableColumn<?, ?> firstquarter_Col;
+    @FXML
+    private TableColumn<?, ?> secondquarter_Col;
+    @FXML
+    private TableColumn<?, ?> thirdquarter_Col;
+    @FXML
+    private TableColumn<?, ?> fourthquarter_Col;
+    @FXML
+    private Button editcompetency_Btn;
 
     @FXML
-    private void addButton(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MarkStudentLateAbsent.fxml"));
+    private void editCompetency(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditKinderCompetency.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
         stage.setResizable(false);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
+        
+        //TODO
     }
 
     @FXML
-    private void backButton(ActionEvent event) throws IOException {
+    private void backButton(ActionEvent event) {
         //TODO
     }
 
