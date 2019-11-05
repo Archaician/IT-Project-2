@@ -19,35 +19,37 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author D528_PC24
+ * @author Paul
  */
 public class ViewChecklistSelectionController implements Initializable {
     
     @FXML
     private Button kinderChecklist_Btn;
-
     @FXML
-    private Button gradeSchoolCheklist_Btn;
-    
+    private Button gradeSchoolChecklist_Btn;    
     @FXML
     private Button closeButton;
 
     @FXML
-    private void checklistSelection(ActionEvent event) throws IOException{
+    private void checklistSelection(ActionEvent event) throws IOException {
         AnchorPane root = null;
-        
-       if (event.getSource() == kinderChecklist_Btn) {
-         root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/KinderChecklist.fxml"));  
-       } else if (event.getSource() == gradeSchoolCheklist_Btn)
-           root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/GradeSchoolGrades.fxml"));  
-        
+
+        if (event.getSource() == kinderChecklist_Btn) {
+            Stage stage = (Stage) kinderChecklist_Btn.getScene().getWindow();
+            stage.close();
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/KinderChecklist.fxml"));
+        } else if (event.getSource() == gradeSchoolChecklist_Btn) {
+            Stage stage = (Stage) gradeSchoolChecklist_Btn.getScene().getWindow();
+            stage.close();
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/GradeSchoolGrades.fxml"));
+        }
     }
     
     @FXML
-    private void closebuttonApp(){
-    Stage stage = (Stage) closeButton.getScene().getWindow();
-    stage.close();
-}
+    private void closebuttonApp() {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+    }
 
     /**
      * Initializes the controller class.

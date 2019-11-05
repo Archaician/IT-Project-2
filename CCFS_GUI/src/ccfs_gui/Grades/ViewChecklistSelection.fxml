@@ -57,7 +57,7 @@
                         <Insets top="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="gradeSchoolCheklist_Btn" mnemonicParsing="false" onAction="#checklistSelection" prefHeight="48.0" prefWidth="290.0" text="Gradeschool" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Button fx:id="gradeSchoolChecklist_Btn" mnemonicParsing="false" onAction="#checklistSelection" prefHeight="48.0" prefWidth="290.0" text="Gradeschool" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
                         <Font size="22.0" />
                      </font>
