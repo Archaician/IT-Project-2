@@ -9,16 +9,21 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
  *
- * @author D528_PC24
+ * @author Paul ; Imran
  */
 public class ViewStudentArchiveController implements Initializable {
     
@@ -30,6 +35,20 @@ public class ViewStudentArchiveController implements Initializable {
     private ChoiceBox<String> sort;
     @FXML
     private AnchorPane container;
+    @FXML
+    private TextField searchbar;
+    @FXML
+    private Button back_Btn;
+    @FXML
+    private TableView<?> studarchive_Table;
+    @FXML
+    private TableColumn<?, ?> idnumber_Col;
+    @FXML
+    private TableColumn<?, ?> studname_Col;
+    @FXML
+    private TableColumn<?, ?> gradelvl_Col;
+    @FXML
+    private TableColumn<?, ?> status_Col;
     
     private void loadSortBy(){
       list.removeAll(list);
@@ -39,7 +58,12 @@ public class ViewStudentArchiveController implements Initializable {
       list.addAll(latest, ascend, descend);
       sort.getItems().addAll(list);
       sort.setValue(latest);
-    }      
+    }
+    
+    @FXML
+    private void backButton(ActionEvent event) {
+        //TODO
+    }
 
     /**
      * Initializes the controller class.

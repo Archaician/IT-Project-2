@@ -9,16 +9,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
  *
- * @author D528_PC24
+ * @author Paul ; Imran
  */
 public class ViewListOfStudentController implements Initializable {
     
@@ -26,14 +32,30 @@ public class ViewListOfStudentController implements Initializable {
 
     @FXML
     private BorderPane innerpane;
-    
     @FXML
     private ChoiceBox<String> sort;
-    
     @FXML
     private AnchorPane container;
+    @FXML
+    private Label schYr;
+    @FXML
+    private TextField searchbar;
+    @FXML
+    private Button back_Btn;
+    @FXML
+    private TableView<?> studlist_Table;
+    @FXML
+    private TableColumn<?, ?> idnumber_Col;
+    @FXML
+    private TableColumn<?, ?> studname_Col;
+    @FXML
+    private TableColumn<?, ?> gradelvl_Col;
+    @FXML
+    private TableColumn<?, ?> section_Col;
+    @FXML
+    private TableColumn<?, ?> teacher_Col;
     
-    //Show Sort By Options
+    /*Show sort options.*/
     private void loadSortBy(){
       list.removeAll(list);
       String latest = "Latest";
@@ -42,7 +64,12 @@ public class ViewListOfStudentController implements Initializable {
       list.addAll(latest, ascend, descend);
       sort.getItems().addAll(list);
       sort.setValue(latest);
-    }  
+    }
+    
+    @FXML
+    private void backButton(ActionEvent event) {
+        //TODO
+    }
 
     /**
      * Initializes the controller class.
