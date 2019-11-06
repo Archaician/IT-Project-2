@@ -114,6 +114,7 @@ public class RegistrationPageTwoController implements Initializable {
         } else if (fatherfirstname.getText().isEmpty() && motherfirstname.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(guardianname, guardianaddress, guardiannumber);
         } else {
+//            RegistrationPageOneController.infoStud[13] = "d";
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();

@@ -9,6 +9,7 @@ import ccfs_gui.FieldValidation;
 import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import javaRMI.ClientCon;
 import javafx.collections.FXCollections;
@@ -110,15 +111,35 @@ public class RegistrationPageOneController implements Initializable {
     private void nextButton(ActionEvent event) throws Exception {
         /*Required textfields validation.*/
         String studID;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddd");
+
         if (surname.getText().isEmpty() || givenname.getText().isEmpty() || middlename.getText().isEmpty()
                 || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(surname, givenname, middlename, birthplace, address, prevschool);
         } else if (birthdate.getValue() == null) {
             FieldValidation.requiredDateWarning(birthdate);
         } else {
-            studID = ClientCon.stub.getSchoolYear().substring
-            (ClientCon.stub.getSchoolYear().length() - 2);
+            if (ClientCon.stub.getLastID().equals("0")) {
+                studID = ClientCon.stub.getSchoolYear().substring
+                (ClientCon.stub.getSchoolYear().length() - 2) + "1";
+            }else {
+                studID = ClientCon.stub.getSchoolYear().substring
+                (ClientCon.stub.getSchoolYear().length() - 2) + Integer.parseInt(ClientCon.stub.
+                        getLastID() + 1);
+            }
             infoStud[0] = studID;
+            infoStud[1] = givenname.getText();
+            infoStud[2] = middlename.getText();
+            infoStud[3] = surname.getText();
+            infoStud[4] = gradelvl.getValue();
+            infoStud[5] = simpleDateFormat.format(birthdate.getValue());
+            infoStud[6] = birthplace.getText();
+            infoStud[7] = gender.getValue();
+            infoStud[8] = telephone.getText();
+            infoStud[9] = mobile.getText();
+            infoStud[10] = address.getText();
+            infoStud[11] = prevschool.getText();
+            infoStud[12] = "Enrolled";
             FXMLLoader loader = new FXMLLoader();
             AnchorPane root = FXMLLoader.load(getClass().getResource("RegistrationPageTwoFXML.fxml"));
             
