@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 04, 2019 at 02:13 PM
+-- Generation Time: Nov 06, 2019 at 03:26 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -140,14 +140,7 @@ CREATE TABLE IF NOT EXISTS `curstudent` (
   KEY `yearID_idx` (`yearID`),
   KEY `enrID_idx` (`enrID`),
   KEY `IDno` (`IDno`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `curstudent`
---
-
-INSERT INTO `curstudent` (`studentid`, `IDno`, `gradelvl`, `section`, `teacher`, `totalpayment`, `dateenrolled`, `yearID`, `enrID`) VALUES
-(2, 2, '6', '2', 'sya', 399, '2019-10-01', 1, 2);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -171,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   `studaddress` varchar(45) NOT NULL,
   `prevschoolattended` varchar(45) NOT NULL,
   `studstat` varchar(45) NOT NULL,
-  `sponsor` varchar(12) NOT NULL,
+  `sponsor` varchar(12) DEFAULT NULL,
   `faFname` varchar(45) DEFAULT NULL,
   `falname` varchar(45) DEFAULT NULL,
   `faAdd` varchar(45) DEFAULT NULL,
@@ -197,16 +190,7 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   KEY `gradelvl` (`gradelvl`),
   KEY `YearID_idx` (`yearid`),
   KEY `studIDno_idx` (`IDno`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `enstudent`
---
-
-INSERT INTO `enstudent` (`enid`, `IDno`, `GivenName`, `MiddleName`, `SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, `homeTelnum`, `mobilenum`, `studaddress`, `prevschoolattended`, `studstat`, `sponsor`, `faFname`, `falname`, `faAdd`, `faMobilenum`, `faEmail`, `faoccupation`, `moFname`, `moLname`, `momobilenum`, `moEmail`, `mooccupation`, `sibFname`, `sibLname`, `sibschoolname`, `yearid`, `dateenrolled`, `guardianName`, `guardianAddress`, `guardianContact`) VALUES
-(1, 1, 'awd', 'awd', 'awd', 'awd', '2019-11-01', 'awd', 'M', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 1, '2019-11-01', 'awd', 'awd', 'awd'),
-(2, 2, 'e', 'e', 'e', 'e', '2019-11-01', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 'e', 1, '2019-11-01', 'e', 'e', 'e'),
-(3, 3, 'm', 'm', 'm', 'm', '2019-11-01', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 1, '2019-11-01', 'm', 'm', 'm');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
