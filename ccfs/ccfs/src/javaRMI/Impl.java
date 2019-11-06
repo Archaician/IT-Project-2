@@ -45,6 +45,9 @@ public class Impl implements InterfaceRMI {
         Enrollment enrmnt = new Enrollment(studInfo);
         EnrollmentMethod.addStud(enrmnt);
     }
+    public String getLastID() throws Exception {
+        return EnrollmentMethod.getLastID();
+    }
     
     @Override
     public String getSchoolYear() throws Exception {

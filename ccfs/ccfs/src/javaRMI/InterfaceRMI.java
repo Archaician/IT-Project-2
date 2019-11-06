@@ -13,4 +13,5 @@ public interface InterfaceRMI extends Remote {
     public void addAcc(String[] info) throws Exception;
     public String viewAcc() throws Exception;
     public String srchStud(String[] studInfo) throws Exception;
+    public String getLastID() throws Exception;
 }

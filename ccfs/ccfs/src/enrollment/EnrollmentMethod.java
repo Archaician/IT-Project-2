@@ -96,11 +96,11 @@ public class EnrollmentMethod {
         rs.next();
         return rs.getString(1);
     }
+    
     public static String getLastID() throws SQLException {
         PreparedStatement prepedSt = con.prepareStatement("SELECT`IDno`FROM "
-                + "`enstudent` ORDER BY yearstart DESC LIMIT 1");
+                + "`enstudent` ORDER BY IDno DESC LIMIT 1");
         ResultSet rs = prepedSt.executeQuery();
-        rs.next();
-        return rs.getString(1);
+        return rs.next()? rs.getString("IDno"):"0";
     }
 }
