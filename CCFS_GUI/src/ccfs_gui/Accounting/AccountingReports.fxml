@@ -76,7 +76,7 @@
                   <RowConstraints maxHeight="233.00000610351563" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TableView fx:id="paidTable" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="paidIdNumber_Col" prefWidth="75.0" text="ID No." />
                       <TableColumn fx:id="paidStudName_Col" prefWidth="139.2000274658203" text="Student Name" />
@@ -87,7 +87,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <TableView prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TableView fx:id="unpaidTable" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="unpaidIdNo_Col" prefWidth="75.0" text="ID No." />
                       <TableColumn fx:id="unpaidStudName_Col" prefWidth="75.0" text="Student Name" />
