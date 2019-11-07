@@ -32,11 +32,11 @@
             </GridPane>
          </top>
          <center>
-            <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="schoolyearslist_Table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn prefWidth="386.99998474121094" text="School Year" />
-                <TableColumn prefWidth="386.0" text="Status" />
-                  <TableColumn prefWidth="231.0" />
+                <TableColumn fx:id="schoolyear_Col" prefWidth="386.99998474121094" text="School Year" />
+                <TableColumn fx:id="schoolyearstatus_Col" prefWidth="386.0" text="Status" />
+                  <TableColumn fx:id="action_Col" prefWidth="231.0" text="Action" />
               </columns>
             </TableView>
          </center>
@@ -50,7 +50,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="LOGOUT" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Button fx:id="logout_Btn" mnemonicParsing="false" onAction="#logoutButton" prefHeight="30.0" prefWidth="80.0" text="LOGOUT" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
