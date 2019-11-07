@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -36,6 +37,31 @@ public class AccountingReportsController implements Initializable {
     private Button genpaid_Btn;
     @FXML
     private Button genunpaid_Btn;
+    
+    //Table Columns
+    @FXML
+    private TableColumn<?, ?> paidIdNumber_Col;
+
+    @FXML
+    private TableColumn<?, ?> paidStudName_Col;
+
+    @FXML
+    private TableColumn<?, ?> paidFeeId_Col;
+
+    @FXML
+    private TableColumn<?, ?> paidDate_Col;
+
+    @FXML
+    private TableColumn<?, ?> unpaidIdNo_Col;
+
+    @FXML
+    private TableColumn<?, ?> unpaidStudName_Col;
+
+    @FXML
+    private TableColumn<?, ?> unpaidFeeId_Col;
+
+    @FXML
+    private TableColumn<?, ?> unpaidDate_Col;
 
     @FXML
     private void showReports(ActionEvent event) {
