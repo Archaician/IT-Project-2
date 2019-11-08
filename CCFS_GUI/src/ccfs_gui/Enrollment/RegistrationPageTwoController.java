@@ -129,7 +129,13 @@ public class RegistrationPageTwoController implements Initializable {
                     getText();
             RegistrationPageOneController.infoStud[20] = motherlastname.
                     getText();
-            RegistrationPageOneController.infoStud[21] = 
+            RegistrationPageOneController.infoStud[21] = motheraddress.
+                    getText();
+            RegistrationPageOneController.infoStud[22] = mothermobile.getText();
+            RegistrationPageOneController.infoStud[23] = motheremail.getText();
+            RegistrationPageOneController.infoStud[24] = motheroccupation.
+                    getText();
+            
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();

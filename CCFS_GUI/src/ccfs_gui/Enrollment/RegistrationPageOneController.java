@@ -33,7 +33,7 @@ import javafx.scene.layout.BorderPane;
 public class RegistrationPageOneController implements Initializable {
     
     ObservableList list = FXCollections.observableArrayList();
-    public static String[] infoStud = new String[33];
+    public static String[] infoStud = new String[34];
     
     @FXML   
     private BorderPane innerpane;
