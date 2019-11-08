@@ -32,12 +32,12 @@ public class EnrollmentMethod {
                 + "`homeTelnum`, `mobilenum`, `studaddress`, "
                 + "`prevschoolattended`, `studstat`, `sponsor`, `faFname`, "
                 + "`falname`, `faAdd`, `faMobilenum`, `faEmail`, "
-                + "`faoccupation`, `moFname`, `moLname`, `momobilenum`, "
-                + "`moEmail`, `mooccupation`, `sibFname`, `sibLname`, "
-                + "`sibschoolname`, `yearid`, `dateenrolled`, `guardianName`, "
-                + "`guardianAddress`, `guardianContact`) VALUES (?,"
-                + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
-                + "?,?);");
+                + "`faoccupation`, `moFname`, `moLname`, `moAdd`, "
+                + "`momobilenum`, `moEmail`, `mooccupation`, `sibFname`, "
+                + "`sibLname`, `sibschoolname`, `yearid`, `dateenrolled`, "
+                + "`guardianName`, `guardianAddress`, `guardianContact`) VALUES"
+                + "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?"
+                + ",?,?,?,?);");
         prepedSt.setInt(1,Integer.parseInt(enroll.info[0]));
         prepedSt.setString(2,enroll.info[1]);
         prepedSt.setString(3,enroll.info[2]);
@@ -66,11 +66,12 @@ public class EnrollmentMethod {
         prepedSt.setString(26,enroll.info[25]);
         prepedSt.setString(27,enroll.info[26]);
         prepedSt.setString(28,enroll.info[27]);
-        prepedSt.setInt(29,Integer.parseInt(enroll.info[28]));
-        prepedSt.setString(30,enroll.info[29]);
+        prepedSt.setString(29,enroll.info[28]);
+        prepedSt.setInt(30,Integer.parseInt(enroll.info[29]));
         prepedSt.setString(31,enroll.info[30]);
         prepedSt.setString(32,enroll.info[31]);
         prepedSt.setString(33,enroll.info[32]);
+        prepedSt.setString(34,enroll.info[33]);
         prepedSt.execute();
     }
     
