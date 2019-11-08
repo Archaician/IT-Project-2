@@ -11,6 +11,7 @@ import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javaRMI.ClientCon;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,7 +100,7 @@ public class RegistrationPageTwoController implements Initializable {
     }
 
     @FXML
-    private void enrollButton(ActionEvent event) throws IOException {
+    private void enrollButton(ActionEvent event) throws Exception {
         /*Textfield validation.*/
         
         if (!fatherfirstname.getText().isEmpty()) {
@@ -135,7 +136,15 @@ public class RegistrationPageTwoController implements Initializable {
             RegistrationPageOneController.infoStud[23] = motheremail.getText();
             RegistrationPageOneController.infoStud[24] = motheroccupation.
                     getText();
-            
+            RegistrationPageOneController.infoStud[34] = guardiannumber.
+                    getText();
+            RegistrationPageOneController.infoStud[33] = guardianaddress.
+                    getText();
+            RegistrationPageOneController.infoStud[32] = guardianname.getText();
+            RegistrationPageOneController.infoStud[31] = "2020-1-1";
+            RegistrationPageOneController.infoStud[30] = ClientCon.stub.
+                    getYearID();
+            ClientCon.stub.enStud(RegistrationPageOneController.infoStud);
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();

@@ -13,6 +13,7 @@ public interface InterfaceRMI extends Remote {
     public void enStud(String[] studInfo) throws Exception;
     public String getSchoolYear() throws Exception;
     public String getLastID() throws Exception;
+    public String getYearID() throws Exception;
     public String srchStud(String[] studInfo) throws Exception;
 
     // add Accounts
