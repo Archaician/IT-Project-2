@@ -98,6 +98,14 @@ public class EnrollmentMethod {
         return rs.getString(1);
     }
     
+    public static String getSchoolYearId() throws SQLException {
+        PreparedStatement prepedSt = con.prepareStatement("SELECT `yearid` "
+                + "FROM `schoolyear` ORDER BY yearstart DESC LIMIT 1");
+        ResultSet rs = prepedSt.executeQuery();
+        rs.next();
+        return rs.getString(1);
+    }
+    
     public static String getLastID() throws SQLException {
         PreparedStatement prepedSt = con.prepareStatement("SELECT`IDno`FROM "
                 + "`enstudent` ORDER BY IDno DESC LIMIT 1");
