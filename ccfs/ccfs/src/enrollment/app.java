@@ -1,6 +1,8 @@
 package enrollment;
 
 
+import admin.Admin;
+import admin.AdminMethod;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.LinkedList;
@@ -10,7 +12,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         EnrollmentMethod.connection();
-        getID();
+        addAcc();
     }
     
     public static void getID() throws Exception {
@@ -28,5 +30,10 @@ public class App {
             EnrollmentMethod.addStud(en);
         }catch(Exception e) {
         }
+    }
+    public static void addAcc() throws Exception {
+        String[] arr = {"2","e","e","e","e","R"};
+        Admin ad = new Admin(arr);
+        AdminMethod.addAccounts(ad);
     }
 }
