@@ -15,6 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -33,6 +37,46 @@ public class ViewAddPaymentsController implements Initializable {
     private AnchorPane container;
     @FXML
     private Button schoolservice_Btn;
+ 
+    @FXML
+    private TextField searchIdNum;
+
+    @FXML
+    private Label studName;
+
+    @FXML
+    private TableView<?> payments_table;
+
+    @FXML
+    private TableColumn<?, ?> feeID_Col;
+
+    @FXML
+    private TableColumn<?, ?> discoutnType_Col;
+
+    @FXML
+    private TableColumn<?, ?> discountPercentage_Btn;
+
+    @FXML
+    private TableColumn<?, ?> amount_Col;
+
+    @FXML
+    private TableColumn<?, ?> feeDate_Col;
+
+    @FXML
+    private TableColumn<?, ?> dueDate_Col;
+
+    @FXML
+    private TableColumn<?, ?> surcharge_Col;
+
+    @FXML
+    private TableColumn<?, ?> status_Col;
+
+    @FXML
+    private Button logout_Btn;
+
+    @FXML
+    private Button back_Btn;
+
 
     @FXML
     private void addSchoolServiceFee(ActionEvent event) throws IOException {
