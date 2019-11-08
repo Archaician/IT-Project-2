@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 06, 2019 at 03:26 PM
+-- Generation Time: Nov 08, 2019 at 12:18 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -173,6 +173,7 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   `faoccupation` varchar(45) NOT NULL,
   `moFname` varchar(45) DEFAULT NULL,
   `moLname` varchar(45) DEFAULT NULL,
+  `moAdd` varchar(46) DEFAULT NULL,
   `momobilenum` varchar(45) DEFAULT NULL,
   `moEmail` varchar(45) DEFAULT NULL,
   `mooccupation` varchar(45) NOT NULL,
@@ -190,7 +191,15 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   KEY `gradelvl` (`gradelvl`),
   KEY `YearID_idx` (`yearid`),
   KEY `studIDno_idx` (`IDno`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `enstudent`
+--
+
+INSERT INTO `enstudent` (`enid`, `IDno`, `GivenName`, `MiddleName`, `SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, `homeTelnum`, `mobilenum`, `studaddress`, `prevschoolattended`, `studstat`, `sponsor`, `faFname`, `falname`, `faAdd`, `faMobilenum`, `faEmail`, `faoccupation`, `moFname`, `moLname`, `moAdd`, `momobilenum`, `moEmail`, `mooccupation`, `sibFname`, `sibLname`, `sibschoolname`, `yearid`, `dateenrolled`, `guardianName`, `guardianAddress`, `guardianContact`) VALUES
+(1, 1, 'awd', 'awd', 'awd', 'awd', '2019-11-01', 'awd', 'M', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 1, '2019-11-01', 'awd', 'awd', 'awd'),
+(2, 2, 'm', 'm', 'm', 'm', '2019-11-01', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 1, '2019-11-01', 'm', 'm', 'm');
 
 -- --------------------------------------------------------
 
