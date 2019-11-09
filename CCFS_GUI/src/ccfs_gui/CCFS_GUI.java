@@ -19,7 +19,7 @@ public class CCFS_GUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Enrollment/RegistrationPageTwoFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
 
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/ccfs_gui/login.css")
