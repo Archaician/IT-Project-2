@@ -144,7 +144,7 @@ public class RegistrationPageTwoController implements Initializable {
             RegistrationPageOneController.infoStud[31] = "2020-1-1";
             RegistrationPageOneController.infoStud[30] = ClientCon.stub.
                     getYearID();
-            ClientCon.stub.enStud(RegistrationPageOneController.infoStud);
+            //ClientCon.stub.enStud(RegistrationPageOneController.infoStud);
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();

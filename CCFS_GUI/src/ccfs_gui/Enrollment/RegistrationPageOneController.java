@@ -10,6 +10,8 @@ import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javaRMI.ClientCon;
 import javafx.collections.FXCollections;
@@ -110,8 +112,7 @@ public class RegistrationPageOneController implements Initializable {
     @FXML
     private void nextButton(ActionEvent event) throws Exception {
         /*Required textfields validation.*/
-        String studID;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddd");
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddd");
 
         if (surname.getText().isEmpty() || givenname.getText().isEmpty() || middlename.getText().isEmpty()
                 || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty()) {
@@ -120,19 +121,20 @@ public class RegistrationPageOneController implements Initializable {
             FieldValidation.requiredDateWarning(birthdate);
         } else {
             if (ClientCon.stub.getLastID().equals("0")) {
-                studID = ClientCon.stub.getSchoolYear().substring
+                
+                infoStud[0] = ClientCon.stub.getSchoolYear().substring
                 (ClientCon.stub.getSchoolYear().length() - 2) + "1";
             }else {
-                studID = ClientCon.stub.getSchoolYear().substring
-                (ClientCon.stub.getSchoolYear().length() - 2) + Integer.parseInt(ClientCon.stub.
-                        getLastID() + 1);
+                infoStud[0] = ClientCon.stub.getSchoolYear().substring
+                (ClientCon.stub.getSchoolYear().length() - 2) + Integer.parseInt
+                (ClientCon.stub.getLastID() + 1);
             }
-            infoStud[0] = studID;
+            System.out.println(studID+" "+ClientCon.stub.getLastID()+" "+" DICK");
             infoStud[1] = givenname.getText();
             infoStud[2] = middlename.getText();
             infoStud[3] = surname.getText();
             infoStud[4] = gradelvl.getValue();
-            infoStud[5] = simpleDateFormat.format(birthdate.getValue());
+            infoStud[5] = birthdate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             infoStud[6] = birthplace.getText();
             infoStud[7] = gender.getValue();
             infoStud[8] = telephone.getText();

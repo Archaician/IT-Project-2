@@ -68,13 +68,15 @@ public class AddSiblingController implements Initializable {
             //TODO
         }
     }
-
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         FieldValidation.capsLock(surname, givenname, school);
+        surname.setText(RegistrationPageOneController.infoStud[3]);
+        school.setText(RegistrationPageOneController.infoStud[11]);
         // TODO
     }
 
