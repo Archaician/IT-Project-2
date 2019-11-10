@@ -68,8 +68,8 @@ public class CreateAccountController implements Initializable {
     /*Show account type choicebox choices.*/
     private void loadAccountType() {
         list.removeAll(list);
-        String registrar = "REGISTRAR";
-        String accounting = "ACCOUNTING";
+        String registrar = "R";
+        String accounting = "A";
         list.addAll(registrar, accounting);
         acctype.getItems().addAll(list);
         acctype.setValue(registrar);
@@ -102,11 +102,11 @@ public class CreateAccountController implements Initializable {
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
+//                ClientCon.stub.addAcc(infoArr);
                 DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New Account", "Successfully created new account.", ButtonType.OK);
                 AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
                 container.getChildren().setAll(root);
                 LayoutProperties.anchorPaneConstraints(root);
-                ClientCon.stub.addAcc(infoArr);
             } else {
                 alert.close();
             }
