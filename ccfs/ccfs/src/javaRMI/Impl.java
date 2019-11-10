@@ -61,12 +61,15 @@ public class Impl implements InterfaceRMI {
     //get Year ID 
     @Override
     public String getYearID() throws Exception {
+        LogInMethod.connection();
         return EnrollmentMethod.getSchoolYearId();
     }
     // add Account
     @Override
     public void addAcc(String[] info) throws Exception {
-        
+        LogInMethod.connection();
+        Admin addAc = new Admin(info);
+        AdminMethod.addAccounts(addAc);
     }
     //view Accounts
     @Override
@@ -79,5 +82,10 @@ public class Impl implements InterfaceRMI {
         LogInMethod.connection();
         Admin admin = new Admin(studInfo);
         return AdminMethod.searchStud(admin);
+    }
+    //logOut an account when close or click the logout
+    @Override
+    public void logOut(int ID) throws Exception {
+        id.remove(ID);
     }
 }

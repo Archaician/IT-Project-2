@@ -14,7 +14,7 @@ public class App {
     }
 
     public static void createAcc() throws Exception {
-        String[] arr = {"3","r","r","r","r","R"};
+        String[] arr = {"8","r","r","r","r","A"};
         Admin ad = new Admin(arr);
         AdminMethod.addAccounts(ad);
     }

@@ -19,5 +19,6 @@ public interface InterfaceRMI extends Remote {
     // add Accounts
     public void addAcc(String[] info) throws Exception;
     public String viewAcc() throws Exception;
-    
+    public void logOut(int id) throws Exception;
+
 }
