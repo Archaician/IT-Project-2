@@ -34,11 +34,12 @@
          <center>
             <TableView fx:id="accountslist_Table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="name_Col" prefWidth="290.0" text="Name" />
-                <TableColumn fx:id="username_Col" prefWidth="196.0" text="Username" />
-                  <TableColumn fx:id="accounttype_Col" prefWidth="163.0" text="Account Type" />
-                  <TableColumn fx:id="accountstatus_Col" prefWidth="183.0" text="Status" />
-                  <TableColumn fx:id="action_Col" prefWidth="120.0" text="Action" />
+                  <TableColumn fx:id="accid_Col" prefWidth="75.0" style="-fx-alignment: center;" text="Account ID" />
+                <TableColumn fx:id="name_Col" prefWidth="332.0" style="-fx-alignment: center;" text="Name" />
+                <TableColumn fx:id="username_Col" prefWidth="183.0" style="-fx-alignment: center;" text="Username" />
+                  <TableColumn fx:id="accounttype_Col" prefWidth="185.0" style="-fx-alignment: center;" text="Account Type" />
+                  <TableColumn fx:id="accountstatus_Col" prefWidth="181.0" style="-fx-alignment: center;" text="Status" />
+                  <TableColumn fx:id="action_Col" prefWidth="143.0" style="-fx-alignment: center;" text="Action" />
               </columns>
             </TableView>
          </center>
