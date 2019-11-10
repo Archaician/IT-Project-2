@@ -42,17 +42,20 @@ public class Impl implements InterfaceRMI {
     // enroll student
     @Override
     public void enStud(String[] studInfo) throws Exception {
+        LogInMethod.connection();
         Enrollment enrmnt = new Enrollment(studInfo);
         EnrollmentMethod.addStud(enrmnt);
     }
     //get Last studentID 
     @Override
     public String getLastID() throws Exception {
+        LogInMethod.connection();
         return EnrollmentMethod.getLastID();
     }
     //get Schoolyear (current school year)
     @Override
     public String getSchoolYear() throws Exception {
+        LogInMethod.connection();
         return EnrollmentMethod.getSchoolYear();
     }
     //get Year ID 
@@ -73,6 +76,7 @@ public class Impl implements InterfaceRMI {
     //search for student via idnum
     @Override
     public String srchStud(String[] studInfo) throws Exception {
+        LogInMethod.connection();
         Admin admin = new Admin(studInfo);
         return AdminMethod.searchStud(admin);
     }

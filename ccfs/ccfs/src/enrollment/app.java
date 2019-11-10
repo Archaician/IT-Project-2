@@ -12,7 +12,8 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         EnrollmentMethod.connection();
-        addAcc();
+//        System.out.print(getLastID());
+        System.out.print(getYear());
     }
     
     public static void getID() throws Exception {
@@ -35,5 +36,11 @@ public class App {
         String[] arr = {"2","e","e","e","e","R"};
         Admin ad = new Admin(arr);
         AdminMethod.addAccounts(ad);
+    }
+    public static String getYear() throws Exception {
+        return EnrollmentMethod.getSchoolYearId();
+    }
+    public static String getLastID() throws Exception{
+        return EnrollmentMethod.getLastID();
     }
 }

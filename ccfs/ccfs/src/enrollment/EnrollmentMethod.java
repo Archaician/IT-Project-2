@@ -102,8 +102,7 @@ public class EnrollmentMethod {
         PreparedStatement prepedSt = con.prepareStatement("SELECT `yearid` "
                 + "FROM `schoolyear` ORDER BY yearstart DESC LIMIT 1");
         ResultSet rs = prepedSt.executeQuery();
-        rs.next();
-        return rs.getString(1);
+        return rs.next()? rs.getString(1):"Empty";
     }
     
     public static String getLastID() throws SQLException {
