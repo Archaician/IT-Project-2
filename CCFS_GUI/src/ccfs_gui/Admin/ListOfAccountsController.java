@@ -73,13 +73,13 @@ public class ListOfAccountsController implements Initializable {
     
     private void populateAccountsListTable() throws SQLException {
         acclist = FXCollections.observableArrayList();
-        
+                
         dbaseConnection();
-        ResultSet rs = con.createStatement().executeQuery("SELECT `accid`, `lname`, `username`, `type`, `accstatus` FROM `accounts`");
+        ResultSet rs = con.createStatement().executeQuery("SELECT `accid`, CONCAT(lname, ', ', fname), `username`, `type`, `accstatus` FROM `accounts`");
         while (rs.next()) {
             Accounts accounts = new Accounts();
             accounts.setAccountID(rs.getInt("accid"));
-            accounts.setName(rs.getString("lname")); //must be combination of firstname and lastname
+            accounts.setName(rs.getString("CONCAT(lname, ', ', fname)"));
             accounts.setUsername(rs.getString("username"));
             accounts.setAccountType(rs.getString("type"));
             accounts.setAccountStatus(rs.getString("accstatus"));
