@@ -26,6 +26,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -93,46 +94,28 @@ public class ListOfAccountsController implements Initializable {
         accounttype_Col.setCellValueFactory(new PropertyValueFactory<>("type"));
         accountstatus_Col.setCellValueFactory(new PropertyValueFactory<>("status"));
         
-        /*Create a button under Action column for every row.*/
-        Callback<TableColumn<Accounts, String>, TableCell<Accounts, String>> cellFactory = (p) -> {
-            
-            final TableCell<Accounts, String> cell = new TableCell<Accounts, String>() {
-                
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-                    } else {
-                        final Button editBtn = new Button("Edit");
-                        editBtn.setOnAction(e -> {
-                            try {
-                                Accounts acc = getTableView().getItems().get(getIndex());
-                                
-                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditAccountPopupFXML.fxml"));
-                                Parent root1 = (Parent) fxmlLoader.load();
-                                Stage stage = new Stage();
-                                stage.setScene(new Scene(root1));
-                                stage.setResizable(false);
-                                stage.initModality(Modality.APPLICATION_MODAL);
-                                stage.showAndWait();
-                            } catch (IOException ex) {
-                                Logger.getLogger(ListOfAccountsController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        });
+        /*Make table rows clickable.*/
+        accountslist_Table.setRowFactory(tv -> {
+            TableRow<Accounts> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    try {
+                        Accounts rowData = row.getItem();
                         
-                        setGraphic(editBtn);
-                        //editBtn.setStyle("-fx-background-color: yellowgreen");
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditAccountPopupFXML.fxml"));
+                        Parent root1 = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root1));
+                        stage.setResizable(false);
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    } catch (IOException ex) {
+                        Logger.getLogger(ListOfAccountsController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            };
-            
-            return cell;
-        };
-        
-        action_Col.setCellFactory(cellFactory);
+            });
+            return row ;
+        });
         
         accountslist_Table.setItems(acclist);
     }
