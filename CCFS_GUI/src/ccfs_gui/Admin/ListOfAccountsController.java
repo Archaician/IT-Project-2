@@ -21,7 +21,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -29,6 +30,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 
 /**
@@ -105,15 +108,23 @@ public class ListOfAccountsController implements Initializable {
                     } else {
                         final Button editBtn = new Button("Edit");
                         editBtn.setOnAction(e -> {
-                            Accounts acc = getTableView().getItems().get(getIndex());
-                            
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.show();
+                            try {
+                                Accounts acc = getTableView().getItems().get(getIndex());
+                                
+                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditAccountPopupFXML.fxml"));
+                                Parent root1 = (Parent) fxmlLoader.load();
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(root1));
+                                stage.setResizable(false);
+                                stage.initModality(Modality.APPLICATION_MODAL);
+                                stage.showAndWait();
+                            } catch (IOException ex) {
+                                Logger.getLogger(ListOfAccountsController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
                         });
                         
                         setGraphic(editBtn);
-                        //setText(null);
-                        //editBtn.setStyle("-fx-background-color: green");
+                        //editBtn.setStyle("-fx-background-color: yellowgreen");
                     }
                 }
             };
