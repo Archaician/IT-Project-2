@@ -34,10 +34,13 @@
          <center>
             <TableView fx:id="schoolyearslist_Table" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="510.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="schoolyear_Col" prefWidth="386.99998474121094" text="School Year" />
-                <TableColumn fx:id="schoolyearstatus_Col" prefWidth="386.0" text="Status" />
-                  <TableColumn fx:id="action_Col" prefWidth="231.0" text="Action" />
+                <TableColumn fx:id="schoolyear_Col" prefWidth="386.99998474121094" style="-fx-alignment: center;" text="School Year" />
+                <TableColumn fx:id="schoolyearstatus_Col" prefWidth="386.0" style="-fx-alignment: center;" text="Status" />
+                  <TableColumn fx:id="action_Col" prefWidth="231.0" style="-fx-alignment: center;" text="Action" />
               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
             </TableView>
          </center>
          <bottom>
@@ -60,6 +63,11 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Double click on a row to view school year information." textAlignment="CENTER" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Italic" size="15.0" />
+                     </font>
+                  </Text>
                </children>
             </GridPane>
          </bottom>

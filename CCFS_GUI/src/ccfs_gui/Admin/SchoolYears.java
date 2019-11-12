@@ -5,44 +5,41 @@
  */
 package ccfs_gui.Admin;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
- * Object class for school years.
+ * Object class for school years list.
  * 
  * @author Imran
  */
 public class SchoolYears {
     
-    private final IntegerProperty yearStart = new SimpleIntegerProperty();
-    private final IntegerProperty yearEnd = new SimpleIntegerProperty();
     private final StringProperty schoolYear = new SimpleStringProperty();
+    private final StringProperty status = new SimpleStringProperty();
     
-    public int getYearStart() {
-        return yearStart.get();
+    public String getSchoolYear() {
+        return schoolYear.get();
     }
     
-    public void setYearStart(int value) {
-        yearStart.set(value);
+    public void setSchoolYear(String value) {
+        schoolYear.set(value);
     }
     
-    public IntegerProperty yearStartProperty() {
-        return yearStart;
+    public StringProperty schoolYearProperty() {
+        return schoolYear;
     }
     
-    public int getYearEnd() {
-        return yearEnd.get();
+    public String getStatus() {
+        return status.get();
     }
     
-    public void setYearEnd(int value) {
-        yearEnd.set(value);
+    public void setStatus(String value) {
+        status.set(value);
     }
     
-    public IntegerProperty yearEndProperty() {
-        return yearEnd;
+    public StringProperty statusProperty() {
+        return status;
     }
     
     
