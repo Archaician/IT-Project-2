@@ -9,16 +9,20 @@ public interface InterfaceRMI extends Remote {
     public boolean logIn(String user,String pass) throws Exception;
     public String retId(String user,String pass) throws Exception;
     public String retType(String user,String pass) throws Exception;
+    public void logOut(int ID) throws Exception; 
     // enrollment
     public void enStud(String[] studInfo) throws Exception;
     public String getSchoolYear() throws Exception;
     public String getLastID() throws Exception;
     public String getYearID() throws Exception;
     public String srchStud(String[] studInfo) throws Exception;
-    
+   
     // add Accounts
     public void addAcc(String[] info) throws Exception;
     public String viewAcc() throws Exception;
-    public void logOut(int id) throws Exception;
-
+    public boolean checkAccount(String[] info) throws Exception;
+    
+    //Add school year
+    public String[] getAttID() throws Exception;
+    
 }

@@ -37,6 +37,8 @@ public class AdminMethod {
     }
     
     public static void addAccounts(Admin admin) throws Exception {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO "
                 + "`accounts` (`empid`, `username`, `password`, `fname`, "
                 + "`lname`, `type`) VALUES "
@@ -44,17 +46,19 @@ public class AdminMethod {
         prepedSt.setString(1, admin.acc[0]);
         prepedSt.setString(2, admin.acc[1]);
         prepedSt.setString(3, admin.acc[2]);
-        prepedSt.setString(4, admin.acc[3]);
+        prepedSt.setString(4, admin.acc[3]);    
         prepedSt.setString(5, admin.acc[4]);
         prepedSt.setString(6, admin.acc[5]);
-        prepedSt.execute();
+        prepedSt.executeUpdate();
     }
     
     public static boolean checkAccount(Admin admin) throws Exception {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("SELECT `accid`, "
             + "`empid`, `username`, `password`, `fname`, `lname`, `type`, "
-            + "`accstatus` FROM `accounts` WHERE PASSWORD = ? And "
-            + "username = ?;");
+            + "`accstatus` FROM `accounts` WHERE PASSWORD = ? AND "
+            + "USERNAME = ?;");
         prepedSt.setString(1, admin.acc[0]);
         prepedSt.setString(2, admin.acc[1]);
         ResultSet rs = prepedSt.executeQuery();
@@ -69,6 +73,8 @@ public class AdminMethod {
     }
     
     public static void addSchoolYear(Admin admin) throws Exception {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO "
                 + "`schoolyear`(`yearstart`, `yearend`, `totalAtt`, "
                 + "`atteID`, `feeID`, `Status`) VALUES (?,?,?,?,?,?)");
@@ -110,4 +116,15 @@ public class AdminMethod {
         ResultSet rs = prepedSt.executeQuery();
         return rs.getString(0);
     }
+    
+    public static String[] getAttID() throws Exception {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
+        PreparedStatement prepedSt = con.prepareStatement("SELECT `atteID`, "
+                + "`Status` FROM `schoolyear`ORDER BY atteID DESC LIMIT 1;");
+        ResultSet rs = prepedSt.executeQuery();
+        String[] result = {rs.getString("atteID"),rs.getString("Status")};
+        return result;
+    }
+    
 }

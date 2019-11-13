@@ -67,9 +67,8 @@ public class Impl implements InterfaceRMI {
     // add Account
     @Override
     public void addAcc(String[] info) throws Exception {
-        LogInMethod.connection();
-        Admin addAc = new Admin(info);
-        AdminMethod.addAccounts(addAc);
+        Admin addAcc = new Admin(info);
+        AdminMethod.addAccounts(addAcc);
     }
     //view Accounts
     @Override
@@ -88,4 +87,16 @@ public class Impl implements InterfaceRMI {
     public void logOut(int ID) throws Exception {
         id.remove(ID);
     }
+    // check for pass or username is already taken
+    @Override
+    public boolean checkAccount(String[] info) throws Exception {
+        Admin admin = new Admin(info);
+        return AdminMethod.checkAccount(admin);
+    }
+    //Get Status and AttID at 
+    @Override
+    public String[] getAttID() throws Exception {
+        return AdminMethod.getAttID();
+    }
+    
 }

@@ -26,6 +26,8 @@ public class EnrollmentMethod {
     }
     
     public static void addStud(Enrollment enroll) throws Exception {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO "
                 + "`enstudent`(`IDno`, `GivenName`, `MiddleName`, "
                 + "`SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, "
@@ -76,7 +78,8 @@ public class EnrollmentMethod {
     }
     
     public static void addSchoolYear(Enrollment enroll) throws SQLException {
-         
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+               + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("INSERT INTO 'schoolyear' "
                 + "('yearstart', 'yearend', 'totalAtt', 'atteID', "
                 + "'feeID', 'Status') VALUES "
@@ -91,6 +94,8 @@ public class EnrollmentMethod {
     }
     
     public static String getSchoolYear() throws SQLException {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("SELECT `yearstart` "
                 + "FROM `schoolyear` ORDER BY yearstart DESC LIMIT 1");
         ResultSet rs = prepedSt.executeQuery();
@@ -99,6 +104,8 @@ public class EnrollmentMethod {
     }
     
     public static String getSchoolYearId() throws SQLException {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("SELECT `yearid` "
                 + "FROM `schoolyear` ORDER BY yearstart DESC LIMIT 1");
         ResultSet rs = prepedSt.executeQuery();
@@ -106,6 +113,8 @@ public class EnrollmentMethod {
     }
     
     public static String getLastID() throws SQLException {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
         PreparedStatement prepedSt = con.prepareStatement("SELECT`IDno`FROM "
                 + "`enstudent` ORDER BY IDno DESC LIMIT 1");
         ResultSet rs = prepedSt.executeQuery();
