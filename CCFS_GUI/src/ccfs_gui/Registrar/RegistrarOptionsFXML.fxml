@@ -26,7 +26,7 @@
             </ButtonBar>
          </bottom>
          <center>
-            <GridPane fx:id="inner_borderpane" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+            <GridPane id="inner_borderpane" fx:id="inner_borderpane" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
               <columnConstraints>
                   <ColumnConstraints fx:id="leftOptions" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="410.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="370.0" />
