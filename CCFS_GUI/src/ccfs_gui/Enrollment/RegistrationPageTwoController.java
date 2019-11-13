@@ -102,7 +102,6 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private void enrollButton(ActionEvent event) throws Exception {
         /*Textfield validation.*/
-        
         if (!fatherfirstname.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(fatherlastname, fatheraddress, fathermobile);
         } else if (!motherfirstname.getText().isEmpty()) {
@@ -116,6 +115,7 @@ public class RegistrationPageTwoController implements Initializable {
         } else if (fatherfirstname.getText().isEmpty() && motherfirstname.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(guardianname, guardianaddress, guardiannumber);
         } else {
+            ClientCon.conRMI("localhost");
             RegistrationPageOneController.infoStud[13] = fatherfirstname.
                     getText();
             RegistrationPageOneController.infoStud[14] = fatherlastname.

@@ -31,7 +31,8 @@ import javaRMI.ClientCon;
  * @author Imran
  */
 public class LoginController implements Initializable {
-
+    
+    public static String id = null;
     @FXML
     private Label validation;
     @FXML
@@ -59,7 +60,7 @@ public class LoginController implements Initializable {
             ClientCon.conRMI("localhost");
             if (ClientCon.stub.logIn(inputusername.getText(), 
                     inputpassword.getText()) == true && ClientCon.stub.retType
-                    (inputusername.getText(), inputpassword.getText()).equals("A")&&
+                    (inputusername.getText(), inputpassword.getText()).equals("ACCOUNTING")&&
                     ClientCon.stub.retId(inputusername.getText(), 
                     inputpassword.getText()).equals("LogIn")) {
                 ((Node)event.getSource()).getScene().getWindow().hide();
@@ -74,7 +75,7 @@ public class LoginController implements Initializable {
               //  sceneval.add((Scene) delete.getScene().getWindow());
             } else if (ClientCon.stub.logIn(inputusername.getText(), 
                     inputpassword.getText()) == true && ClientCon.stub.retType
-                    (inputusername.getText(), inputpassword.getText()).equals("R")&&
+                    (inputusername.getText(), inputpassword.getText()).equals("REGISTRAR")&&
                     ClientCon.stub.retId(inputusername.getText(), 
                     inputpassword.getText()).equals("LogIn")) {
                 ((Node)event.getSource()).getScene().getWindow().hide();

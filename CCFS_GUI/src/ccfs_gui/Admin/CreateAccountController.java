@@ -68,8 +68,8 @@ public class CreateAccountController implements Initializable {
     /*Show account type choicebox choices.*/
     private void loadAccountType() {
         list.removeAll(list);
-        String registrar = "R";
-        String accounting = "A";
+        String registrar = "REGISTRAR";
+        String accounting = "ACCOUNTING";
         list.addAll(registrar, accounting);
         acctype.getItems().addAll(list);
         acctype.setValue(registrar);
@@ -77,10 +77,7 @@ public class CreateAccountController implements Initializable {
 
     @FXML
     private void createButton(ActionEvent event) throws Exception {
-        String infoArr[] = {empID.getText(), firstname.getText() ,
-            lastname.getText(), username.getText(), passwd.getText(), 
-            acctype.getValue()};
-
+        String [] info = {passwd.getText(),username.getText()};
         /*Required textfields validation.*/
         if (empID.getText().isEmpty() && firstname.getText().isEmpty() && 
                 lastname.getText().isEmpty() && username.getText().isEmpty() && 
@@ -95,6 +92,10 @@ public class CreateAccountController implements Initializable {
             passwd.setStyle("-fx-border-color: none");
             confpasswd.setStyle("-fx-border-color: none");
             });
+        } else if (ClientCon.stub.checkAccount(info) == true) {
+            DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Password and "
+                    + "Username is already taken", "Pls Try again", 
+                    ButtonType.OK);
         } else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Create an account with the following information?\n"
                     + "\nEmployee ID: " + empID.getText() + "\nAccount Type: " + acctype.getValue() + "\nFirst Name: " + firstname.getText()
@@ -102,7 +103,10 @@ public class CreateAccountController implements Initializable {
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
-//                ClientCon.stub.addAcc(infoArr);
+                String infoArr[] = {empID.getText(), firstname.getText() ,
+                    lastname.getText(), username.getText(), passwd.getText(), 
+                    acctype.getValue()};
+                ClientCon.stub.addAcc(infoArr);
                 DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New Account", "Successfully created new account.", ButtonType.OK);
                 AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
                 container.getChildren().setAll(root);
@@ -136,6 +140,7 @@ public class CreateAccountController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ClientCon.conRMI("localhost");
         FieldValidation.capsLock(empID, firstname, lastname, username);
         setAccountID();
         loadAccountType();
