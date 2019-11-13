@@ -73,7 +73,8 @@ public class ListOfSchoolYearsController implements Initializable {
 
     private void populateSchoolYearsListTable() throws SQLException {
         schyrlist = FXCollections.observableArrayList();
-
+        schyrlist.clear();
+        
         dbaseConnection();
         ResultSet rs = con.createStatement().executeQuery("SELECT CONCAT(yearstart, '-', yearend), `Status` FROM `schoolyear`");
         while (rs.next()) {
@@ -86,7 +87,7 @@ public class ListOfSchoolYearsController implements Initializable {
 
         schoolyear_Col.setCellValueFactory(new PropertyValueFactory<>("schoolYear"));
         schoolyearstatus_Col.setCellValueFactory(new PropertyValueFactory<>("status"));
-
+        
         /*Create a button under Action column for every non-empty row.*/
         Callback<TableColumn<SchoolYears, String>, TableCell<SchoolYears, String>> cellFactory = (p) -> {
 
@@ -119,7 +120,7 @@ public class ListOfSchoolYearsController implements Initializable {
                                         PreparedStatement ps = con.prepareStatement("UPDATE `schoolyear` SET `Status`='Inactive' WHERE CONCAT(yearstart, '-', yearend)=  " + "'" + schoolyr + "'");
                                         ps.executeUpdate();
                                         DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "School Year Deactivated", "School year " + schoolyr + " has been set as inactive.", ButtonType.OK);
-                                        schoolyearslist_Table.refresh();
+                                        populateSchoolYearsListTable(); //refresh table
                                     } catch (SQLException ex) {
                                         Logger.getLogger(ListOfSchoolYearsController.class.getName()).log(Level.SEVERE, null, ex);
                                     }
@@ -141,7 +142,7 @@ public class ListOfSchoolYearsController implements Initializable {
                                         PreparedStatement ps = con.prepareStatement("UPDATE `schoolyear` SET `Status`='Active' WHERE CONCAT(yearstart, '-', yearend)=  " + "'" + schoolyr + "'");
                                         ps.executeUpdate();
                                         DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "School Year Activated", "School year " + schoolyr + " has been set as active.", ButtonType.OK);
-                                        schoolyearslist_Table.refresh();
+                                        populateSchoolYearsListTable(); //refresh table
                                     } catch (SQLException ex) {
                                         Logger.getLogger(ListOfSchoolYearsController.class.getName()).log(Level.SEVERE, null, ex);
                                     }
