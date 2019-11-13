@@ -21,15 +21,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.util.Callback;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -70,13 +72,13 @@ public class ListOfAccountsController implements Initializable {
     
     private void populateAccountsListTable() throws SQLException {
         acclist = FXCollections.observableArrayList();
-        
+                
         dbaseConnection();
-        ResultSet rs = con.createStatement().executeQuery("SELECT `accid`, `lname`, `username`, `type`, `accstatus` FROM `accounts`");
+        ResultSet rs = con.createStatement().executeQuery("SELECT `accid`, CONCAT(lname, ', ', fname), `username`, `type`, `accstatus` FROM `accounts`");
         while (rs.next()) {
             Accounts accounts = new Accounts();
             accounts.setAccountID(rs.getInt("accid"));
-            accounts.setName(rs.getString("lname")); //must be combination of firstname and lastname
+            accounts.setName(rs.getString("CONCAT(lname, ', ', fname)"));
             accounts.setUsername(rs.getString("username"));
             accounts.setAccountType(rs.getString("type"));
             accounts.setAccountStatus(rs.getString("accstatus"));
@@ -90,38 +92,28 @@ public class ListOfAccountsController implements Initializable {
         accounttype_Col.setCellValueFactory(new PropertyValueFactory<>("type"));
         accountstatus_Col.setCellValueFactory(new PropertyValueFactory<>("status"));
         
-        /*Create a button under Action column for every row.*/
-        Callback<TableColumn<Accounts, String>, TableCell<Accounts, String>> cellFactory = (p) -> {
-            
-            final TableCell<Accounts, String> cell = new TableCell<Accounts, String>() {
-                
-                @Override
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-                    } else {
-                        final Button editBtn = new Button("Edit");
-                        editBtn.setOnAction(e -> {
-                            Accounts acc = getTableView().getItems().get(getIndex());
-                            
-                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                            alert.show();
-                        });
+        /*Make table rows clickable.*/
+        accountslist_Table.setRowFactory(tv -> {
+            TableRow<Accounts> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    try {
+                        Accounts rowData = row.getItem();
                         
-                        setGraphic(editBtn);
-                        //setText(null);
-                        //editBtn.setStyle("-fx-background-color: green");
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditAccountPopupFXML.fxml"));
+                        Parent root1 = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root1));
+                        stage.setResizable(false);
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        stage.showAndWait();
+                    } catch (IOException ex) {
+                        Logger.getLogger(ListOfAccountsController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            };
-            
-            return cell;
-        };
-        
-        action_Col.setCellFactory(cellFactory);
+            });
+            return row ;
+        });
         
         accountslist_Table.setItems(acclist);
     }

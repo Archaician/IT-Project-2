@@ -26,10 +26,11 @@
             </ButtonBar>
          </bottom>
          <center>
-            <GridPane fx:id="inner_borderpane" BorderPane.alignment="CENTER">
+            <GridPane fx:id="inner_borderpane" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="550.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="550.0" />
+                  <ColumnConstraints fx:id="leftOptions" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="410.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="370.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="369.19998779296867" />
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -41,81 +42,81 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="registerStud_Btn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="ENROLL NEW STUDENT" GridPane.halignment="CENTER">
+                  <Button fx:id="registerStud_Btn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" styleClass="optionButton" text="ENROLL NEW STUDENT" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="enrollContStud_Btn" layoutX="30.0" layoutY="36.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="ENROLL CONTINUING STUDENT" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                  <Button fx:id="enrollContStud_Btn" layoutX="30.0" layoutY="36.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" styleClass="optionButton" text="ENROLL CONTINUING STUDENT" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="viewStudList_Btn" layoutX="30.0" layoutY="36.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW LIST OF STUDENTS" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Button fx:id="viewStudList_Btn" layoutX="30.0" layoutY="36.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" styleClass="optionButton" text="VIEW LIST OF STUDENTS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="viewArchive_Btn" layoutX="30.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW LIST OF ARCHIVED STUDENTS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <Button fx:id="viewArchive_Btn" layoutX="30.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" styleClass="optionButton" text="VIEW LIST OF ARCHIVED STUDENTS" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                      <font>
-                        <Font size="18.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </GridPane.margin>
-                  </Button>
-                  <Button fx:id="attendance_Btn" layoutX="560.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW / EDIT ATTENDANCE OF STUDENT" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="studGrades_Btn" layoutX="10.0" layoutY="240.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" text="VIEW / INPUT / EDIT GRADES OF STUDENTS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                     <GridPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </GridPane.margin>
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="studDiscount_Btn" layoutX="30.0" layoutY="240.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="ADD / UPDATE / REMOVE DISCOUNT OF STUDENT" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
-                     <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="studSponsorship_Btn" layoutX="30.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="ADD / REMOVE SPONSORSHIP OF STUDENT" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
+                  <Button fx:id="attendance_Btn" layoutX="560.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" styleClass="optionButton" text="VIEW / EDIT ATTENDANCE OF STUDENT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="studGrades_Btn" layoutX="10.0" layoutY="240.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="550.0" styleClass="optionButton" text="VIEW / INPUT / EDIT GRADES OF STUDENTS" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="studDiscount_Btn" layoutX="30.0" layoutY="240.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" styleClass="optionButton" text="ADD / UPDATE / REMOVE DISCOUNT OF STUDENT" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3">
+                     <font>
+                        <Font size="14.0" />
                      </font>
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="studChecklist_Btn" layoutX="30.0" layoutY="314.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="VIEW / EDIT CHECKLIST OF STUDENTS" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
+                  <Button fx:id="studSponsorship_Btn" layoutX="30.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" styleClass="optionButton" text="ADD / REMOVE SPONSORSHIP OF STUDENT" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
                      </font>
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button fx:id="generateReports_Btn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" text="GENERATE REPORTS" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6">
+                  <Button fx:id="studChecklist_Btn" layoutX="30.0" layoutY="314.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" styleClass="optionButton" text="VIEW / EDIT CHECKLIST OF STUDENTS" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="14.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="generateReports_Btn" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registrarOptionsButtons" prefHeight="50.0" prefWidth="1100.0" styleClass="optionButton" text="GENERATE REPORTS" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6">
+                     <font>
+                        <Font size="14.0" />
                      </font>
                      <GridPane.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

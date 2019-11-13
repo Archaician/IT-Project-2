@@ -35,11 +35,13 @@ public class AdminOptionsController implements Initializable {
     @FXML
     private Button createSchYr_Btn;
     @FXML
-    private Button createNewAcc_Btn;
+    private Button viewListSchYrs_Btn;
     @FXML
     private Button registerStud_Btn;
     @FXML
     private Button enrollContStud_Btn;
+    @FXML
+    private Button createNewAcc_Btn;
     @FXML
     private Button viewListAcc_Btn;
     @FXML
@@ -66,15 +68,17 @@ public class AdminOptionsController implements Initializable {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
             return;
+        } else if (event.getSource() == viewListSchYrs_Btn) {
+            root = FXMLLoader.load(getClass().getResource("ListOfSchoolYearsFXML.fxml"));
+        } else if (event.getSource() == registerStud_Btn) {
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
+        } else if (event.getSource() == enrollContStud_Btn) {
+            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
         } else if (event.getSource() == createNewAcc_Btn) {
             //  fxmlval.add("AdminOptionsFXML.fxml");
             root = FXMLLoader.load(getClass().getResource("CreateAccountFXML.fxml"));
             // Scene scene = new Scene(root);
             // sceneval.add(scene); 
-        } else if (event.getSource() == registerStud_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/RegistrationPageOneFXML.fxml"));
-        } else if (event.getSource() == enrollContStud_Btn) {
-            root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
         } else if (event.getSource() == viewListAcc_Btn) {
             root = FXMLLoader.load(getClass().getResource("ListOfAccountsFXML.fxml"));
         } else if (event.getSource() == studGrades_Btn) {

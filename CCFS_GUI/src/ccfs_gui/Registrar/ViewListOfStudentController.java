@@ -5,21 +5,38 @@
  */
 package ccfs_gui.Registrar;
 
+import ccfs_gui.Admin.Accounts;
+import ccfs_gui.Admin.ListOfAccountsController;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -29,6 +46,7 @@ import javafx.scene.layout.BorderPane;
 public class ViewListOfStudentController implements Initializable {
     
     ObservableList list = FXCollections.observableArrayList();
+    ObservableList studList = FXCollections.observableArrayList();
 
     @FXML
     private BorderPane innerpane;
@@ -43,17 +61,27 @@ public class ViewListOfStudentController implements Initializable {
     @FXML
     private Button back_Btn;
     @FXML
-    private TableView<?> studlist_Table;
+    private TableView<Students> studlist_Table;
     @FXML
-    private TableColumn<?, ?> idnumber_Col;
+    private TableColumn<Students, Integer> idnumber_Col;
     @FXML
-    private TableColumn<?, ?> studname_Col;
+    private TableColumn<Students, String> studname_Col;
     @FXML
-    private TableColumn<?, ?> gradelvl_Col;
+    private TableColumn<Students, String> gradelvl_Col;
     @FXML
-    private TableColumn<?, ?> section_Col;
+    private TableColumn<Students, String> section_Col;
     @FXML
-    private TableColumn<?, ?> teacher_Col;
+    private TableColumn<Students, String> teacher_Col;
+    @FXML
+    private TableColumn action_Col;
+    
+    private static Connection con;
+    
+    private void dbaseConnection() throws SQLException {
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
+                + "user=root&password=");
+    }
+    
     
     /*Show sort options.*/
     private void loadSortBy(){
@@ -66,17 +94,90 @@ public class ViewListOfStudentController implements Initializable {
       sort.setValue(latest);
     }
     
+    private void populateStudentListTable() throws SQLException {
+        studList = FXCollections.observableArrayList();
+        
+        dbaseConnection();
+        ResultSet rs = con.createStatement().executeQuery("SELECT `IDno`, `SurName`, `gradelvl`, `gradelvl`, `GivenName` FROM `enstudent`");
+        while (rs.next()) {
+            Students students = new Students();
+            students.setidNo(rs.getInt("IDno"));
+            students.setStudentName(rs.getString("SurName")); //must be combination of firstname and lastname
+            students.setGradeLevel(rs.getString("gradelvl"));
+            students.setSection(rs.getString("gradelvl"));
+            students.setTeacher(rs.getString("GivenName"));
+            
+            studList.add(students);
+        }
+        
+        idnumber_Col.setCellValueFactory(new PropertyValueFactory<>("idNumber"));
+        studname_Col.setCellValueFactory(new PropertyValueFactory<>("studentName"));
+        gradelvl_Col.setCellValueFactory(new PropertyValueFactory<>("gradeLevel"));
+        section_Col.setCellValueFactory(new PropertyValueFactory<>("section"));
+        teacher_Col.setCellValueFactory(new PropertyValueFactory<>("teacher"));
+        
+        /*Create a button under Action column for every row.*/
+        Callback<TableColumn<Students, String>, TableCell<Students, String>> cellFactory = (p) -> {
+            
+            final TableCell<Students, String> cell = new TableCell<Students, String>() {
+                
+                @Override
+                public void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+                    
+                    if (empty) {
+                        setGraphic(null);
+                        setText(null);
+                    } else {
+                        final Button editBtn = new Button("Edit");
+                        editBtn.setOnAction(e -> {
+                            try {
+                                Students stud = getTableView().getItems().get(getIndex());
+                                
+                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ViewEditStudentInformation.fxml"));
+                                Parent root1 = (Parent) fxmlLoader.load();
+                                Stage stage = new Stage();
+                                stage.setScene(new Scene(root1));
+                                stage.setResizable(false);
+                                stage.initModality(Modality.APPLICATION_MODAL);
+                                stage.showAndWait();
+                            } catch (IOException ex) {
+                                Logger.getLogger(ListOfAccountsController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        });
+                        
+                        setGraphic(editBtn);
+                        //editBtn.setStyle("-fx-background-color: yellowgreen");
+                    }
+                }
+            };
+            
+            return cell;
+        };
+        action_Col.setCellFactory(cellFactory);
+        studlist_Table.setItems(studList);
+    }
+    
     @FXML
     private void backButton(ActionEvent event) {
         //TODO
     }
+    
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loadSortBy();
+        try {
+            dbaseConnection();
+            loadSortBy();
+            populateStudentListTable();
+        } catch (SQLException ex) {
+            Logger.getLogger(ViewListOfStudentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }    
     
 }
