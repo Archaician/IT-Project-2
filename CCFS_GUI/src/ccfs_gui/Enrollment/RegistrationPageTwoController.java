@@ -115,35 +115,35 @@ public class RegistrationPageTwoController implements Initializable {
         } else if (fatherfirstname.getText().isEmpty() && motherfirstname.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(guardianname, guardianaddress, guardiannumber);
         } else {
-            ClientCon.conRMI("localhost");
-            RegistrationPageOneController.infoStud[13] = fatherfirstname.
-                    getText();
-            RegistrationPageOneController.infoStud[14] = fatherlastname.
-                    getText();
-            RegistrationPageOneController.infoStud[15] = 
-                    RegistrationPageOneController.infoStud[10];
-            RegistrationPageOneController.infoStud[16] = fathermobile.getText();
-            RegistrationPageOneController.infoStud[17] = fatheremail.getText();
-            RegistrationPageOneController.infoStud[18] = fatheroccupation.
-                    getText();
-            RegistrationPageOneController.infoStud[19] = motherfirstname.
-                    getText();
-            RegistrationPageOneController.infoStud[20] = motherlastname.
-                    getText();
-            RegistrationPageOneController.infoStud[21] = motheraddress.
-                    getText();
-            RegistrationPageOneController.infoStud[22] = mothermobile.getText();
-            RegistrationPageOneController.infoStud[23] = motheremail.getText();
-            RegistrationPageOneController.infoStud[24] = motheroccupation.
-                    getText();
-            RegistrationPageOneController.infoStud[34] = guardiannumber.
-                    getText();
-            RegistrationPageOneController.infoStud[33] = guardianaddress.
-                    getText();
-            RegistrationPageOneController.infoStud[32] = guardianname.getText();
-            RegistrationPageOneController.infoStud[31] = "2020-1-1";
-            RegistrationPageOneController.infoStud[30] = ClientCon.stub.
-                    getYearID();
+//            ClientCon.conRMI("localhost");
+//            RegistrationPageOneController.infoStud[13] = fatherfirstname.
+//                    getText();
+//            RegistrationPageOneController.infoStud[14] = fatherlastname.
+//                    getText();
+//            RegistrationPageOneController.infoStud[15] = 
+//                    RegistrationPageOneController.infoStud[10];
+//            RegistrationPageOneController.infoStud[16] = fathermobile.getText();
+//            RegistrationPageOneController.infoStud[17] = fatheremail.getText();
+//            RegistrationPageOneController.infoStud[18] = fatheroccupation.
+//                    getText();
+//            RegistrationPageOneController.infoStud[19] = motherfirstname.
+//                    getText();
+//            RegistrationPageOneController.infoStud[20] = motherlastname.
+//                    getText();
+//            RegistrationPageOneController.infoStud[21] = motheraddress.
+//                    getText();
+//            RegistrationPageOneController.infoStud[22] = mothermobile.getText();
+//            RegistrationPageOneController.infoStud[23] = motheremail.getText();
+//            RegistrationPageOneController.infoStud[24] = motheroccupation.
+//                    getText();
+//            RegistrationPageOneController.infoStud[34] = guardiannumber.
+//                    getText();
+//            RegistrationPageOneController.infoStud[33] = guardianaddress.
+//                    getText();
+//            RegistrationPageOneController.infoStud[32] = guardianname.getText();
+//            RegistrationPageOneController.infoStud[31] = "2020-1-1";
+//            RegistrationPageOneController.infoStud[30] = ClientCon.stub.
+//                    getYearID();
             //ClientCon.stub.enStud(RegistrationPageOneController.infoStud);
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
