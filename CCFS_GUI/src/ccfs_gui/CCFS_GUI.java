@@ -19,16 +19,16 @@ public class CCFS_GUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Admin/CreateSchoolYearFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Accounting/AccountingMainStageFXML.fxml"));
         
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/ccfs_gui/login.css")
+        scene.getStylesheets().add(getClass().getResource("/ccfs_gui/style.css")
                 .toExternalForm());
 
         stage.setTitle("Cypress Christian Foundation School SIS");
         stage.setScene(scene);
 
-        stage.setResizable(false);
+//        stage.setResizable(false);
 
         stage.show();
 
