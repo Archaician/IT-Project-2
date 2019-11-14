@@ -123,6 +123,7 @@ public class AdminMethod {
         PreparedStatement prepedSt = con.prepareStatement("SELECT `atteID`, "
                 + "`Status` FROM `schoolyear`ORDER BY atteID DESC LIMIT 1;");
         ResultSet rs = prepedSt.executeQuery();
+        rs.next();
         String[] result = {rs.getString("atteID"),rs.getString("Status")};
         return result;
     }
