@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 08, 2019 at 12:18 PM
+-- Generation Time: Nov 14, 2019 at 03:49 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -40,7 +40,17 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `accstatus` text,
   PRIMARY KEY (`accid`),
   UNIQUE KEY `empID` (`empid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`accid`, `empid`, `username`, `password`, `fname`, `lname`, `type`, `accstatus`) VALUES
+(1, '1', 'Adamsob', 'A', 'Adam', 'Sobremonte', 'REGISTRAR', 'Active'),
+(2, '2', 'Paul_Acc', 'a123', 'Paul', 'Perez', 'REGISTRAR', 'Inactive'),
+(3, '3', 'ADAM', 'SOBREMONTE', '1', '1', 'ACCOUNTING', NULL),
+(4, '4', 'YOU', 'running', 'WHY', 'ARE', 'ACCOUNTING', NULL);
 
 -- --------------------------------------------------------
 
@@ -74,7 +84,14 @@ CREATE TABLE IF NOT EXISTS `attendance` (
   PRIMARY KEY (`attid`),
   UNIQUE KEY `studid` (`IDno`,`idyear`),
   UNIQUE KEY `idyear` (`idyear`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `attendance`
+--
+
+INSERT INTO `attendance` (`attid`, `month`, `days`, `IDno`, `idyear`) VALUES
+(1, '1', '1', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -140,7 +157,14 @@ CREATE TABLE IF NOT EXISTS `curstudent` (
   KEY `yearID_idx` (`yearID`),
   KEY `enrID_idx` (`enrID`),
   KEY `IDno` (`IDno`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `curstudent`
+--
+
+INSERT INTO `curstudent` (`studentid`, `IDno`, `gradelvl`, `section`, `teacher`, `totalpayment`, `dateenrolled`, `yearID`, `enrID`) VALUES
+(1, 210001, 'NURSERY', '1', '1', 1, '2019-11-14', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -191,15 +215,23 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   KEY `gradelvl` (`gradelvl`),
   KEY `YearID_idx` (`yearid`),
   KEY `studIDno_idx` (`IDno`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `enstudent`
 --
 
 INSERT INTO `enstudent` (`enid`, `IDno`, `GivenName`, `MiddleName`, `SurName`, `gradelvl`, `birthdate`, `birthplace`, `gender`, `homeTelnum`, `mobilenum`, `studaddress`, `prevschoolattended`, `studstat`, `sponsor`, `faFname`, `falname`, `faAdd`, `faMobilenum`, `faEmail`, `faoccupation`, `moFname`, `moLname`, `moAdd`, `momobilenum`, `moEmail`, `mooccupation`, `sibFname`, `sibLname`, `sibschoolname`, `yearid`, `dateenrolled`, `guardianName`, `guardianAddress`, `guardianContact`) VALUES
-(1, 1, 'awd', 'awd', 'awd', 'awd', '2019-11-01', 'awd', 'M', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 'awd', 1, '2019-11-01', 'awd', 'awd', 'awd'),
-(2, 2, 'm', 'm', 'm', 'm', '2019-11-01', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 'm', 1, '2019-11-01', 'm', 'm', 'm');
+(1, 210001, 'AWD', 'AWD', 'AWD', 'NURSERY', '2019-11-06', 'AWD', 'M', 'awd', 'awd', 'AWD', 'AWD', 'Enrolled', NULL, 'AWD', 'AWD', 'AWD', 'awd', 'AWD', 'AWD', 'AWD', 'AWD', 'AWD', 'awd', 'AWD', 'AWD', NULL, NULL, NULL, 3, '2019-11-14', 'AWD', 'AWD', 'awd');
+
+--
+-- Triggers `enstudent`
+--
+DROP TRIGGER IF EXISTS `Insert into curstudent`;
+DELIMITER $$
+CREATE TRIGGER `Insert into curstudent` AFTER INSERT ON `enstudent` FOR EACH ROW INSERT INTO `curstudent` VALUES(NULL,NEW.IDno,NEW.gradelvl,"1","1","1",NEW.dateenrolled,NEW.yearid,NEW.enid)
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -295,18 +327,20 @@ CREATE TABLE IF NOT EXISTS `schoolyear` (
   `totalAtt` int(20) NOT NULL,
   `atteID` int(11) NOT NULL,
   `feeID` int(11) NOT NULL,
-  `Status` int(11) NOT NULL,
+  `Status` varchar(11) NOT NULL,
   PRIMARY KEY (`yearid`),
   KEY `yearstart` (`yearstart`),
   KEY `yearend` (`yearend`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `schoolyear`
 --
 
 INSERT INTO `schoolyear` (`yearid`, `yearstart`, `yearend`, `totalAtt`, `atteID`, `feeID`, `Status`) VALUES
-(1, 2019, 2020, 360, 1, 1, 1);
+(1, 2019, 2020, 360, 1, 1, 'Active'),
+(2, 2020, 2021, 200, 2, 2, 'Inactive'),
+(3, 2021, 2022, 200, 3, 3, 'Inactive');
 
 -- --------------------------------------------------------
 
