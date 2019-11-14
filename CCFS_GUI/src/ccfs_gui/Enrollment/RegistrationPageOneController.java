@@ -123,9 +123,11 @@ public class RegistrationPageOneController implements Initializable {
                 infoStud[0] = ClientCon.stub.getSchoolYear().charAt(2)+""+
                         ClientCon.stub.getSchoolYear().charAt(3)+"0001";
             }else {
-                infoStud[0] = ClientCon.stub.getSchoolYear().substring
-                (ClientCon.stub.getSchoolYear().length() - 2) + Integer.parseInt
-                (ClientCon.stub.getLastID() + 1);
+                infoStud[0] = ""+(Integer.parseInt(ClientCon.stub.getLastID())+1);
+                System.out.println(ClientCon.stub.getLastID());
+                System.out.println(ClientCon.stub.getLastID().
+                                substring(ClientCon.stub.getLastID().length() -4));
+
             }
             
             infoStud[1] = givenname.getText();

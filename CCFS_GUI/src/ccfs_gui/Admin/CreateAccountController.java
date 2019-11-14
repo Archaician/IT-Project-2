@@ -142,6 +142,7 @@ public class CreateAccountController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ClientCon.conRMI("localhost");
+        
         FieldValidation.capsLock(empID, firstname, lastname, username);
         setAccountID();
         loadAccountType();
