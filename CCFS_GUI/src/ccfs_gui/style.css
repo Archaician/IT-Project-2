@@ -24,7 +24,7 @@
 	-fx-border-radius: 50px;
 }
 
-//Main Stage Controller Design
+/*Main Stage Controller Design*/
 
 #navigation {
 	-fx-background-image: url("images/mainstagenav.png");
@@ -45,7 +45,7 @@
     -fx-background-position: 50% 50%;	
 }
 
-//Options Design
+/*Options Design*/
 #inner_borderpane {
 	-fx-background-image: url("images/leftsidestage.png");	
 	-fx-background-size: cover;
