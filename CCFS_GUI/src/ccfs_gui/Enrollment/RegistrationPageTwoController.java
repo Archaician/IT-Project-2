@@ -10,6 +10,8 @@ import ccfs_gui.FieldValidation;
 import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javaRMI.ClientCon;
 import javafx.event.ActionEvent;
@@ -32,6 +34,8 @@ import javafx.scene.layout.GridPane;
  */
 public class RegistrationPageTwoController implements Initializable {
 
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    static LocalDateTime now = LocalDateTime.now();  
     @FXML
     private AnchorPane container;
     @FXML
@@ -102,54 +106,48 @@ public class RegistrationPageTwoController implements Initializable {
     @FXML
     private void enrollButton(ActionEvent event) throws Exception {
         /*Textfield validation.*/
-        if (!fatherfirstname.getText().isEmpty()) {
-            FieldValidation.requiredTextFieldWarning(fatherlastname, fatheraddress, fathermobile);
-        } else if (!motherfirstname.getText().isEmpty()) {
-            FieldValidation.requiredTextFieldWarning(motherlastname, motheraddress, mothermobile);
-        } else if (!fatherlastname.getText().isEmpty() || !fatheraddress.getText().isEmpty() || !fatheroccupation.getText().isEmpty()
-                || !fathermobile.getText().isEmpty() || !fatheremail.getText().isEmpty()) {
-            FieldValidation.requiredTextFieldWarning(fatherfirstname);
-        } else if (!motherlastname.getText().isEmpty() || !motheraddress.getText().isEmpty() || !motheroccupation.getText().isEmpty()
-                || !mothermobile.getText().isEmpty() || !motheremail.getText().isEmpty()) {
-            FieldValidation.requiredTextFieldWarning(motherfirstname);
-        } else if (fatherfirstname.getText().isEmpty() && motherfirstname.getText().isEmpty()) {
-            FieldValidation.requiredTextFieldWarning(guardianname, guardianaddress, guardiannumber);
+        if (guardianname.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(guardianname);
+        } else if (guardianaddress.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(guardianaddress);
+
+        } else if (guardiannumber.getText().isEmpty()) {
+            FieldValidation.requiredTextFieldWarning(guardiannumber);
         } else {
-//            ClientCon.conRMI("localhost");
-//            RegistrationPageOneController.infoStud[13] = fatherfirstname.
-//                    getText();
-//            RegistrationPageOneController.infoStud[14] = fatherlastname.
-//                    getText();
-//            RegistrationPageOneController.infoStud[15] = 
-//                    RegistrationPageOneController.infoStud[10];
-//            RegistrationPageOneController.infoStud[16] = fathermobile.getText();
-//            RegistrationPageOneController.infoStud[17] = fatheremail.getText();
-//            RegistrationPageOneController.infoStud[18] = fatheroccupation.
-//                    getText();
-//            RegistrationPageOneController.infoStud[19] = motherfirstname.
-//                    getText();
-//            RegistrationPageOneController.infoStud[20] = motherlastname.
-//                    getText();
-//            RegistrationPageOneController.infoStud[21] = motheraddress.
-//                    getText();
-//            RegistrationPageOneController.infoStud[22] = mothermobile.getText();
-//            RegistrationPageOneController.infoStud[23] = motheremail.getText();
-//            RegistrationPageOneController.infoStud[24] = motheroccupation.
-//                    getText();
-//            RegistrationPageOneController.infoStud[34] = guardiannumber.
-//                    getText();
-//            RegistrationPageOneController.infoStud[33] = guardianaddress.
-//                    getText();
-//            RegistrationPageOneController.infoStud[32] = guardianname.getText();
-//            RegistrationPageOneController.infoStud[31] = "2020-1-1";
-//            RegistrationPageOneController.infoStud[30] = ClientCon.stub.
-//                    getYearID();
-            //ClientCon.stub.enStud(RegistrationPageOneController.infoStud);
+            RegistrationPageOneController.infoStud[14] = fatherfirstname.
+                    getText();
+            RegistrationPageOneController.infoStud[15] = fatherlastname.
+                    getText();
+            RegistrationPageOneController.infoStud[16] = 
+                    RegistrationPageOneController.infoStud[10];
+            RegistrationPageOneController.infoStud[17] = fathermobile.getText();
+            RegistrationPageOneController.infoStud[18] = fatheremail.getText();
+            RegistrationPageOneController.infoStud[19] = fatheroccupation.
+                    getText();
+            RegistrationPageOneController.infoStud[20] = motherfirstname.
+                    getText();
+            RegistrationPageOneController.infoStud[21] = motherlastname.
+                    getText();
+            RegistrationPageOneController.infoStud[22] = motheraddress.
+                    getText();
+            RegistrationPageOneController.infoStud[23] = mothermobile.getText();
+            RegistrationPageOneController.infoStud[24] = motheremail.getText();
+            RegistrationPageOneController.infoStud[25] = motheroccupation.
+                    getText();
+            RegistrationPageOneController.infoStud[33] = guardiannumber.
+                    getText();
+            RegistrationPageOneController.infoStud[32] = guardianaddress.
+                    getText();
+            RegistrationPageOneController.infoStud[31] = guardianname.getText();
+            RegistrationPageOneController.infoStud[30] = dtf.format(now);
+            RegistrationPageOneController.infoStud[29] = ClientCon.stub.
+                    getYearID();
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
+                ClientCon.stub.enStud(RegistrationPageOneController.infoStud);
                 DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Registered Student", "Successfully registered student.", ButtonType.OK);
                 AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
                 container.getChildren().setAll(root);
@@ -174,6 +172,7 @@ public class RegistrationPageTwoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         FieldValidation.capsLock(fatherfirstname, fatherlastname, motherfirstname, motherlastname, fatheraddress, fatheroccupation,
                 fatheremail, motheraddress, motheroccupation, motheremail, guardianname, guardianaddress);
+        ClientCon.conRMI("localhost");
         //getStudentID("");
 //        fatheraddress.setText(RegistrationPageOneController.infoStud[10]);
         //getSchoolYear("");

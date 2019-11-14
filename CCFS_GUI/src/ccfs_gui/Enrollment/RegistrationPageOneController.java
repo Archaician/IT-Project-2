@@ -113,16 +113,15 @@ public class RegistrationPageOneController implements Initializable {
     private void nextButton(ActionEvent event) throws Exception {
         /*Required textfields validation.*/
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddd");
-        ClientCon.conRMI("localhost");
         if (surname.getText().isEmpty() || givenname.getText().isEmpty() || middlename.getText().isEmpty()
                 || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(surname, givenname, middlename, birthplace, address, prevschool);
         } else if (birthdate.getValue() == null) {
             FieldValidation.requiredDateWarning(birthdate);
         } else {
-            if (ClientCon.stub.getLastID().equals("0")) {
-                infoStud[0] = ClientCon.stub.getSchoolYear().substring
-                (ClientCon.stub.getSchoolYear().length() - 2) + "1";
+            if (ClientCon.stub.getLastID().equals("0") == true) {
+                infoStud[0] = ClientCon.stub.getSchoolYear().charAt(2)+""+
+                        ClientCon.stub.getSchoolYear().charAt(3)+"0001";
             }else {
                 infoStud[0] = ClientCon.stub.getSchoolYear().substring
                 (ClientCon.stub.getSchoolYear().length() - 2) + Integer.parseInt
@@ -135,7 +134,7 @@ public class RegistrationPageOneController implements Initializable {
             infoStud[4] = gradelvl.getValue();
             infoStud[5] = birthdate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             infoStud[6] = birthplace.getText();
-            infoStud[7] = gender.getValue();
+            infoStud[7] = gender.getValue().charAt(0)+"";
             infoStud[8] = telephone.getText();
             infoStud[9] = mobile.getText();
             infoStud[10] = address.getText();
@@ -167,6 +166,7 @@ public class RegistrationPageOneController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ClientCon.conRMI("localhost");
         FieldValidation.capsLock(surname, givenname, middlename, birthplace, address, prevschool);
         setStudentID();
         setSchoolYear();
