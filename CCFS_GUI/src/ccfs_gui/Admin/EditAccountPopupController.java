@@ -57,12 +57,12 @@ public class EditAccountPopupController implements Initializable {
             container.getChildren().setAll(root);
             LayoutProperties.anchorPaneConstraints(root);
         } else if (event.getSource() == deleteAcc_Btn) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this account?", ButtonType.YES, ButtonType.NO);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to deactivate this account?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
                 //TODO
-                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Account Deleted", "Successfully deleted this account.", ButtonType.OK);
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Account Deactivated", "Successfully deactivated account.", ButtonType.OK);
                 ((Node) event.getSource()).getScene().getWindow().hide();
             } else {
                 alert.close();

@@ -49,7 +49,7 @@
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <Button fx:id="deleteAcc_Btn" mnemonicParsing="false" onAction="#editAccountButtons" prefHeight="30.0" prefWidth="150.0" style="-fx-background-color: #539e4a;" text="Delete Account" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Button fx:id="deleteAcc_Btn" mnemonicParsing="false" onAction="#editAccountButtons" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #539e4a;" text="Active/Deactivate Account" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
@@ -116,7 +116,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="cancel_Btn" cancelButton="true" mnemonicParsing="false" onAction="#editAccountButtons" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="CANCEL" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <Button fx:id="cancel_Btn" cancelButton="true" mnemonicParsing="false" onAction="#editAccountButtons" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #ff2121;" text="CLOSE" textFill="WHITE" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

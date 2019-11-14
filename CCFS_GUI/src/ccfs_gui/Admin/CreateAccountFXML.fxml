@@ -20,6 +20,7 @@
          <center>
             <GridPane fx:id="inner_borderpane" BorderPane.alignment="CENTER">
               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="400.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="400.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="700.0" />
               </columnConstraints>
@@ -33,7 +34,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="firstname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <TextField fx:id="firstname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                      </GridPane.margin>
@@ -41,7 +42,7 @@
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="lastname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <TextField fx:id="lastname" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                      </GridPane.margin>
@@ -49,7 +50,7 @@
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="username" layoutX="420.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <TextField fx:id="username" layoutX="420.0" layoutY="138.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                      </GridPane.margin>
@@ -57,32 +58,32 @@
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="311.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <Text layoutX="311.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="313.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                  <Text layoutX="313.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="317.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                  <Text layoutX="317.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <Text layoutX="322.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                  <Text layoutX="322.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <PasswordField fx:id="passwd" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                  <PasswordField fx:id="passwd" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                      </GridPane.margin>
@@ -90,7 +91,7 @@
                         <Font size="20.0" />
                      </font>
                   </PasswordField>
-                  <PasswordField fx:id="confpasswd" layoutX="420.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                  <PasswordField fx:id="confpasswd" layoutX="420.0" layoutY="342.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" right="100.0" top="20.0" />
                      </GridPane.margin>
@@ -98,27 +99,27 @@
                         <Font size="20.0" />
                      </font>
                   </PasswordField>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Type:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <ChoiceBox fx:id="acctype" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <ChoiceBox fx:id="acctype" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" prefHeight="50.0" prefWidth="150.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="20.0" left="10.0" top="20.0" />
                      </GridPane.margin>
                   </ChoiceBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" textAlignment="RIGHT" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employee ID:" textAlignment="RIGHT" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="empID" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <TextField fx:id="empID" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets bottom="20.0" left="10.0" right="540.0" top="20.0" />
+                        <Insets bottom="20.0" left="10.0" right="420.0" top="20.0" />
                      </GridPane.margin>
                   </TextField>
                </children>
