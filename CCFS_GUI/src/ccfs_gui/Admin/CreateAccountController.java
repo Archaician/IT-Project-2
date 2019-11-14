@@ -103,8 +103,9 @@ public class CreateAccountController implements Initializable {
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
-                String infoArr[] = {empID.getText(), firstname.getText() ,
-                    lastname.getText(), username.getText(), passwd.getText(), 
+                String infoArr[] = {empID.getText(),username.getText(), 
+                    passwd.getText(),  firstname.getText() ,
+                    lastname.getText(), 
                     acctype.getValue()};
                 ClientCon.stub.addAcc(infoArr);
                 DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New Account", "Successfully created new account.", ButtonType.OK);
