@@ -127,5 +127,4 @@ public class AdminMethod {
         String[] result = {rs.getString("atteID"),rs.getString("Status")};
         return result;
     }
-    
 }

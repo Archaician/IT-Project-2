@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) throws Exception {
-        AdminMethod.connection();
-        createAcc();
     }
 
     public static void createAcc() throws Exception {

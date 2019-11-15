@@ -9,7 +9,7 @@ import admin.*;
  * @author Acer
  */
 public class Impl implements InterfaceRMI {
-    static LinkedList<Integer> id = new LinkedList<Integer>();
+    static LinkedList<String> id = new LinkedList<String>();
     //check if user and pass are in the data base
     @Override
     public boolean logIn(String user,String pass) throws Exception {
@@ -24,8 +24,8 @@ public class Impl implements InterfaceRMI {
         LogInMethod.connection();
         String[] credent = {user,pass};
         LogIn log = new LogIn(credent);
-        if(!id.contains(LogInMethod.logInAccNum(log))) {
-            id.add(LogInMethod.logInAccNum(log));
+        if(!id.contains(LogInMethod.logInAccNum(log)+"")) {
+            id.add(LogInMethod.logInAccNum(log)+"");
             return "LogIn";
         }else {
             return "Already LogIn";
@@ -38,6 +38,13 @@ public class Impl implements InterfaceRMI {
         String[] credent = {user,pass};
         LogIn log = new LogIn(credent);
         return LogInMethod.logInType(log);
+    }
+    // get ID
+    @Override
+    public String getId(String user, String pass) throws Exception {
+        String[] credent = {user,pass};
+        LogIn log = new LogIn(credent);
+        return LogInMethod.logInAccNum(log)+"";
     }
     // enroll student
     @Override
@@ -84,7 +91,7 @@ public class Impl implements InterfaceRMI {
     }
     //logOut an account when close or click the logout
     @Override
-    public void logOut(int ID) throws Exception {
+    public void logOut(String ID) throws Exception {
         id.remove(ID);
     }
     // check for pass or username is already taken
@@ -98,5 +105,5 @@ public class Impl implements InterfaceRMI {
     public String[] getAttID() throws Exception {
         return AdminMethod.getAttID();
     }
-    
+   
 }
