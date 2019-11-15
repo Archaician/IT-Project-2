@@ -22,6 +22,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -52,6 +54,14 @@ public class CreateSchoolYearController implements Initializable {
     private TextField schooldays;
     @FXML
     private Label invalid;
+    @FXML
+    private TableView<?> setSectionsAndTeachers_Table;
+    @FXML
+    private TableColumn<?, ?> gradelevels_Col;
+    @FXML
+    private TableColumn<?, ?> sections_Col;
+    @FXML
+    private TableColumn<?, ?> teachers_Col;
     
     @FXML
     private void createButton(ActionEvent event) throws IOException {
