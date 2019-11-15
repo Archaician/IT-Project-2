@@ -60,14 +60,7 @@ public class AdminOptionsController implements Initializable {
         AnchorPane root = null;
 
         if (event.getSource() == createSchYr_Btn) {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateSchoolYearFXML.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root1));
-            stage.setResizable(false);
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.showAndWait();
-            return;
+            root = FXMLLoader.load(getClass().getResource("CreateSchoolYearFXML.fxml"));
         } else if (event.getSource() == viewListSchYrs_Btn) {
             root = FXMLLoader.load(getClass().getResource("ListOfSchoolYearsFXML.fxml"));
         } else if (event.getSource() == registerStud_Btn) {
@@ -75,10 +68,7 @@ public class AdminOptionsController implements Initializable {
         } else if (event.getSource() == enrollContStud_Btn) {
             root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Enrollment/EnrollmentContinuingFXML.fxml"));
         } else if (event.getSource() == createNewAcc_Btn) {
-            //  fxmlval.add("AdminOptionsFXML.fxml");
             root = FXMLLoader.load(getClass().getResource("CreateAccountFXML.fxml"));
-            // Scene scene = new Scene(root);
-            // sceneval.add(scene); 
         } else if (event.getSource() == viewListAcc_Btn) {
             root = FXMLLoader.load(getClass().getResource("ListOfAccountsFXML.fxml"));
         } else if (event.getSource() == studGrades_Btn) {
