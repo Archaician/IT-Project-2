@@ -32,9 +32,11 @@ import javaRMI.ClientCon;
  */
 public class LoginController implements Initializable {
     
+    public static String getId;
+    
     public static String id = null;
     @FXML
-    private Label validation;
+    public static Label validation;
     @FXML
     private TextField inputusername;
     @FXML
@@ -49,7 +51,11 @@ public class LoginController implements Initializable {
         stage.setTitle("Cypress Christian Foundation School SIS");
         stage.setOnCloseRequest(c -> {
             c.consume();
+            try {
             DialogWindows.confirmExit();
+            } catch (Exception e) {
+            
+            }
         });
     }
 
@@ -57,12 +63,12 @@ public class LoginController implements Initializable {
     @FXML
     private void loginButtonAction(ActionEvent event) {
         try {
-            ClientCon.conRMI("localhost");
             if (ClientCon.stub.logIn(inputusername.getText(), 
                     inputpassword.getText()) == true && ClientCon.stub.retType
-                    (inputusername.getText(), inputpassword.getText()).equals("ACCOUNTING")&&
+                    (inputusername.getText(), inputpassword.getText()).equals("ADMIN")&&
                     ClientCon.stub.retId(inputusername.getText(), 
                     inputpassword.getText()).equals("LogIn")) {
+                getId = ClientCon.stub.getId(inputusername.getText(),inputpassword.getText());
                 ((Node)event.getSource()).getScene().getWindow().hide();
                 Stage stage = new Stage();
                 stageProperties(stage);
@@ -78,6 +84,7 @@ public class LoginController implements Initializable {
                     (inputusername.getText(), inputpassword.getText()).equals("REGISTRAR")&&
                     ClientCon.stub.retId(inputusername.getText(), 
                     inputpassword.getText()).equals("LogIn")) {
+                getId = ClientCon.stub.getId(inputusername.getText(),inputpassword.getText());
                 ((Node)event.getSource()).getScene().getWindow().hide();
                 Stage stage = new Stage();
                 stageProperties(stage);
@@ -89,9 +96,10 @@ public class LoginController implements Initializable {
                 stage.show();
             } else if (ClientCon.stub.logIn(inputusername.getText(), 
                     inputpassword.getText()) == true && ClientCon.stub.retType
-                    (inputusername.getText(), inputpassword.getText()).equals("Ac")
+                    (inputusername.getText(), inputpassword.getText()).equals("ACCOUNTING")
                     && ClientCon.stub.retId(inputusername.getText(),
                     inputpassword.getText()).equals("LogIn")) {
+                getId = ClientCon.stub.getId(inputusername.getText(),inputpassword.getText());
                 ((Node)event.getSource()).getScene().getWindow().hide();
                 Stage stage = new Stage();
                 stageProperties(stage);
@@ -101,8 +109,11 @@ public class LoginController implements Initializable {
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else {
+            } else if (ClientCon.stub.logIn(inputusername.getText(), 
+                    inputpassword.getText()) == true){
                 validation.setText("Username or password not found!");
+            } else {
+                validation.setText("Account is bieng used");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,6 +122,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        ClientCon.conRMI("localhost");
+
         // TODO
         /*        if (loginMethod.dbConnected()) {
                         label.setText("Connected to database.");

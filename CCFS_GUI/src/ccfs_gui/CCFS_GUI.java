@@ -5,6 +5,7 @@
  */
 package ccfs_gui;
 
+import javaRMI.ClientCon;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +20,8 @@ public class CCFS_GUI extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Enrollment/RegistrationPageOneFXML.fxml"));
+        ClientCon.conRMI("localhost");
+        Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
         
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("/ccfs_gui/style.css")
@@ -34,7 +36,10 @@ public class CCFS_GUI extends Application {
 
         stage.setOnCloseRequest(c -> {
             c.consume();
+            try {
             DialogWindows.confirmExit();
+            } catch(Exception e) {
+            }
         });
     }
 
