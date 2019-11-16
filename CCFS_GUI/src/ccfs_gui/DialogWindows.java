@@ -41,13 +41,13 @@ public class DialogWindows {
         alert.setTitle("Exit");
         //alert.setHeaderText("Exit CCFS SIS");
         alert.showAndWait();
-
+        
         if (alert.getResult() == ButtonType.YES && 
-                LoginController.getId.isEmpty()) {
-            System.exit(0);
-        } else if (alert.getResult() == ButtonType.YES && 
                 (LoginController.getId.isEmpty())) {
             ClientCon.stub.logOut(LoginController.getId);
+            System.exit(0);
+        } else if (alert.getResult() == ButtonType.YES && 
+                LoginController.getId.isEmpty()) {
             System.exit(0);
         } else {
             alert.close();
