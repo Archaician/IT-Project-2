@@ -42,9 +42,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <DatePicker fx:id="datestart" maxHeight="1.7976931348623157E308" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                        <DatePicker fx:id="datestart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="10.0" top="20.0" />
+                              <Insets bottom="20.0" left="100.0" top="20.0" />
                            </GridPane.margin>
                         </DatePicker>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Start:" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
@@ -55,9 +55,9 @@
                               <Insets />
                            </GridPane.margin>
                         </Text>
-                        <DatePicker fx:id="dateend" maxHeight="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                        <DatePicker fx:id="dateend" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                            <GridPane.margin>
-                              <Insets bottom="20.0" left="10.0" top="20.0" />
+                              <Insets bottom="20.0" left="100.0" top="20.0" />
                            </GridPane.margin>
                         </DatePicker>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date End:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
@@ -70,15 +70,15 @@
                         </Text>
                      </children>
                   </GridPane>
-                  <TextField fx:id="schooldays" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <TextField fx:id="schooldays" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <GridPane.margin>
-                        <Insets bottom="30.0" left="230.0" right="20.0" top="30.0" />
+                        <Insets bottom="30.0" left="230.0" right="10.0" top="30.0" />
                      </GridPane.margin>
                      <font>
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of School Days:" GridPane.columnIndex="1">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of School Days:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Ebrima" size="20.0" />
                      </font>
@@ -94,8 +94,9 @@
                   <TableView fx:id="setSectionsAndTeachers_Table" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" GridPane.rowSpan="4">
                     <columns>
                       <TableColumn fx:id="gradelevels_Col" prefWidth="75.0" style="-fx-alignment: center;" text="Grade Level" />
-                      <TableColumn fx:id="sections_Col" prefWidth="75.0" style="-fx-alignment: center;" text="Sections" />
-                        <TableColumn fx:id="teachers_Col" prefWidth="75.0" style="-fx-alignment: center;" text="Adviser/Teacher" />
+                      <TableColumn fx:id="sections_Col" onEditCommit="#onEditChange" prefWidth="75.0" style="-fx-alignment: center;" text="Sections" />
+                        <TableColumn fx:id="teachers_Col" onEditCommit="#onEditChange" prefWidth="75.0" style="-fx-alignment: center;" text="Adviser/Teacher" />
+                        <TableColumn prefWidth="75.0" text="Column X" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -104,6 +105,22 @@
                         <Insets bottom="10.0" left="10.0" />
                      </GridPane.margin>
                   </TableView>
+                  <TextField fx:id="totalfee" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="30.0" left="310.0" right="10.0" top="30.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Set Total Fee for the School Year:" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Ebrima" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </Text>
                </children>
             </GridPane>
          </center>
