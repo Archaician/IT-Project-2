@@ -17,6 +17,9 @@ public class SchoolYears {
     
     private final StringProperty schoolYear = new SimpleStringProperty();
     private final StringProperty status = new SimpleStringProperty();
+    private final StringProperty gradelevel = new SimpleStringProperty();;
+    private final StringProperty section = new SimpleStringProperty();
+    private final StringProperty adviser = new SimpleStringProperty();
     
     public String getSchoolYear() {
         return schoolYear.get();
@@ -42,5 +45,40 @@ public class SchoolYears {
         return status;
     }
     
+    public String getGradelevel() {
+        return gradelevel.get();
+    }
+    
+    public void setGradelevel(String value) {
+        gradelevel.set(value);
+    }
+    
+    public StringProperty gradelevelProperty() {
+        return gradelevel;
+    }
+    
+    public String getSection() {
+        return section.get();
+    }
+    
+    public void setSection(String value) {
+        section.set(value);
+    }
+    
+    public StringProperty sectionProperty() {
+        return section;
+    }
+    
+    public String getAdviser() {
+        return adviser.get();
+    }
+    
+    public void setAdviser(String value) {
+        adviser.set(value);
+    }
+    
+    public StringProperty adviserProperty() {
+        return adviser;
+    }
     
 }
