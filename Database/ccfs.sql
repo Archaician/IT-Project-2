@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 14, 2019 at 03:49 PM
+-- Generation Time: Nov 16, 2019 at 04:12 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `curstudent` (
   `teacher` varchar(45) NOT NULL,
   `totalpayment` int(11) NOT NULL,
   `dateenrolled` date NOT NULL,
-  `yearID` int(40) NOT NULL,
+  `yearID` int(11) NOT NULL,
   `enrID` int(90) NOT NULL,
   PRIMARY KEY (`studentid`),
   UNIQUE KEY `IDno_2` (`IDno`),
@@ -204,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `enstudent` (
   `sibFname` varchar(60) DEFAULT NULL,
   `sibLname` varchar(60) DEFAULT NULL,
   `sibschoolname` varchar(45) DEFAULT NULL,
-  `yearid` int(40) NOT NULL,
+  `yearid` int(11) NOT NULL,
   `dateenrolled` date NOT NULL,
   `guardianName` varchar(45) NOT NULL,
   `guardianAddress` varchar(45) NOT NULL,
@@ -321,7 +321,7 @@ CREATE TABLE IF NOT EXISTS `schoolfee` (
 
 DROP TABLE IF EXISTS `schoolyear`;
 CREATE TABLE IF NOT EXISTS `schoolyear` (
-  `yearid` int(40) NOT NULL AUTO_INCREMENT,
+  `yearid` int(11) NOT NULL AUTO_INCREMENT,
   `yearstart` year(4) NOT NULL,
   `yearend` year(4) NOT NULL,
   `totalAtt` int(20) NOT NULL,
@@ -352,10 +352,11 @@ DROP TABLE IF EXISTS `section`;
 CREATE TABLE IF NOT EXISTS `section` (
   `secID` int(11) NOT NULL AUTO_INCREMENT,
   `sename` varchar(10) NOT NULL,
-  `adviserid` varchar(45) NOT NULL,
+  `adviserfname` varchar(45) NOT NULL,
+  `adviserlname` varchar(40) NOT NULL,
   `yearid` int(11) NOT NULL,
   PRIMARY KEY (`secID`),
-  UNIQUE KEY `adviserid` (`adviserid`),
+  UNIQUE KEY `adviserid` (`adviserfname`),
   UNIQUE KEY `yearid` (`yearid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -389,13 +390,6 @@ ALTER TABLE `assessment`
   ADD CONSTRAINT `pyid` FOREIGN KEY (`payid`) REFERENCES `payment` (`payid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `attendance`
---
-ALTER TABLE `attendance`
-  ADD CONSTRAINT `stid` FOREIGN KEY (`IDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `yerid` FOREIGN KEY (`idyear`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
 -- Constraints for table `checklist`
 --
 ALTER TABLE `checklist`
@@ -422,46 +416,6 @@ ALTER TABLE `curstudent`
 --
 ALTER TABLE `enstudent`
   ADD CONSTRAINT `IDYear` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `fees`
---
-ALTER TABLE `fees`
-  ADD CONSTRAINT `stdeID` FOREIGN KEY (`IDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `grades`
---
-ALTER TABLE `grades`
-  ADD CONSTRAINT `estudid` FOREIGN KEY (`IDno`) REFERENCES `curstudent` (`IDno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `yid` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `payment`
---
-ALTER TABLE `payment`
-  ADD CONSTRAINT `idfee` FOREIGN KEY (`feeid`) REFERENCES `fees` (`feeid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `schoolfee`
---
-ALTER TABLE `schoolfee`
-  ADD CONSTRAINT `idy` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `section`
---
-ALTER TABLE `section`
-  ADD CONSTRAINT `adviserid` FOREIGN KEY (`adviserid`) REFERENCES `accounts` (`empid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `idye` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `subject`
---
-ALTER TABLE `subject`
-  ADD CONSTRAINT `currid` FOREIGN KEY (`curID`) REFERENCES `curriculum` (`curid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `empid` FOREIGN KEY (`empid`) REFERENCES `accounts` (`empid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `yeaid` FOREIGN KEY (`yearid`) REFERENCES `schoolyear` (`yearid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
