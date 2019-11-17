@@ -6,6 +6,8 @@
 package ccfs_gui.Admin;
 
 import ccfs_gui.DialogWindows;
+import ccfs_gui.LayoutProperties;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,6 +21,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -159,10 +162,15 @@ public class ListOfSchoolYearsController implements Initializable {
             TableRow<SchoolYears> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    try {
                         SchoolYears rowData = row.getItem();
                         
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION, "School year", ButtonType.OK);
-                        alert.showAndWait();
+                        AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Registrar/ViewStudentArchive.fxml"));
+                        container.getChildren().setAll(root);
+                        LayoutProperties.anchorPaneConstraints(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ListOfSchoolYearsController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
             return row ;
