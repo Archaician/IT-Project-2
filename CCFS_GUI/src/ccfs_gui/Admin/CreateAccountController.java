@@ -79,8 +79,8 @@ public class CreateAccountController implements Initializable {
     private void createButton(ActionEvent event) throws Exception {
         String [] info = {passwd.getText(),username.getText()};
         /*Required textfields validation.*/
-        if (empID.getText().isEmpty() && firstname.getText().isEmpty() && 
-                lastname.getText().isEmpty() && username.getText().isEmpty() && 
+        if (empID.getText().isEmpty() || firstname.getText().isEmpty() || 
+                lastname.getText().isEmpty() || username.getText().isEmpty() || 
                 passwd.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(empID, firstname, lastname, username, passwd);
         } else if (!passwd.getText().equals(confpasswd.getText())) {
