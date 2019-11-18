@@ -47,9 +47,7 @@ public class AddSiblingController implements Initializable {
     @FXML
     private TableView<?> siblingsinfo_Table;
     @FXML
-    private TableColumn<?, ?> sibsurname_Col;
-    @FXML
-    private TableColumn<?, ?> sibgivenname_Col;
+    private TableColumn<?, ?> sibname_Col;
     @FXML
     private TableColumn<?, ?> sibbirthdate_Col;
     @FXML
@@ -60,9 +58,8 @@ public class AddSiblingController implements Initializable {
     @FXML
     private void addSiblingButton(ActionEvent event) throws IOException {
         /*Required textfields validation.*/
-        if (surname.getText().isEmpty() || givenname.getText().isEmpty() || school.getText().isEmpty()) {
+        if (surname.getText().isEmpty() || givenname.getText().isEmpty() || school.getText().isEmpty() || birthdate.getValue() == null) {
             FieldValidation.requiredTextFieldWarning(surname, givenname, school);
-        } else if (birthdate.getValue() == null) {
             FieldValidation.requiredDateWarning(birthdate);
         } else {
             //TODO

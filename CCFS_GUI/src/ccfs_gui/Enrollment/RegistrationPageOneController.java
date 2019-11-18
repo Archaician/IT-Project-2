@@ -114,9 +114,8 @@ public class RegistrationPageOneController implements Initializable {
         /*Required textfields validation.*/
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddd");
         if (surname.getText().isEmpty() || givenname.getText().isEmpty() || middlename.getText().isEmpty()
-                || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty()) {
+                || birthplace.getText().isEmpty() || address.getText().isEmpty() || prevschool.getText().isEmpty() || birthdate.getValue() == null) {
             FieldValidation.requiredTextFieldWarning(surname, givenname, middlename, birthplace, address, prevschool);
-        } else if (birthdate.getValue() == null) {
             FieldValidation.requiredDateWarning(birthdate);
         } else {
             if (ClientCon.stub.getLastID().equals("0") == true) {
