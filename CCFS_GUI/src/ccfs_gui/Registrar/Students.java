@@ -22,15 +22,15 @@ public class Students {
     private final StringProperty section = new SimpleStringProperty();
     private final StringProperty teacher = new SimpleStringProperty();
 
-    public int getidNo() {
+    public int getidNumber() {
         return idNumber.get();
     }
 
-    public void setidNo(int value) {
+    public void setidNumber(int value) {
         idNumber.set(value);
     }
     
-    public IntegerProperty studentIDProperty() {
+    public IntegerProperty idNumberProperty() {
         return idNumber;
     }
 
