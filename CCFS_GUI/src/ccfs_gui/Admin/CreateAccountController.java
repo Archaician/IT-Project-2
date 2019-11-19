@@ -107,11 +107,18 @@ public class CreateAccountController implements Initializable {
                     passwd.getText(),  firstname.getText() ,
                     lastname.getText(), 
                     acctype.getValue()};
-                ClientCon.stub.addAcc(infoArr);
-                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New Account", "Successfully created new account.", ButtonType.OK);
-                AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
-                container.getChildren().setAll(root);
-                LayoutProperties.anchorPaneConstraints(root);
+                try {
+                    ClientCon.stub.addAcc(infoArr);
+                    DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Created New Account", "Successfully created new account.", ButtonType.OK);
+                    AnchorPane root = FXMLLoader.load(getClass().getResource("AdminOptionsFXML.fxml"));
+                    container.getChildren().setAll(root);
+                    LayoutProperties.anchorPaneConstraints(root);
+                } catch (Exception e) {
+                    DialogWindows.dialogBox(Alert.AlertType.INFORMATION, 
+                    "Employee have an account already", "Pls Try again", 
+                    ButtonType.OK);
+                }
+                
             } else {
                 alert.close();
             }
