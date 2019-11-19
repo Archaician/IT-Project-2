@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 16, 2019 at 04:12 PM
+-- Generation Time: Nov 19, 2019 at 06:23 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `accstatus` text,
   PRIMARY KEY (`accid`),
   UNIQUE KEY `empID` (`empid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
@@ -50,7 +50,8 @@ INSERT INTO `accounts` (`accid`, `empid`, `username`, `password`, `fname`, `lnam
 (1, '1', 'Adamsob', 'A', 'Adam', 'Sobremonte', 'REGISTRAR', 'Active'),
 (2, '2', 'Paul_Acc', 'a123', 'Paul', 'Perez', 'REGISTRAR', 'Inactive'),
 (3, '3', 'ADAM', 'SOBREMONTE', '1', '1', 'ACCOUNTING', NULL),
-(4, '4', 'YOU', 'running', 'WHY', 'ARE', 'ACCOUNTING', NULL);
+(4, '4', 'YOU', 'running', 'WHY', 'ARE', 'ACCOUNTING', NULL),
+(5, '5', 'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN', 'ADMIN', 'Active');
 
 -- --------------------------------------------------------
 
@@ -338,7 +339,6 @@ CREATE TABLE IF NOT EXISTS `schoolyear` (
 --
 
 INSERT INTO `schoolyear` (`yearid`, `yearstart`, `yearend`, `totalAtt`, `atteID`, `feeID`, `Status`) VALUES
-(1, 2019, 2020, 360, 1, 1, 'Active'),
 (2, 2020, 2021, 200, 2, 2, 'Inactive'),
 (3, 2021, 2022, 200, 3, 3, 'Inactive');
 
