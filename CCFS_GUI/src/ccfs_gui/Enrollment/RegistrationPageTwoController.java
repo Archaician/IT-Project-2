@@ -143,13 +143,13 @@ public class RegistrationPageTwoController implements Initializable {
             RegistrationPageOneController.infoStud[29] = ClientCon.stub.
                     getYearID();
             //TODO
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Register this student?", ButtonType.YES, ButtonType.NO);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Enroll this student?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();
 
             if (alert.getResult() == ButtonType.YES) {
                 ClientCon.stub.enStud(RegistrationPageOneController.infoStud);
-                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Registered Student", "Successfully registered student.", ButtonType.OK);
-                AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+                DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Enrolled Student", "Successfully enrolled student.", ButtonType.OK);
+                AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Accounting/FeesAssessment.fxml"));
                 container.getChildren().setAll(root);
                 LayoutProperties.anchorPaneConstraints(root);
             } else {

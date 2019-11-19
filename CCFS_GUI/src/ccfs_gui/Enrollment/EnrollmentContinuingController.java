@@ -211,7 +211,7 @@ public class EnrollmentContinuingController implements Initializable {
                 if (alert.getResult() == ButtonType.YES) {
                     //TODO
                     DialogWindows.dialogBox(Alert.AlertType.INFORMATION, "Enrolled Student", "Successfully enrolled student.", ButtonType.OK);
-                    AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Admin/AdminOptionsFXML.fxml"));
+                    AnchorPane root = FXMLLoader.load(getClass().getResource("/ccfs_gui/Accounting/FeesAssessment.fxml"));
                     container.getChildren().setAll(root);
                     LayoutProperties.anchorPaneConstraints(root);
                 } else {
