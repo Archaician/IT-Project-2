@@ -43,11 +43,10 @@ public class DialogWindows {
         alert.showAndWait();
         
         if (alert.getResult() == ButtonType.YES && 
-                (LoginController.getId.isEmpty())) {
+                (!LoginController.getId.isEmpty())) {
             ClientCon.stub.logOut(LoginController.getId);
             System.exit(0);
-        } else if (alert.getResult() == ButtonType.YES && 
-                LoginController.getId.isEmpty()) {
+        } else if (alert.getResult() == ButtonType.YES && (LoginController.getId.isEmpty())) {
             System.exit(0);
         } else {
             alert.close();

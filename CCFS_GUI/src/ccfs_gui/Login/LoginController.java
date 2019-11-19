@@ -109,7 +109,7 @@ public class LoginController implements Initializable {
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
-            } else if (ClientCon.stub.logIn(inputusername.getText(), 
+            } else if (!ClientCon.stub.logIn(inputusername.getText(), 
                     inputpassword.getText()) == true){
                 validation.setText("Username or password not found!");
             } else {
