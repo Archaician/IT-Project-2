@@ -37,16 +37,14 @@ public class DialogWindows {
     }
 
     public static void confirmExit() throws Exception {
+        
         Alert alert = new Alert(AlertType.CONFIRMATION, "Are you sure you want to exit?", ButtonType.YES, ButtonType.NO);
         alert.setTitle("Exit");
         //alert.setHeaderText("Exit CCFS SIS");
         alert.showAndWait();
         
-        if (alert.getResult() == ButtonType.YES && 
-                (!LoginController.getId.isEmpty())) {
+        if (alert.getResult() == ButtonType.YES) {
             ClientCon.stub.logOut(LoginController.getId);
-            System.exit(0);
-        } else if (alert.getResult() == ButtonType.YES && (LoginController.getId.isEmpty())) {
             System.exit(0);
         } else {
             alert.close();
