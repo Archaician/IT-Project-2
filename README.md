@@ -11,9 +11,9 @@ To run the Initial Project:
 *MAKE SURE YOU IMPORT THIS IN NETBEANS CCFS AND CCFS_GUI*
 
 How to run server Temporary 
-goto IT-Project-2\ccfs\ccfs\bin using command line 
-then type in the command line start rmiregistry and run the 
-server in the netbeans
+goto IT-Project-2\ccfs\ccfs\bin
+click the startRMI.bat
+goto your netbeans and run RmiServer.java
 
 How to run client
 just run client normaly at CCFS_GUI
