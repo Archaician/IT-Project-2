@@ -73,9 +73,10 @@ public class LoginController implements Initializable {
                 Stage stage = new Stage();
                 stageProperties(stage);
                 FXMLLoader loader = new FXMLLoader();
-                Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/MainStageFXML.fxml").openStream());
+                Pane root = loader.load(getClass().getResource("/ccfs_gui/Admin/AdminMainStageFXML.fxml").openStream());
                // AdminOptionsController adminOptionsController = (AdminOptionsController)loader.getController();
                 Scene scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("/ccfs_gui/style.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
               //  sceneval.add((Scene) delete.getScene().getWindow());
@@ -90,8 +91,9 @@ public class LoginController implements Initializable {
                 stageProperties(stage);
                 FXMLLoader loader = new FXMLLoader();
                 Pane root = loader.load(getClass().getResource("/ccfs_gui/Registrar"
-                        + "/RegistrarOptionsFXML.fxml").openStream());
+                        + "/RegistrarMainStageFXML.fxml").openStream());
                 Scene scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("/ccfs_gui/style.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
             } else if (ClientCon.stub.logIn(inputusername.getText(), 
@@ -105,8 +107,9 @@ public class LoginController implements Initializable {
                 stageProperties(stage);
                 FXMLLoader loader = new FXMLLoader();
                 Pane root = loader.load(getClass().getResource("/ccfs_gui"
-                        + "/Accounting/AccountingOptionsFXML.fxml").openStream());
+                        + "/Accounting/AccountingMainStageFXML.fxml").openStream());
                 Scene scene = new Scene(root);
+                scene.getStylesheets().add(getClass().getResource("/ccfs_gui/style.css").toExternalForm());
                 stage.setScene(scene);
                 stage.show();
             } else if (!ClientCon.stub.logIn(inputusername.getText(), 
