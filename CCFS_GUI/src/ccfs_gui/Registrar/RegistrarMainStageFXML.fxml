@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="outer_borderpane" prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ccfs_gui.Registrar.RegistrarMainStageController">
    <bottom>
@@ -27,16 +31,28 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label onMouseClicked="#homeButton" prefHeight="38.0" prefWidth="40.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#homeButton" pickOnBounds="true" preserveRatio="true" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../images/CCFS_logo.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <GridPane.margin>
-                  <Insets left="27.0" />
+                  <Insets left="10.0" />
                </GridPane.margin>
-            </Label>
-            <Label onMouseClicked="#homeButton" prefHeight="34.0" prefWidth="394.0">
+            </ImageView>
+            <Text fill="WHITE" fontSmoothingType="LCD" onMouseClicked="#homeButton" strokeType="OUTSIDE" text="CYPRESS CHRISTIAN FOUNDATION SCHOOL" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Times New Roman Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <GridPane.margin>
-                  <Insets left="80.0" />
+                  <Insets left="50.0" />
                </GridPane.margin>
-            </Label>
+            </Text>
          </children>
       </GridPane>
    </top>
