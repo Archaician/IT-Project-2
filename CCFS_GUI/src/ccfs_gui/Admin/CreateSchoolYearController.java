@@ -24,6 +24,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -38,7 +40,7 @@ import javafx.scene.layout.BorderPane;
  * @author Imran
  */
 public class CreateSchoolYearController implements Initializable {
-    
+
     private ObservableList<SchoolYears> schyrdata;
 
     @FXML
@@ -62,6 +64,12 @@ public class CreateSchoolYearController implements Initializable {
     @FXML
     private Label invalid;
     @FXML
+    private TabPane tabPane;
+    @FXML
+    private Tab dates_Tab;
+    @FXML
+    private Tab fees_Tab;
+    @FXML
     private TableView<SchoolYears> setSectionsAndTeachers_Table;
     @FXML
     private TableColumn<SchoolYears, String> gradelevels_Col;
@@ -69,50 +77,52 @@ public class CreateSchoolYearController implements Initializable {
     private TableColumn<SchoolYears, String> sections_Col;
     @FXML
     private TableColumn<SchoolYears, String> teachers_Col;
-    
+
     private void populateTable() {
         setSectionsAndTeachers_Table.getColumns().addAll(gradelevels_Col, sections_Col, teachers_Col);
-        
+
         //schyrdata = FXCollections.observableArrayList(new SchoolYears("Nursery"));
-        
         /*Make table rows clickable.*/
         setSectionsAndTeachers_Table.setRowFactory(tv -> {
             TableRow<SchoolYears> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
-                        SchoolYears rowData = row.getItem();
-                        
-                        sections_Col.setCellFactory(TextFieldTableCell.forTableColumn());
-                        teachers_Col.setCellFactory(TextFieldTableCell.forTableColumn());
+                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                    SchoolYears rowData = row.getItem();
+                    //sections_Col.setEditable(true);
+                    sections_Col.setCellFactory(TextFieldTableCell.forTableColumn());
+                    teachers_Col.setCellFactory(TextFieldTableCell.forTableColumn());
                 }
             });
-            return row ;
+            return row;
         });
     }
-    
+
     public void onEditChange(TableColumn.CellEditEvent<SchoolYears, String> schoolYearsStringCellEditEvent) {
         SchoolYears schoolyears = setSectionsAndTeachers_Table.getSelectionModel().getSelectedItem();
         schoolyears.setSection(schoolYearsStringCellEditEvent.getNewValue());
         //schoolyears.setAdviser(schoolYearsStringCellEditEvent.getNewValue());
     }
-    
+
     @FXML
     private void createButton(ActionEvent event) throws IOException {
         LocalDate start = datestart.getValue();
         LocalDate end = dateend.getValue();
 
         /*Field validation.*/
-        if (start == null || end == null || schooldays.getText().isEmpty() || totalfee.getText().isEmpty()) {
+        if (start == null || end == null || schooldays.getText().isEmpty()) {
+            tabPane.getSelectionModel().select(dates_Tab);
             invalid.setText("");
             FieldValidation.requiredDateWarning(datestart, dateend);
-            FieldValidation.requiredTextFieldWarning(schooldays, totalfee);
+            FieldValidation.requiredTextFieldWarning(schooldays);
         } else if (start.isEqual(end) || start.isAfter(end)) {
+            tabPane.getSelectionModel().select(dates_Tab);
             invalid.setText("INVALID SCHOOL YEAR!\nDATE END MUST BE AFTER DATE START.");
         } else {
             String yrStart = Integer.toString(datestart.getValue().getYear());
             String yrEnd = Integer.toString(dateend.getValue().getYear());
 
             if (yrStart.equals(yrEnd)) {
+                tabPane.getSelectionModel().select(dates_Tab);
                 invalid.setText("INVALID SCHOOL YEAR!\nYEAR START AND YEAR END ARE THE SAME.");
             } else {
                 invalid.setText("");
@@ -136,9 +146,16 @@ public class CreateSchoolYearController implements Initializable {
     @FXML
     private void otherButtons(ActionEvent event) throws IOException {
         if (event.getSource() == viewSchYrList_Btn) {
-            AnchorPane root = FXMLLoader.load(getClass().getResource("ListOfSchoolYearsFXML.fxml"));
-            container.getChildren().setAll(root);
-            LayoutProperties.anchorPaneConstraints(root);
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Go to list of school years? \nAny changes you've made to this page will not be saved.", ButtonType.YES, ButtonType.NO);
+            alert.showAndWait();
+
+            if (alert.getResult() == ButtonType.YES) {
+                AnchorPane root = FXMLLoader.load(getClass().getResource("ListOfSchoolYearsFXML.fxml"));
+                container.getChildren().setAll(root);
+                LayoutProperties.anchorPaneConstraints(root);
+            } else {
+                alert.close();
+            }
         } else if (event.getSource() == back_Btn) {
             //TODO
         }
@@ -152,7 +169,7 @@ public class CreateSchoolYearController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         /*Set datepicker value to current date.*/
         datestart.setValue(Optional.ofNullable(datestart.getValue()).orElse(LocalDate.now()));
-        
+
         populateTable();
     }
 
