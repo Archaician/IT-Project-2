@@ -120,7 +120,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <TextField fx:id="grdschTuition" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                        <GridPane.margin>
                                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
                                        </GridPane.margin>
@@ -138,7 +138,7 @@
                                           <Font name="Ebrima Bold" size="20.0" />
                                        </font>
                                     </Text>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                                    <TextField fx:id="preschTuition" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -146,7 +146,7 @@
                                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                    <TextField fx:id="preschMisc" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -154,7 +154,7 @@
                                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                                    <TextField fx:id="grdschMisc" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -162,7 +162,7 @@
                                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                    <TextField fx:id="preschBooks" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -170,7 +170,7 @@
                                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                                    <TextField fx:id="grdschBooks" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -198,7 +198,7 @@
                                           <Font name="Ebrima Bold" size="20.0" />
                                        </font>
                                     </Text>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                    <TextField fx:id="preschTotal" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
@@ -206,7 +206,7 @@
                                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
                                        </GridPane.margin>
                                     </TextField>
-                                    <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                    <TextField fx:id="grdschTotal" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                                        <font>
                                           <Font size="20.0" />
                                        </font>

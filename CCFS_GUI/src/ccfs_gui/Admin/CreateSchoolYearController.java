@@ -60,7 +60,21 @@ public class CreateSchoolYearController implements Initializable {
     @FXML
     private TextField schooldays;
     @FXML
-    private TextField totalfee;
+    private TextField preschTuition;
+    @FXML
+    private TextField preschMisc;
+    @FXML
+    private TextField preschBooks;
+    @FXML
+    private TextField preschTotal;
+    @FXML
+    private TextField grdschTuition;
+    @FXML
+    private TextField grdschMisc;
+    @FXML
+    private TextField grdschBooks;
+    @FXML
+    private TextField grdschTotal;
     @FXML
     private Label invalid;
     @FXML
@@ -102,6 +116,11 @@ public class CreateSchoolYearController implements Initializable {
         schoolyears.setSection(schoolYearsStringCellEditEvent.getNewValue());
         //schoolyears.setAdviser(schoolYearsStringCellEditEvent.getNewValue());
     }
+    
+    private void computeTotal() {
+        //String prtuition = preschTuition.getText();
+        //TODO
+    }
 
     @FXML
     private void createButton(ActionEvent event) throws IOException {
@@ -117,6 +136,10 @@ public class CreateSchoolYearController implements Initializable {
         } else if (start.isEqual(end) || start.isAfter(end)) {
             tabPane.getSelectionModel().select(dates_Tab);
             invalid.setText("INVALID SCHOOL YEAR!\nDATE END MUST BE AFTER DATE START.");
+        } else if (preschTuition.getText().isEmpty() || preschMisc.getText().isEmpty() || preschBooks.getText().isEmpty() ||
+                grdschTuition.getText().isEmpty() || grdschMisc.getText().isEmpty() || grdschBooks.getText().isEmpty()) {
+            tabPane.getSelectionModel().select(fees_Tab);
+            FieldValidation.requiredTextFieldWarning(preschTuition, preschMisc, preschBooks, grdschTuition, grdschMisc, grdschBooks);
         } else {
             String yrStart = Integer.toString(datestart.getValue().getYear());
             String yrEnd = Integer.toString(dateend.getValue().getYear());
@@ -167,6 +190,7 @@ public class CreateSchoolYearController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        FieldValidation.numericTextField(preschTuition, preschMisc, preschBooks, grdschTuition, grdschMisc, grdschBooks);
         /*Set datepicker value to current date.*/
         datestart.setValue(Optional.ofNullable(datestart.getValue()).orElse(LocalDate.now()));
 
