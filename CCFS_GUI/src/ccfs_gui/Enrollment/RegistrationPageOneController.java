@@ -9,9 +9,7 @@ import ccfs_gui.FieldValidation;
 import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import javaRMI.ClientCon;
 import javafx.collections.FXCollections;
@@ -30,7 +28,7 @@ import javafx.scene.layout.BorderPane;
 /**
  * FXML Controller class
  *
- * @author Imran
+ * @author Imran ; Adam
  */
 public class RegistrationPageOneController implements Initializable {
     

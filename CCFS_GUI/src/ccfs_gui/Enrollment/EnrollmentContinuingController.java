@@ -9,13 +9,12 @@ import ccfs_gui.DialogWindows;
 import ccfs_gui.LayoutProperties;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javaRMI.ClientCon;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,13 +37,15 @@ import javafx.scene.layout.BorderPane;
 /**
  * FXML Controller class
  *
- * @author Imran
+ * @author Imran ; Adam
  */
 public class EnrollmentContinuingController implements Initializable {
 
     ObservableList list = FXCollections.observableArrayList();
+    static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    static LocalDateTime now = LocalDateTime.now();
+    static int enID;
     private ObservableList<Student> studentlist;
-
     @FXML
     private AnchorPane container;
     @FXML
@@ -94,13 +95,6 @@ public class EnrollmentContinuingController implements Initializable {
     @FXML
     private TableColumn<Student, String> givenname_Col;
 
-    private static Connection con;
-
-    private void dbaseConnection() throws SQLException {
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ccfs?"
-                + "user=root&password=");
-    }
-
     /*Show grade level choicebox choices.*/
     private void loadGradeLevel() {
         list.removeAll(list);
@@ -119,7 +113,7 @@ public class EnrollmentContinuingController implements Initializable {
     }
 
     @FXML
-    private void searchStudent(ActionEvent event) throws IOException, SQLException {
+    private void searchStudent(ActionEvent event) throws Exception {
 
         if (searchbar.getText().isEmpty()) {
             searchbar.setStyle("-fx-border-color: red");
@@ -129,29 +123,86 @@ public class EnrollmentContinuingController implements Initializable {
         } else if (event.getSource() == searchBySurname_Btn) {
             studentlist = FXCollections.observableArrayList();
             studentlist.clear();
-            dbaseConnection();
-            ResultSet rs = con.createStatement().executeQuery("SELECT `IDno`,`SurName`,`GivenName` FROM `enstudent` WHERE SurName=" + "'" + searchbar.getText() + "'");
-            while (rs.next()) {
+            
+            for (int i = 0; i < ClientCon.stub.srchStudSur(searchbar.getText()).get(0).size();i++) {
                 Student student = new Student();
-                student.setStudentID(rs.getInt("IDno"));
-                student.setSurname(rs.getString("SurName"));
-                student.setGivenName(rs.getString("GivenName"));
-
+                int id = (Integer) ClientCon.stub.srchStudSur(searchbar.getText()).get(0).get(i);
+                student.setStudentID(id);
+                String name = ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(1).get(i);
+                student.setSurname(name);
+                String gName =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(2).get(i);
+                student.setGivenName(gName);
+                String mName =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(3).get(i);
+                student.setMidname(mName);
+                String bdate =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(4).get(i);
+                student.setBdate(bdate);
+                String bplace =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(5).get(i);
+                student.setBplace(bplace);
+                String studAdd =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(6).get(i);
+                student.setStudAdd(studAdd);
+                String homeTel =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(7).get(i);
+                student.setHomeTel(homeTel);
+                String mNum =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(8).get(i);
+                student.setMNum(mNum);
+                String grdlvl =  ""+ClientCon.stub.srchStudSur(searchbar.getText()).get(9).get(i);
+                student.setGrdlvl(grdlvl);
+                int enId =  (Integer) ClientCon.stub.srchStudSur(searchbar.getText()).get(10).get(i);
+                student.setEnID(enId);
+                
                 studentlist.add(student);
             }
+//            dbaseConnection();
+//            ResultSet rs = con.createStatement().executeQuery("SELECT `IDno`,`SurName`,`GivenName` FROM `enstudent` WHERE SurName=" + "'" + searchbar.getText() + "'");
+//            while (rs.next()) {
+//                Student student = new Student();
+//                student.setStudentID(rs.getInt("IDno"));
+//                student.setSurname(rs.getString("SurName"));
+//                student.setGivenName(rs.getString("GivenName"));
+//
+//                studentlist.add(student);
+//            }
         } else if (event.getSource() == searchByID_Btn) {
             studentlist = FXCollections.observableArrayList();
             studentlist.clear();
-            dbaseConnection();
-            ResultSet rs = con.createStatement().executeQuery("SELECT `IDno`,`SurName`,`GivenName` FROM `enstudent` WHERE IDno=" + "'" + searchbar.getText() + "'");
-            while (rs.next()) {
+            for (int i = 0; i < ClientCon.stub.srchStudSur(searchbar.getText()).size();i++) {
                 Student student = new Student();
-                student.setStudentID(rs.getInt("IDno"));
-                student.setSurname(rs.getString("SurName"));
-                student.setGivenName(rs.getString("GivenName"));
-
+                int id = (Integer) ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(0).get(i);
+                student.setStudentID(id);
+                String name = ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(1).get(i);
+                student.setSurname(name);
+                String gName =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(2).get(i);
+                student.setGivenName(gName);
+                String mName =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(3).get(i);
+                student.setMidname(mName);
+                String bdate =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(4).get(i);
+                student.setBdate(bdate);
+                String bplace =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(5).get(i);
+                student.setBplace(bplace);
+                String studAdd =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(6).get(i);
+                student.setStudAdd(studAdd);
+                String homeTel =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(7).get(i);
+                student.setHomeTel(homeTel);
+                String mNum =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(8).get(i);
+                student.setMNum(mNum);
+                String grdlvl =  ""+ClientCon.stub.srchStudID(Integer.parseInt(searchbar.getText())).get(9).get(i);
+                student.setGrdlvl(grdlvl);
+                int enId =  (Integer) ClientCon.stub.srchStudSur(searchbar.getText()).get(10).get(i);
+                student.setEnID(enId);
+                
                 studentlist.add(student);
             }
+//            dbaseConnection();
+//            ResultSet rs = con.createStatement().executeQuery("SELECT `IDno`,"
+//                    + "`SurName`,`GivenName` FROM `enstudent` WHERE IDno=" 
+//                    + "'" + searchbar.getText() + "'");
+//            while (rs.next()) {
+//                Student student = new Student();
+//                student.setStudentID(rs.getInt("IDno"));
+//                student.setSurname(rs.getString("SurName"));
+//                student.setGivenName(rs.getString("GivenName"));
+//
+//                studentlist.add(student);
+//            }
         }
 
         idnumber_Col.setCellValueFactory(new PropertyValueFactory<>("studentID"));
@@ -165,23 +216,19 @@ public class EnrollmentContinuingController implements Initializable {
                 if (e.getClickCount() == 2 && (!row.isEmpty())) {
                     try {
                         Student rowData = row.getItem();
-                        
                         /*Load information of selected student to textfields.*/
-                        ResultSet rs = con.createStatement().executeQuery("SELECT `IDno`,`SurName`,`GivenName`,`MiddleName`,`birthdate`,`birthplace`,"
-                                + "`studaddress`,`homeTelnum`,`mobilenum`,`gradelvl` FROM `enstudent` WHERE IDno=" + "'" + rowData.getStudentID() + "'");
-                        while (rs.next()) {
-                            idnumber.setText(rs.getString("IDno"));
-                            surname.setText(rs.getString("SurName"));
-                            givenname.setText(rs.getString("GivenName"));
-                            middlename.setText(rs.getString("MiddleName"));
-                            birthdate.setText(rs.getString("birthdate"));
-                            birthplace.setText(rs.getString("birthplace"));
-                            address.setText(rs.getString("studaddress"));
-                            telephone.setText(rs.getString("homeTelnum"));
-                            mobile.setText(rs.getString("mobilenum"));
-                            lastGradeLvl.setText(rs.getString("gradelvl"));
-                        }
-                    } catch (SQLException ex) {
+                            idnumber.setText(rowData.getStudentID()+"");
+                            surname.setText(rowData.getSurname());
+                            givenname.setText(rowData.getGivenName());
+                            middlename.setText(rowData.getMidname());
+                            birthdate.setText(rowData.getBdate());
+                            birthplace.setText(rowData.getBplace());
+                            address.setText(rowData.getStudAdd());
+                            telephone.setText(rowData.getHomeTel());
+                            mobile.setText(rowData.getMNum());
+                            lastGradeLvl.setText(rowData.getGrdlvl());
+                            enID = rowData.getEnID();
+                    } catch (Exception ex) {
                         Logger.getLogger(EnrollmentContinuingController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
@@ -201,10 +248,14 @@ public class EnrollmentContinuingController implements Initializable {
     }
 
         @FXML
-        private void enrollButton(ActionEvent event) throws IOException {
+        private void enrollButton(ActionEvent event) throws Exception {
             if (idnumber.getText().isEmpty()) {
                 DialogWindows.dialogBox(Alert.AlertType.ERROR, "No Student Selected", "Please select a student to enroll.", ButtonType.OK);
             } else {
+                String[] info = {idnumber.getText()+"",newgradelvl.getValue(),
+                    "1","1","1",dtf.format(now),ClientCon.stub.getYearID(),
+                    enID+""};
+                ClientCon.stub.curStud(info);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Enroll this student?", ButtonType.YES, ButtonType.NO);
                 alert.showAndWait();
 

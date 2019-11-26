@@ -30,7 +30,7 @@ import javafx.scene.layout.GridPane;
 /**
  * FXML Controller class
  *
- * @author Imran
+ * @author Imran ; Adam
  */
 public class RegistrationPageTwoController implements Initializable {
 
@@ -114,34 +114,23 @@ public class RegistrationPageTwoController implements Initializable {
         } else if (guardiannumber.getText().isEmpty()) {
             FieldValidation.requiredTextFieldWarning(guardiannumber);
         } else {
-            RegistrationPageOneController.infoStud[14] = fatherfirstname.
-                    getText();
-            RegistrationPageOneController.infoStud[15] = fatherlastname.
-                    getText();
-            RegistrationPageOneController.infoStud[16] = 
-                    RegistrationPageOneController.infoStud[10];
+            RegistrationPageOneController.infoStud[14] = fatherfirstname.getText();
+            RegistrationPageOneController.infoStud[15] = fatherlastname.getText();
+            RegistrationPageOneController.infoStud[16] = RegistrationPageOneController.infoStud[10];
             RegistrationPageOneController.infoStud[17] = fathermobile.getText();
             RegistrationPageOneController.infoStud[18] = fatheremail.getText();
-            RegistrationPageOneController.infoStud[19] = fatheroccupation.
-                    getText();
-            RegistrationPageOneController.infoStud[20] = motherfirstname.
-                    getText();
-            RegistrationPageOneController.infoStud[21] = motherlastname.
-                    getText();
-            RegistrationPageOneController.infoStud[22] = motheraddress.
-                    getText();
+            RegistrationPageOneController.infoStud[19] = fatheroccupation.getText();
+            RegistrationPageOneController.infoStud[20] = motherfirstname.getText();
+            RegistrationPageOneController.infoStud[21] = motherlastname.getText();
+            RegistrationPageOneController.infoStud[22] = motheraddress.getText();
             RegistrationPageOneController.infoStud[23] = mothermobile.getText();
             RegistrationPageOneController.infoStud[24] = motheremail.getText();
-            RegistrationPageOneController.infoStud[25] = motheroccupation.
-                    getText();
-            RegistrationPageOneController.infoStud[33] = guardiannumber.
-                    getText();
-            RegistrationPageOneController.infoStud[32] = guardianaddress.
-                    getText();
+            RegistrationPageOneController.infoStud[25] = motheroccupation.getText();
+            RegistrationPageOneController.infoStud[33] = guardiannumber.getText();
+            RegistrationPageOneController.infoStud[32] = guardianaddress.getText();
             RegistrationPageOneController.infoStud[31] = guardianname.getText();
             RegistrationPageOneController.infoStud[30] = dtf.format(now);
-            RegistrationPageOneController.infoStud[29] = ClientCon.stub.
-                    getYearID();
+            RegistrationPageOneController.infoStud[29] = ClientCon.stub.getYearID();
             //TODO
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Enroll this student?", ButtonType.YES, ButtonType.NO);
             alert.showAndWait();
