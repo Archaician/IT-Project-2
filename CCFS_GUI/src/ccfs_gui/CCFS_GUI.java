@@ -14,7 +14,7 @@ import javafx.application.Application;
 
 /**
  *
- * @author Imran
+ * @author Imran ; Paul ; Adam
  */
 public class CCFS_GUI extends Application {
 
@@ -22,23 +22,21 @@ public class CCFS_GUI extends Application {
     public void start(Stage stage) throws Exception {
         ClientCon.conRMI("localhost");
         Parent root = FXMLLoader.load(getClass().getResource("Login/LoginFXML.fxml"));
-        
+
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("/ccfs_gui/style.css")
-                .toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("/ccfs_gui/style.css").toExternalForm());
 
         stage.setTitle("Cypress Christian Foundation School SIS");
         stage.setScene(scene);
 
-//        stage.setResizable(false);
-
+        stage.setResizable(false);
         stage.show();
 
         stage.setOnCloseRequest(c -> {
             c.consume();
             try {
-            DialogWindows.confirmExit();
-            } catch(Exception e) {
+                DialogWindows.confirmExit();
+            } catch (Exception e) {
             }
         });
     }
